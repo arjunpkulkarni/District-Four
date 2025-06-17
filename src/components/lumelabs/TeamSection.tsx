@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Twitter, Instagram } from 'lucide-react';
@@ -6,47 +5,23 @@ import { Linkedin, Twitter, Instagram } from 'lucide-react';
 const TeamSection = () => {
   const teamMembers = [
     {
-      name: "Alex Chen",
-      role: "Founder & Creative Director",
-      bio: "UIUC CS grad who turned late-night coding into viral campaigns.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
+      name: "Arjun Kulkarni",
+      bio: "Cornell CS grad, previously at Google. Passionate about building tools that empower creators.",
+      image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=300&h=300&fit=crop&crop=face",
       socials: {
         linkedin: "#",
-        twitter: "#",
-        instagram: "#"
+        instagram: "#",
+        twitter: "#"
       }
     },
     {
-      name: "Maya Rodriguez",
-      role: "Growth & Analytics Lead",
-      bio: "Ex-TikTok intern who cracked the algorithm for local brands.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b898?w=300&h=300&fit=crop&crop=face",
+      name: "Cristian Lager",
+      bio: "Ex-Meta. Bringing a wealth of product and design experience to build beautiful and intuitive platforms.",
+      image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=300&h=300&fit=crop&crop=face",
       socials: {
         linkedin: "#",
-        twitter: "#",
-        instagram: "#"
-      }
-    },
-    {
-      name: "Jordan Kim",
-      role: "Content & Strategy",
-      bio: "NYU film student who makes product demos feel like Netflix originals.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-      socials: {
-        linkedin: "#",
-        twitter: "#",
-        instagram: "#"
-      }
-    },
-    {
-      name: "Sam Taylor",
-      role: "Dev & Automation",
-      bio: "Full-stack wizard who automates everything except creativity.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
-      socials: {
-        linkedin: "#",
-        twitter: "#",
-        instagram: "#"
+        instagram: "#",
+        twitter: "#"
       }
     }
   ];
@@ -76,7 +51,7 @@ const TeamSection = () => {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 max-w-6xl relative z-10">
+      <div className="container mx-auto px-6 max-w-6xl relative z-10 font-sans">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -92,7 +67,7 @@ const TeamSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
@@ -128,10 +103,10 @@ const TeamSection = () => {
                   <h3 className="text-xl font-bold text-gray-900 mb-2 font-['Space_Grotesk'] group-hover:text-[#4E6EFF] transition-colors duration-300">
                     {member.name}
                   </h3>
-                  <p className="text-[#FF477E] font-semibold mb-3 font-inter">
+                  <p className="text-[#FF477E] font-just-sans-extrabold mb-3">
                     {member.role}
                   </p>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4 font-inter">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
                     {member.bio}
                   </p>
                   

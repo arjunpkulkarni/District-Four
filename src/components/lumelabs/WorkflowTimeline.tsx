@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -9,7 +8,7 @@ const WorkflowTimeline = () => {
   const steps = [
     {
       emoji: "☕",
-      title: "Campus Coffee Chat",
+      title: "Coffee Chat",
       description: "Quick strategy session over artisan coffee",
       gif: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=300&fit=crop"
     },
@@ -55,10 +54,10 @@ const WorkflowTimeline = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 font-['Space_Grotesk']">
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 font-just-sans-extrabold">
             Our <span className="text-[#4E6EFF]">Workflow</span>
           </h2>
-          <p className="text-xl text-gray-600 font-inter">Swipe through our proven process</p>
+          <p className="text-xl text-gray-600">Swipe through our proven process</p>
         </motion.div>
 
         <div 
@@ -84,10 +83,10 @@ const WorkflowTimeline = () => {
                     className="w-full h-48 object-cover"
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 text-center font-['Space_Grotesk']">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3 text-center font-just-sans-extrabold">
                   {step.title}
                 </h3>
-                <p className="text-gray-600 text-center font-inter leading-relaxed">
+                <p className="text-gray-600 text-center leading-relaxed">
                   {step.description}
                 </p>
               </div>

@@ -1,452 +1,231 @@
 
-import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
-import { ExternalLink, TrendingUp, Users, Eye, Zap, Star } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { ExternalLink, Globe, TrendingUp, Users, Zap, Heart } from 'lucide-react';
 
 const ClientsUniverse = () => {
-  const [selectedClient, setSelectedClient] = useState<number | null>(null);
-  const [filter, setFilter] = useState('all');
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        setMousePosition({ x, y });
-        mouseX.set(x);
-        mouseY.set(y);
-      }
-    };
-
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener('mousemove', handleMouseMove);
-      return () => container.removeEventListener('mousemove', handleMouseMove);
-    }
-  }, [mouseX, mouseY]);
-
-  const clients = [
+  const projects = [
     {
       id: 1,
-      name: "FitCheck",
-      tagline: "NYC's first centralized fashion social platform.",
-      category: "fashion",
-      logo: "FC",
-      color: "#FF477E",
-      gradient: "from-[#FF477E] to-[#FF6B9D]",
-      details: {
-        followers: "127K",
-        engagement: "+18%",
-        metric: "Checkout Rate",
-        description: "Transformed from fashion blog to social commerce powerhouse",
-        achievements: ["2.3M monthly impressions", "450% follower growth", "85% higher conversion rates"],
-        platforms: ["Instagram", "TikTok", "Pinterest"]
-      }
+      title: "FitCheck",
+      imageSrc: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop",
+      altText: "FitCheck Application Screenshot",
+      description: "NYC's first centralized fashion social platform connecting style enthusiasts.",
+      category: "Fashion Tech",
+      siteUrl: "https://www.fitcheck.live",
+      metrics: ["127K followers", "2.3M impressions", "450% growth"],
+      color: "#FF477E"
     },
     {
       id: 2,
-      name: "Workwear",
-      tagline: "Professional style hub, Westchester NY.",
-      category: "fashion", 
-      logo: "WW",
-      color: "#4E6EFF",
-      gradient: "from-[#4E6EFF] to-[#7B68EE]",
-      details: {
-        followers: "89K",
-        engagement: "+24%",
-        metric: "UGC Engagement",
-        description: "B2B fashion brand that became a lifestyle movement",
-        achievements: ["3.8M video views", "1200+ UGC posts", "92% brand recall"],
-        platforms: ["LinkedIn", "Instagram", "YouTube"]
-      }
+      title: "Workwear",
+      imageSrc: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
+      altText: "Workwear Application Screenshot", 
+      description: "Professional style hub transforming workplace fashion in Westchester, NY.",
+      category: "B2B Fashion",
+      siteUrl: "https://workwearweb.com/",
+      metrics: ["89K followers", "3.8M video views", "92% brand recall"],
+      color: "#4E6EFF"
     },
     {
       id: 3,
-      name: "Gloss Authority",
-      tagline: "On-demand auto detailing.",
-      category: "auto",
-      logo: "GA", 
-      color: "#FF6B35",
-      gradient: "from-[#FF6B35] to-[#FF8E53]",
-      details: {
-        followers: "45K",
-        engagement: "2.4×",
-        metric: "Appointment Bookings",
-        description: "Local car service that went viral with before/after content",
-        achievements: ["67% more bookings", "4.9 star rating", "Featured in AutoWeek"],
-        platforms: ["TikTok", "Instagram", "Facebook"]
-      }
+      title: "Gloss Authority",
+      imageSrc: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&h=400&fit=crop",
+      altText: "Gloss Authority Application Screenshot",
+      description: "Premium mobile car detailing service with viral before/after content.",
+      category: "Automotive",
+      siteUrl: "https://glossauthority.com/",
+      metrics: ["45K followers", "67% more bookings", "4.9★ rating"],
+      color: "#FF6B35"
     },
     {
       id: 4,
-      name: "GD Agency",
-      tagline: "Local digital marketing shop.",
-      category: "b2b",
-      logo: "GD",
-      color: "#00D9FF",
-      gradient: "from-[#00D9FF] to-[#33E0FF]",
-      details: {
-        followers: "12K",
-        engagement: "4.3×",
-        metric: "ROAS",
-        description: "Marketing agency that practices what they preach",
-        achievements: ["$2.3M client revenue", "430% ROAS improvement", "25 new enterprise clients"],
-        platforms: ["LinkedIn", "Twitter", "Medium"]
-      }
+      title: "GD Agency",
+      imageSrc: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+      altText: "GD Agency Application Screenshot",
+      description: "Digital marketing agency practicing what they preach with proven results.",
+      category: "Marketing",
+      siteUrl: "https://www.giadagency.com/",
+      metrics: ["12K followers", "$2.3M client revenue", "430% ROAS"],
+      color: "#00D9FF"
     },
     {
       id: 5,
-      name: "Hanger",
-      tagline: "AI-driven fashion marketplace + stylist.",
-      category: "fashion",
-      logo: "H",
-      color: "#9B59B6",
-      gradient: "from-[#9B59B6] to-[#B968C7]",
-      details: {
-        followers: "203K",
-        engagement: "9s",
-        metric: "Avg. Dwell Time",
-        description: "AI fashion startup that humanized technology through social",
-        achievements: ["$1.2M funding raised", "Featured in Vogue", "50K+ app downloads"],
-        platforms: ["Instagram", "TikTok", "Snapchat"]
-      }
+      title: "Hanger",
+      imageSrc: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&h=400&fit=crop",
+      altText: "Hanger Application Screenshot",
+      description: "AI-powered fashion marketplace making technology feel human and accessible.",
+      category: "AI Fashion",
+      siteUrl: "https://www.hanger.live/",
+      metrics: ["203K followers", "$1.2M funding", "50K+ downloads"],
+      color: "#9B59B6"
     },
     {
       id: 6,
-      name: "Culin",
-      tagline: "Precision-nutrition healthcare startup.",
-      category: "health",
-      logo: "C",
-      color: "#2ECC71",
-      gradient: "from-[#2ECC71] to-[#58D68D]",
-      details: {
-        followers: "78K",
-        engagement: "72ms",
-        metric: "API Latency",
-        description: "Health-tech startup that made nutrition science accessible",
-        achievements: ["1M+ content views", "Partnership with Mayo Clinic", "4.8 app store rating"],
-        platforms: ["Instagram", "YouTube", "Twitter"]
-      }
+      title: "Culin",
+      imageSrc: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop",
+      altText: "Culin Application Screenshot",
+      description: "Health-tech startup making nutrition science accessible to everyone.",
+      category: "HealthTech",
+      siteUrl: "https://www.culin.net/",
+      metrics: ["78K followers", "Mayo Clinic partnership", "4.8★ app rating"],
+      color: "#2ECC71"
+    },
+  ];
+
+  const getCategoryIcon = (category: string) => {
+    switch (category) {
+      case 'Fashion Tech':
+      case 'AI Fashion':
+      case 'B2B Fashion':
+        return <TrendingUp className="w-4 h-4" />;
+      case 'Marketing':
+        return <Users className="w-4 h-4" />;
+      case 'Automotive':
+        return <Zap className="w-4 h-4" />;
+      case 'HealthTech':
+        return <Heart className="w-4 h-4" />;
+      default:
+        return <Globe className="w-4 h-4" />;
     }
-  ];
-
-  const filteredClients = filter === 'all' ? clients : clients.filter(client => client.category === filter);
-
-  const categories = [
-    { id: 'all', label: 'All', icon: <Star className="w-4 h-4" /> },
-    { id: 'fashion', label: 'Fashion', icon: <TrendingUp className="w-4 h-4" /> },
-    { id: 'b2b', label: 'B2B', icon: <Users className="w-4 h-4" /> },
-    { id: 'auto', label: 'Auto', icon: <Zap className="w-4 h-4" /> },
-    { id: 'health', label: 'Health', icon: <Eye className="w-4 h-4" /> }
-  ];
+  };
 
   return (
-    <section id="clients" className="py-24 bg-gray-900 relative overflow-hidden">
-      {/* Enhanced Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900/20 to-blue-900/20" />
+    <section id="clients" className="py-20 bg-gray-50">
+      <div className="container mx-auto px-6 max-w-7xl">
+        {/* Header */}
         <motion.div
-          animate={{ 
-            background: [
-              'radial-gradient(circle at 20% 80%, rgba(78, 110, 255, 0.1) 0%, transparent 50%)',
-              'radial-gradient(circle at 80% 20%, rgba(255, 71, 126, 0.1) 0%, transparent 50%)',
-              'radial-gradient(circle at 40% 40%, rgba(78, 110, 255, 0.1) 0%, transparent 50%)'
-            ]
-          }}
-          transition={{ duration: 10, repeat: Infinity }}
-          className="absolute inset-0"
-        />
-      </div>
-      
-      <div className="container mx-auto px-6 max-w-6xl relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <motion.div
-            animate={{ rotate: [0, 10, -10, 0] }}
-            transition={{ duration: 3, repeat: Infinity }}
-            className="text-6xl mb-4"
-          >
-            🚀
-          </motion.div>
-          
-          <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 font-['Space_Grotesk']">
-            Clients <span className="bg-gradient-to-r from-[#FF477E] to-[#4E6EFF] bg-clip-text text-transparent">Universe</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-['Space_Grotesk']">
+            Our <span className="text-[#4E6EFF]">Portfolio</span>
           </h2>
-          
-          <p className="text-xl text-white/80 max-w-3xl mx-auto font-inter mb-8">
-            From fashion startups to Fortune 500s, we've turned brands into household names
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
+            Transforming brands across industries with strategic social media marketing and compelling digital experiences
           </p>
-          
-          {/* Enhanced Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-3">
-            {categories.map((category) => (
-              <motion.button
-                key={category.id}
-                onClick={() => setFilter(category.id)}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
-                  filter === category.id 
-                    ? 'bg-gradient-to-r from-[#4E6EFF] to-[#FF477E] text-white shadow-lg' 
-                    : 'bg-white/10 text-white/70 hover:bg-white/20 backdrop-blur-sm border border-white/20'
-                }`}
-              >
-                {category.icon}
-                {category.label}
-              </motion.button>
-            ))}
-          </div>
         </motion.div>
 
-        {/* Enhanced Floating Logos */}
-        <div 
-          ref={containerRef}
-          className="relative h-[500px] mb-16 overflow-hidden rounded-3xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20"
-        >
-          {filteredClients.map((client, index) => {
-            const angle = (index / filteredClients.length) * 2 * Math.PI;
-            const radius = 150;
-            const centerX = 50;
-            const centerY = 50;
-            const x = centerX + (radius * Math.cos(angle)) / 5;
-            const y = centerY + (radius * Math.sin(angle)) / 5;
-
-            return (
-              <motion.div
-                key={client.id}
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                whileHover={{ 
-                  scale: 1.2, 
-                  zIndex: 10,
-                  transition: { duration: 0.3 }
-                }}
-                animate={{
-                  x: [0, Math.sin(Date.now() * 0.001 + index) * 20],
-                  y: [0, Math.cos(Date.now() * 0.001 + index) * 20],
-                }}
-                transition={{ 
-                  delay: index * 0.1, 
-                  duration: 0.6,
-                  x: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-                  y: { duration: 3, repeat: Infinity, ease: "easeInOut" }
-                }}
-                viewport={{ once: true }}
-                className="absolute cursor-pointer group"
-                style={{
-                  left: `${x}%`,
-                  top: `${y}%`,
-                  transform: 'translate(-50%, -50%)'
-                }}
-                onClick={() => setSelectedClient(selectedClient === client.id ? null : client.id)}
-              >
-                <div className="relative">
-                  {/* Glow Effect */}
-                  <motion.div
-                    animate={{ 
-                      scale: [1, 1.2, 1],
-                      opacity: [0.5, 0.8, 0.5]
-                    }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className={`absolute inset-0 rounded-full bg-gradient-to-r ${client.gradient} blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300`}
-                  />
-                  
-                  <div 
-                    className={`relative w-24 h-24 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-2xl bg-gradient-to-r ${client.gradient} ring-4 ring-white/20 group-hover:ring-white/40 transition-all duration-300`}
-                  >
-                    {client.logo}
-                  </div>
-                </div>
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              onMouseEnter={() => setHoveredProject(project.id)}
+              onMouseLeave={() => setHoveredProject(null)}
+              className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500"
+            >
+              {/* Image Container */}
+              <div className="relative h-64 overflow-hidden">
+                <motion.img
+                  src={project.imageSrc}
+                  alt={project.altText}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300" />
                 
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="text-center mt-3"
+                {/* Category Badge */}
+                <div 
+                  className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 rounded-full text-white text-sm font-medium backdrop-blur-sm"
+                  style={{ backgroundColor: `${project.color}CC` }}
                 >
-                  <p className="text-white text-sm font-semibold font-['Space_Grotesk']">{client.name}</p>
-                  <p className="text-white/60 text-xs font-inter">{client.category}</p>
-                </motion.div>
-              </motion.div>
-            );
-          })}
+                  {getCategoryIcon(project.category)}
+                  {project.category}
+                </div>
+
+                {/* Visit Site Button */}
+                <motion.a
+                  href={project.siteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ 
+                    opacity: hoveredProject === project.id ? 1 : 0,
+                    scale: hoveredProject === project.id ? 1 : 0.8
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute top-4 right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 group/btn"
+                >
+                  <ExternalLink className="w-5 h-5 text-gray-700 group-hover/btn:text-[#4E6EFF] transition-colors duration-200" />
+                </motion.a>
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3 font-['Space_Grotesk'] group-hover:text-[#4E6EFF] transition-colors duration-300">
+                  {project.title}
+                </h3>
+                <p className="text-gray-600 font-inter mb-6 leading-relaxed">
+                  {project.description}
+                </p>
+
+                {/* Metrics */}
+                <div className="space-y-2">
+                  {project.metrics.map((metric, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.2 + idx * 0.1 }}
+                      viewport={{ once: true }}
+                      className="flex items-center gap-3"
+                    >
+                      <div 
+                        className="w-2 h-2 rounded-full"
+                        style={{ backgroundColor: project.color }}
+                      />
+                      <span className="text-sm text-gray-600 font-medium">{metric}</span>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Visit Site Link */}
+                <motion.a
+                  href={project.siteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ x: 5 }}
+                  className="inline-flex items-center gap-2 mt-6 text-[#4E6EFF] hover:text-[#3D5BFF] font-semibold transition-colors duration-200"
+                >
+                  <span>View Project</span>
+                  <ExternalLink className="w-4 h-4" />
+                </motion.a>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Enhanced Client Details Panel */}
-        <AnimatePresence>
-          {selectedClient && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/50 backdrop-blur-md"
-              onClick={() => setSelectedClient(null)}
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 50, scale: 0.9 }}
-                transition={{ duration: 0.5, type: "spring" }}
-                className="bg-white rounded-3xl p-8 max-w-4xl w-full relative overflow-hidden shadow-2xl"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {(() => {
-                  const client = clients.find(c => c.id === selectedClient);
-                  if (!client) return null;
-                  
-                  return (
-                    <>
-                      {/* Header */}
-                      <div className="flex items-start justify-between mb-8">
-                        <div className="flex items-center gap-6">
-                          <div 
-                            className={`w-20 h-20 rounded-2xl flex items-center justify-center text-white font-bold text-2xl bg-gradient-to-r ${client.gradient} shadow-lg`}
-                          >
-                            {client.logo}
-                          </div>
-                          <div>
-                            <h3 className="text-3xl font-bold text-gray-900 font-['Space_Grotesk'] mb-2">
-                              {client.name}
-                            </h3>
-                            <p className="text-gray-600 font-inter text-lg mb-2">{client.tagline}</p>
-                            <p className="text-gray-500 font-inter">{client.details.description}</p>
-                          </div>
-                        </div>
-                        
-                        <button
-                          onClick={() => setSelectedClient(null)}
-                          className="text-gray-400 hover:text-gray-600 text-2xl font-bold"
-                        >
-                          ×
-                        </button>
-                      </div>
-                      
-                      {/* Stats Grid */}
-                      <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
-                        <div className="text-center p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl">
-                          <div className={`text-3xl font-bold font-['Space_Grotesk'] mb-2`} style={{ color: client.color }}>
-                            {client.details.followers}
-                          </div>
-                          <div className="text-sm text-gray-600 font-inter">Followers</div>
-                        </div>
-                        <div className="text-center p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl">
-                          <div className={`text-3xl font-bold font-['Space_Grotesk'] mb-2`} style={{ color: client.color }}>
-                            {client.details.engagement}
-                          </div>
-                          <div className="text-sm text-gray-600 font-inter">Growth</div>
-                        </div>
-                        <div className="text-center p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl col-span-2 md:col-span-1">
-                          <div className="text-sm text-gray-600 font-inter mb-1">{client.details.metric}</div>
-                          <div className="text-2xl font-bold text-gray-900 font-['Space_Grotesk']">Optimized</div>
-                        </div>
-                      </div>
-
-                      {/* Achievements */}
-                      <div className="mb-8">
-                        <h4 className="text-xl font-bold text-gray-900 font-['Space_Grotesk'] mb-4">Key Achievements</h4>
-                        <div className="grid md:grid-cols-3 gap-4">
-                          {client.details.achievements.map((achievement, index) => (
-                            <motion.div
-                              key={index}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: index * 0.1 + 0.3 }}
-                              className="flex items-center gap-3 p-4 bg-gradient-to-r from-gray-50 to-white rounded-xl border border-gray-100"
-                            >
-                              <div 
-                                className="w-3 h-3 rounded-full flex-shrink-0"
-                                style={{ backgroundColor: client.color }}
-                              />
-                              <span className="text-gray-700 font-inter text-sm">{achievement}</span>
-                            </motion.div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Platforms */}
-                      <div className="mb-8">
-                        <h4 className="text-xl font-bold text-gray-900 font-['Space_Grotesk'] mb-4">Active Platforms</h4>
-                        <div className="flex gap-3">
-                          {client.details.platforms.map((platform, index) => (
-                            <motion.span
-                              key={index}
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              transition={{ delay: index * 0.1 + 0.5 }}
-                              className="px-4 py-2 rounded-full text-sm font-medium border-2 transition-all duration-300"
-                              style={{ 
-                                borderColor: client.color,
-                                color: client.color,
-                                backgroundColor: `${client.color}10`
-                              }}
-                            >
-                              {platform}
-                            </motion.span>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      {/* Instagram Stats Placeholder */}
-                      <div className="border-2 border-dashed border-gray-200 rounded-2xl p-8 text-center bg-gradient-to-br from-gray-50/50 to-white/50">
-                        <div className="text-4xl mb-4">📊</div>
-                        <p className="text-gray-500 font-inter text-lg mb-2">
-                          <strong>Instagram Analytics Dashboard</strong>
-                        </p>
-                        <p className="text-gray-400 font-inter">
-                          Real-time engagement rates, reach metrics, story completion rates, and performance insights
-                        </p>
-                      </div>
-                    </>
-                  );
-                })()}
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Enhanced Creator Partners Section */}
+        {/* Call to Action */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mt-24 text-center"
+          className="text-center mt-20"
         >
-          <h3 className="text-4xl font-bold text-white mb-8 font-['Space_Grotesk']">
-            Creator <span className="bg-gradient-to-r from-[#FF477E] to-[#4E6EFF] bg-clip-text text-transparent">Partners</span>
-          </h3>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="border-2 border-dashed border-white/30 rounded-2xl p-8 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm">
-              <div className="text-4xl mb-4">👥</div>
-              <p className="text-white font-inter text-lg mb-2">
-                <strong>Creator Network Stats</strong>
-              </p>
-              <p className="text-white/70 font-inter">
-                Partner creator profiles, collaboration metrics, campaign performance data
-              </p>
-            </div>
-            
-            <div className="border-2 border-dashed border-white/30 rounded-2xl p-8 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm">
-              <div className="text-4xl mb-4">🎬</div>
-              <p className="text-white font-inter text-lg mb-2">
-                <strong>Content Performance Hub</strong>
-              </p>
-              <p className="text-white/70 font-inter">
-                UGC analytics, viral content tracking, influencer ROI measurements
-              </p>
-            </div>
+          <div className="bg-gradient-to-r from-[#4E6EFF] to-[#FF477E] rounded-2xl p-8 md:p-12">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 font-['Space_Grotesk']">
+              Ready to Join Our Success Stories?
+            </h3>
+            <p className="text-white/90 text-lg mb-8 font-inter max-w-2xl mx-auto">
+              Let's discuss how we can transform your brand's digital presence and drive measurable results
+            </p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white text-[#4E6EFF] px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              Start Your Project
+            </motion.button>
           </div>
         </motion.div>
       </div>

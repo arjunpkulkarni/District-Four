@@ -9,7 +9,6 @@ import ClientsUniverse from '@/components/lumelabs/ClientsUniverse';
 import TeamSection from '@/components/lumelabs/TeamSection';
 import WorkflowTimeline from '@/components/lumelabs/WorkflowTimeline';
 import ContactFooter from '@/components/lumelabs/ContactFooter';
-import StickyNav from '@/components/lumelabs/StickyNav';
 
 const LumeLabs = () => {
   const [konamiSequence, setKonamiSequence] = useState<string[]>([]);
@@ -40,9 +39,7 @@ const LumeLabs = () => {
 
   return (
     <div className={`${darkMode ? 'dark bg-gray-900' : 'bg-white'} transition-all duration-1000 overflow-x-hidden`}>
-      <Navbar />
-      <StickyNav />
-      
+      <Navbar />          
       <HeroSection />
       <WhyChooseUs />
       <ServicesSection />
