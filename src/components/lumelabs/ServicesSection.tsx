@@ -9,7 +9,7 @@ const ServicesSection = () => {
       icon: Instagram,
       title: "Social Media Strategy",
       description: "Comprehensive social media strategy tailored to your brand and audience.",
-      features: ["Platform optimization", "Content calendar", "Audience analysis", "Competitor research"]
+      features: ["Platform optimization", "Content calendar", "Audience analysis", "Influencer partnerships"]
     },
     {
       icon: Video,
@@ -19,10 +19,15 @@ const ServicesSection = () => {
     },
     {
       icon: MessageCircle,
-      title: "Community Management",
-      description: "Build and nurture a loyal community around your brand.",
-      features: ["Daily engagement", "Customer service", "Influencer outreach", "Crisis management"]
-    },
+      title: "AI-Driven Outreach",
+      description: "Leverage our AI to identify, target, and engage your highest-converting leads—automatically.",
+      features: [
+        "Smart lead targeting based on behavior & demographics",
+        "Daily personalized outreach at scale",
+        "Automated inbox follow-ups & replies",
+        "Integrated analytics to track response & conversion"
+      ]
+    },    
     {
       icon: BarChart3,
       title: "Analytics & Growth",
@@ -66,10 +71,10 @@ const ServicesSection = () => {
             Our Services
           </motion.div>
           <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Everything you need to <span className="text-purple-600">dominate</span> social media
+            Everything you need to <span className="text-purple-600">dominate</span> the digital space
           </motion.h2>
           <motion.p variants={itemVariants} className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From strategy to execution, we handle every aspect of your social media presence so you can focus on what you do best.
+            From strategy to execution, we handle every aspect of your digital presence so you can focus on what you do best.
           </motion.p>
         </motion.div>
 
@@ -103,28 +108,7 @@ const ServicesSection = () => {
           ))}
         </motion.div>
 
-        {/* CTA Section */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-          className="mt-16 text-center"
-        >
-          <motion.div variants={itemVariants} className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">Ready to transform your social media?</h3>
-            <p className="text-blue-100 mb-6">Let's create a strategy that turns your followers into customers.</p>
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
-            >
-              Start Your Project
-              <Camera className="w-5 h-5 ml-2" />
-            </motion.a>
-          </motion.div>
-        </motion.div>
+        
       </div>
     </section>
   );

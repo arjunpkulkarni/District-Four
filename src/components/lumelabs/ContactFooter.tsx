@@ -80,11 +80,8 @@ const ContactFooter = () => {
           {/* Contact Info & Branding */}
           <motion.div variants={itemVariants} className="space-y-8">
             <div>
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold text-lg font-display">L</span>
-                </div>
-                <span className="font-bold text-2xl text-gray-900 font-display">Lume</span>
+              <div className="flex items-center">
+                <img src="/images/icon.png" alt="Lume" className="h-32 w-auto" style={{ marginLeft: '-30px' }} />
               </div>
               <p className="text-gray-600 text-lg mb-8 font-body">
                 Social media experts helping brands turn followers into customers with data-driven strategies and authentic content.
@@ -94,11 +91,11 @@ const ContactFooter = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-4">
                 <Mail className="w-5 h-5 text-blue-600" />
-                <span className="text-gray-700 font-body">hello@lumelabs.co</span>
+                <span className="text-gray-700 font-body">arjunpkulkarni@gmail.com</span>
               </div>
               <div className="flex items-center space-x-4">
                 <Phone className="w-5 h-5 text-blue-600" />
-                <span className="text-gray-700 font-body">+1 (555) 123-4567</span>
+                <span className="text-gray-700 font-body">+1 (914) 719-2129</span>
               </div>
               <div className="flex items-center space-x-4">
                 <MapPin className="w-5 h-5 text-blue-600" />
@@ -106,49 +103,9 @@ const ContactFooter = () => {
               </div>
             </div>
 
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-gray-900 font-display">Follow Our Journey</h3>
-              <div className="flex space-x-4">
-                {[
-                  { icon: Instagram, href: '#', color: 'hover:bg-pink-500' },
-                  { icon: Twitter, href: '#', color: 'hover:bg-blue-400' },
-                  { icon: Linkedin, href: '#', color: 'hover:bg-blue-600' }
-                ].map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.href}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className={`w-12 h-12 bg-white border border-gray-200 rounded-lg flex items-center justify-center ${social.color} hover:text-white transition-all duration-300`}
-                  >
-                    <social.icon className="w-5 h-5" />
-                  </motion.a>
-                ))}
-              </div>
-            </div>
+            
 
-            {/* Stats */}
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
-              <h3 className="text-lg font-semibold mb-4 text-gray-900 font-display">By the Numbers</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <div className="text-2xl font-bold text-blue-600 font-display">500K+</div>
-                  <div className="text-gray-500 text-sm font-body">Followers Generated</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-purple-600 font-display">$2.4M+</div>
-                  <div className="text-gray-500 text-sm font-body">Revenue Driven</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-green-600 font-display">50+</div>
-                  <div className="text-gray-500 text-sm font-body">Brands Scaled</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-orange-600 font-display">98%</div>
-                  <div className="text-gray-500 text-sm font-body">Satisfaction Rate</div>
-                </div>
-              </div>
-            </div>
+            
           </motion.div>
         </motion.div>
 

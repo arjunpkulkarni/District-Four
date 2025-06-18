@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronRight, Users, TrendingUp, Award, Star } from 'lucide-react';
@@ -11,6 +10,15 @@ const HeroSection = () => {
     { number: '15M+', label: 'Content Impressions', icon: TrendingUp },
     { number: '98%', label: 'Client Satisfaction', icon: Star },
     { number: '10+', label: 'Brands Scaled', icon: Award }
+  ];
+
+  const clients = [
+    { name: 'FitCheck', src: '/images/fitcheck.png', description: 'AI-powered fitness coaching.' },
+    { name: 'Workwear', src: '/images/workwear.png', description: 'Sustainable corporate apparel.' },
+    { name: 'Hanger', src: '/images/hanger.png', description: 'Digital wardrobe organization.' },
+    { name: 'Culin', src: '/images/culin.png', description: 'Gourmet meal kit delivery.' },
+    { name: 'Gloss Authority', src: '/images/glossauthority.png', description: 'Premium car detailing products.' },
+    { name: 'GD Agency', src: '/images/gdagency.jpeg', description: 'Creative design and branding.' }
   ];
 
   const socialProof = [
@@ -103,16 +111,7 @@ const HeroSection = () => {
                 transition={{ delay: 1, duration: 0.6 }}
                 className="flex flex-wrap items-center gap-6 text-gray-500 text-sm"
               >
-                <div className="flex items-center gap-2">
-                  <div className="flex -space-x-1">
-                    {[1,2,3,4,5].map(i => (
-                      <div key={i} className="w-7 h-7 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-medium text-gray-600">
-                        {String.fromCharCode(64 + i)}
-                      </div>
-                    ))}
-                  </div>
-                  <span>Join 50+ successful brands</span>
-                </div>
+                
                 <div className="flex items-center gap-1">
                   <div className="flex">
                     {[1,2,3,4,5].map(i => (
@@ -123,17 +122,7 @@ const HeroSection = () => {
                 </div>
               </motion.div>
 
-              {/* Secondary CTA */}
-              <motion.a
-                href="#case-studies"
-                className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium mt-6 transition-colors group"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.2, duration: 0.6 }}
-              >
-                View case studies
-                <ChevronRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
-              </motion.a>
+             
             </div>
 
             {/* Right Column - Stats & Visual Elements */}
@@ -172,23 +161,23 @@ const HeroSection = () => {
                 className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"
               >
                 <h3 className="text-gray-900 font-semibold mb-4 text-sm uppercase tracking-wide">Featured Clients</h3>
-                <div className="grid grid-cols-3 gap-4">
-                  {['FitCheck', 'Workwear', 'Hanger', 'Culin', 'Gloss Authority', 'GD Agency'].map((client, index) => (
+                <div className="grid grid-cols-3 gap-x-4 gap-y-6">
+                  {clients.map((client, index) => (
                     <motion.div
-                      key={client}
+                      key={client.name}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 1.2 + index * 0.05, duration: 0.4 }}
-                      className="bg-gray-50 rounded-lg p-3 text-center hover:bg-gray-100 transition-all duration-200 cursor-pointer"
+                      className="bg-gray-50 rounded-xl p-4 text-center hover:bg-gray-100 transition-all duration-200 cursor-pointer flex flex-col items-center justify-start"
                     >
-                      <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg mx-auto mb-2"></div>
-                      <div className="text-gray-700 text-xs font-medium">{client}</div>
+                      <img src={client.src} alt={`${client.name} logo`} className="w-12 h-12 rounded-full object-cover mb-3 shadow-md" />
+                      <div className="text-gray-800 text-sm font-semibold mb-1">{client.name}</div>
                     </motion.div>
                   ))}
                 </div>
                 <motion.a
                   href="#portfolio"
-                  className="inline-flex items-center text-blue-600 hover:text-blue-700 text-sm font-medium mt-4 transition-colors group"
+                  className="inline-flex items-center text-blue-600 hover:text-blue-700 text-sm font-medium mt-6 transition-colors group"
                   whileHover={{ x: 5 }}
                 >
                   View all work <ChevronRight className="w-4 h-4 ml-1" />

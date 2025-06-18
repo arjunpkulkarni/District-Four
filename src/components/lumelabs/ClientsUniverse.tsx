@@ -167,25 +167,7 @@ const ClientsUniverse = () => {
                   {project.description}
                 </p>
 
-                {/* Metrics */}
-                <div className="space-y-2">
-                  {project.metrics.map((metric, idx) => (
-                    <motion.div
-                      key={idx}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.2 + idx * 0.1 }}
-                      viewport={{ once: true }}
-                      className="flex items-center gap-3"
-                    >
-                      <div 
-                        className="w-2 h-2 rounded-full"
-                        style={{ backgroundColor: project.color }}
-                      />
-                      <span className="text-sm text-gray-600 font-medium">{metric}</span>
-                    </motion.div>
-                  ))}
-                </div>
+                
 
                 {/* Visit Site Link */}
                 <motion.a
@@ -203,30 +185,7 @@ const ClientsUniverse = () => {
           ))}
         </div>
 
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mt-20"
-        >
-          <div className="bg-gradient-to-r from-[#4E6EFF] to-[#FF477E] rounded-2xl p-8 md:p-12">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 font-['Space_Grotesk']">
-              Ready to Join Our Success Stories?
-            </h3>
-            <p className="text-white/90 text-lg mb-8 font-inter max-w-2xl mx-auto">
-              Let's discuss how we can transform your brand's digital presence and drive measurable results
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-[#4E6EFF] px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Start Your Project
-            </motion.button>
-          </div>
-        </motion.div>
+        
       </div>
     </section>
   );

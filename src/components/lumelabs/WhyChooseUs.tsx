@@ -8,7 +8,7 @@ const WhyChooseUs = () => {
     {
       icon: TrendingUp,
       title: "Proven Growth Strategy",
-      description: "We've generated 500K+ followers and $2.4M+ in revenue for our clients using data-driven approaches.",
+      description: "We've generated 65K+ followers for our clients using data-driven approaches.",
       metric: "300% avg growth"
     },
     {
@@ -21,13 +21,13 @@ const WhyChooseUs = () => {
       icon: Users,
       title: "End-to-End Management",
       description: "From content creation to community management, we handle everything so you can focus on your business.",
-      metric: "50+ brands scaled"
+      metric: "10+ brands scaled"
     },
     {
       icon: Award,
       title: "ROI-Focused Approach",
       description: "Every post, story, and campaign is designed to drive measurable business results, not just vanity metrics.",
-      metric: "6 months avg. ROI"
+      metric: "2-3 months avg. ROI"
     }
   ];
 
@@ -99,23 +99,7 @@ const WhyChooseUs = () => {
           ))}
         </motion.div>
 
-        {/* Trust Indicators */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-          className="mt-16 text-center"
-        >
-          <motion.div variants={itemVariants} className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
-            <p className="text-gray-600 mb-6">Trusted by brands across industries</p>
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-              {['FitCheck', 'Workwear', 'Hanger', 'Culin', 'Gloss Authority', 'GD Agency'].map((brand) => (
-                <div key={brand} className="text-gray-400 font-medium">{brand}</div>
-              ))}
-            </div>
-          </motion.div>
-        </motion.div>
+       
       </div>
     </section>
   );

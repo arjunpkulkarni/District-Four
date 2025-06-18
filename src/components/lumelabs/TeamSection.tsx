@@ -1,44 +1,34 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Linkedin, Globe, Instagram } from 'lucide-react';
+import TiktokIcon from '../icons/Tiktok.svg?react';
 
 const TeamSection = () => {
   const team = [
     {
-      name: "Alex Chen",
-      role: "Co-Founder & CEO",
-      bio: "Former growth lead at TikTok. Built personal brand to 500K+ followers across platforms.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+      name: "Arjun Kulkarni",
+      role: "Engineering",
+      bio: "Full-stack developer and product engineer passionate about building intuitive tools that empower creators.",
+      image: "/images/arjun.jpeg",
       socials: {
-        linkedin: "#",
-        twitter: "#",
-        instagram: "#"
+        linkedin: "https://www.linkedin.com/in/arjun-kulkarni-610922297/",
+        instagram: "https://www.instagram.com/arjunnkulkarni",
+        website: "https://arjunkulkarni.co"
       }
     },
     {
-      name: "Sarah Kim",
-      role: "Co-Founder & Creative Director",
-      bio: "Ex-Instagram content strategist. Created viral campaigns for Fortune 500 brands.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=400&h=400&fit=crop&crop=face",
+      name: "Cristian Lager",
+      role: "Sales & Marketing",
+      bio: "Strategic marketer and growth operator focused on helping creators scale through innovative campaigns and authentic outreach.",
+      image: "/images/cristian.jpeg",
       socials: {
-        linkedin: "#",
-        twitter: "#",
-        instagram: "#"
-      }
-    },
-    {
-      name: "Marcus Rodriguez",
-      role: "Head of Growth",
-      bio: "Former Y Combinator alum. Scaled 3 startups from 0 to $10M+ ARR using social media.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-      socials: {
-        linkedin: "#",
-        twitter: "#",
-        instagram: "#"
+        linkedin: "https://www.linkedin.com/in/cristian-lager-334b13259/",
+        instagram: "https://www.instagram.com/cristianlager",
+        tiktok: "https://www.tiktok.com/@cristian.lager?lang=en"
       }
     }
   ];
+  
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -83,7 +73,7 @@ const TeamSection = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
-          className="grid md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto"
         >
           {team.map((member, index) => (
             <motion.div
@@ -103,49 +93,44 @@ const TeamSection = () => {
               <p className="text-gray-600 mb-6 leading-relaxed font-body">{member.bio}</p>
               
               <div className="flex justify-center space-x-4">
-                <a
-                  href={member.socials.linkedin}
-                  className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a
-                  href={member.socials.twitter}
-                  className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-blue-400 hover:text-white transition-all duration-300"
-                >
-                  <Twitter className="w-5 h-5" />
-                </a>
-                <a
-                  href={member.socials.instagram}
-                  className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-pink-500 hover:text-white transition-all duration-300"
-                >
-                  <Instagram className="w-5 h-5" />
-                </a>
+                {member.socials.linkedin && (
+                  <a
+                    href={member.socials.linkedin}
+                    className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                )}
+                {member.socials.website && (
+                  <a
+                    href={member.socials.website}
+                    className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-gray-700 hover:text-white transition-all duration-300"
+                  >
+                    <Globe className="w-5 h-5" />
+                  </a>
+                )}
+                {member.socials.instagram && (
+                  <a
+                    href={member.socials.instagram}
+                    className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-pink-500 hover:text-white transition-all duration-300"
+                  >
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                )}
+                {member.socials.tiktok && (
+                  <a
+                    href={member.socials.tiktok}
+                    className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300"
+                  >
+                    <TiktokIcon className="w-5 h-5" />
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Call to Action */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-          className="text-center mt-16"
-        >
-          <motion.div variants={itemVariants} className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 md:p-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4 font-display">Join Our Growing Team</h3>
-            <p className="text-gray-600 mb-6 font-body">We're always looking for talented creators and strategists who share our passion for authentic growth.</p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 font-body"
-            >
-              View Open Positions
-            </motion.button>
-          </motion.div>
-        </motion.div>
+        
       </div>
     </section>
   );

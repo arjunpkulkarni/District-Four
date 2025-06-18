@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, ArrowRight, Users, Target, Rocket, BarChart3 } from 'lucide-react';
@@ -90,7 +89,7 @@ const WorkflowTimeline = () => {
               variants={itemVariants}
               className="relative"
             >
-              <div className="grid md:grid-cols-12 gap-8 items-center">
+              <div className="grid md:grid-cols-12 gap-6 items-center">
                 {/* Step Number & Icon */}
                 <div className="md:col-span-2 flex flex-col items-center md:items-start">
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mb-4">
@@ -100,7 +99,7 @@ const WorkflowTimeline = () => {
                 </div>
 
                 {/* Content */}
-                <div className="md:col-span-7 bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
+                <div className="md:col-span-8 bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-2xl font-bold text-gray-900 font-display">{step.title}</h3>
                     <span className="text-sm text-blue-600 bg-blue-50 px-3 py-1 rounded-full font-medium font-body">
@@ -120,7 +119,7 @@ const WorkflowTimeline = () => {
                 </div>
 
                 {/* Arrow */}
-                <div className="md:col-span-3 flex justify-center">
+                <div className="md:col-span-2 flex justify-center">
                   {index < steps.length - 1 && (
                     <div className="hidden md:flex items-center">
                       <ArrowRight className="w-8 h-8 text-gray-300" />
@@ -145,7 +144,7 @@ const WorkflowTimeline = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
-          className="text-center mt-16"
+          className="text-center mt-24"
         >
           <motion.div variants={itemVariants} className="bg-white rounded-2xl p-8 md:p-12 border border-gray-200">
             <h3 className="text-3xl font-bold text-gray-900 mb-4 font-display">Ready to Get Started?</h3>

@@ -45,9 +45,10 @@ const LumeLabs = () => {
       <WhyChooseUs />
       <ServicesSection />
       <ClientsUniverse />
-      <CreatorNetwork />
+      
       <TeamSection />
       <WorkflowTimeline />
+      <CreatorNetwork />
       <ContactFooter />
       
       {/* Enhanced Particle Effects */}
@@ -81,30 +82,7 @@ const LumeLabs = () => {
         ))}
       </div>
 
-      {/* Floating Action Buttons */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 2, duration: 0.8 }}
-        className="fixed bottom-8 right-8 z-40 flex flex-col gap-4"
-      >
-        <motion.button
-          whileHover={{ scale: 1.1, rotate: 10 }}
-          whileTap={{ scale: 0.9 }}
-          className="w-14 h-14 bg-gradient-to-r from-[#4E6EFF] to-[#FF477E] rounded-full shadow-lg flex items-center justify-center text-white text-xl"
-        >
-          💬
-        </motion.button>
-        
-        <motion.button
-          whileHover={{ scale: 1.1, rotate: -10 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-white border border-white/30"
-        >
-          ↑
-        </motion.button>
-      </motion.div>
+      
     </div>
   );
 };

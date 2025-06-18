@@ -1,33 +1,33 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Star, TrendingUp, Camera } from 'lucide-react';
+import { Users, Star, TrendingUp, Camera, Instagram } from 'lucide-react';
 
 
 const CreatorNetwork = () => {
   const creators = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      specialty: "Fashion & Lifestyle",
-      followers: "125K",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=400&h=400&fit=crop&crop=face",
+      name: "Cristian Lager",
+      specialty: "Just For Fun",
+      handle: "https://www.instagram.com/cristianlager",
+      followers: "54K",
+      image: "/images/cristian1.png",
       rating: 4.9,
       projects: 23
     },
     {
       id: 2,
-      name: "Marcus Chen",
-      specialty: "Tech Reviews",
-      followers: "89K",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
-      rating: 4.8,
-      projects: 18
+      name: "Parker Mitchell",
+      specialty: "Fitness & Lifestyle",
+      handle: "https://www.instagram.com/parkermitchl",
+      image: "/images/parker1.png",
+      followers: "2K",
     }
   ];
 
   const networkStats = [
-    { icon: Users, value: "50+", label: "Active Creators" },
-    { icon: Camera, value: "2.3M", label: "Total Reach" },
+    { icon: Users, value: "2", label: "Active Creators" },
+    { icon: Camera, value: "20M", label: "Total Reach" },
     { icon: TrendingUp, value: "95%", label: "Success Rate" },
     { icon: Star, value: "4.8", label: "Avg Rating" }
   ];
@@ -43,7 +43,7 @@ const CreatorNetwork = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-['Space_Grotesk']">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Our <span className="text-[#4E6EFF]">Creator Network</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
@@ -65,7 +65,7 @@ const CreatorNetwork = () => {
               <div className="w-12 h-12 bg-gradient-to-br from-[#4E6EFF] to-[#FF477E] rounded-full flex items-center justify-center mx-auto mb-4">
                 <stat.icon className="w-6 h-6 text-white" />
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2 font-['Space_Grotesk']">
+              <div className="text-3xl font-bold text-gray-900 mb-2">
                 {stat.value}
               </div>
               <div className="text-gray-600 font-inter text-sm">{stat.label}</div>
@@ -100,71 +100,31 @@ const CreatorNetwork = () => {
 
               {/* Creator Info */}
               <div className="text-center">
-                <h3 className="text-xl font-bold text-gray-900 mb-2 font-['Space_Grotesk']">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {creator.name}
                 </h3>
                 <p className="text-[#4E6EFF] font-medium mb-4">
                   {creator.specialty}
                 </p>
 
-                {/* Stats */}
-                <div className="flex justify-center items-center gap-4 mb-4">
-                  <div className="flex items-center gap-1">
-                    <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                    <span className="text-sm font-semibold text-gray-700">{creator.rating}</span>
-                  </div>
-                  <div className="text-gray-300">•</div>
-                  <div className="text-sm text-gray-600">
-                    {creator.projects} projects
-                  </div>
-                </div>
+                
 
                 {/* CTA Button */}
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full bg-gradient-to-r from-[#4E6EFF] to-[#FF477E] text-white px-4 py-2 rounded-full font-semibold text-sm transition-all duration-300 hover:shadow-lg"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#4E6EFF] to-[#FF477E] text-white px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 hover:shadow-lg"
+                  onClick={() => window.open(creator.handle, '_blank')}
                 >
-                  View Portfolio
+                  <Instagram className="w-4 h-4" />
+                  <span>View Instagram</span>
                 </motion.button>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mt-20"
-        >
-          <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl">
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-['Space_Grotesk']">
-              Looking to Join Our Network?
-            </h3>
-            <p className="text-gray-600 text-lg mb-8 font-inter max-w-2xl mx-auto">
-              We're always seeking talented creators who align with our values and can deliver exceptional content for our clients
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-[#4E6EFF] to-[#FF477E] text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Apply as Creator
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-[#4E6EFF] border-2 border-[#4E6EFF] px-8 py-4 rounded-full font-bold text-lg hover:bg-[#4E6EFF] hover:text-white transition-all duration-300"
-              >
-                Browse Creators
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
+        
       </div>
     </section>
   );
