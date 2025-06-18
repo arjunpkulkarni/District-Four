@@ -13,7 +13,19 @@ const CreatorNetwork = () => {
       followers: "54K",
       image: "/images/cristian1.png",
       rating: 4.9,
-      projects: 23
+      projects: 23,
+      statsImages: [
+        "/images/stats/cristian1.PNG",
+        "/images/stats/cristian2.PNG",
+        "/images/stats/cristian3.PNG",
+        "/images/stats/cristian4.PNG",
+        "/images/stats/cristian5.PNG",
+        "/images/stats/cristian6.png",
+        "/images/stats/cristian7.PNG",
+        "/images/stats/cristian8.PNG",
+        "/images/stats/cristian9.PNG",
+        "/images/stats/cristian10.PNG",
+      ]
     },
     {
       id: 2,
@@ -22,11 +34,28 @@ const CreatorNetwork = () => {
       handle: "https://www.instagram.com/parkermitchl",
       image: "/images/parker1.png",
       followers: "2K",
+      statsImages: [
+        "/images/stats/parker1.PNG",
+        "/images/stats/parker2.PNG",
+        "/images/stats/parker3.PNG",
+      ]
+    },
+    {
+      id: 3,
+      name: "Hanger",
+      specialty: "Fashion & Marketing",
+      handle: "https://www.instagram.com/hanger.buzz",
+      followers: "1.7K",
+      image: "/images/hanger2.png",
+      statsImages: [
+        "/images/stats/hanger1.PNG",
+        "/images/stats/hanger2.PNG",
+      ]
     }
   ];
 
   const networkStats = [
-    { icon: Users, value: "2", label: "Active Creators" },
+    { icon: Users, value: "3", label: "Active Creators" },
     { icon: Camera, value: "20M", label: "Total Reach" },
     { icon: TrendingUp, value: "95%", label: "Success Rate" },
     { icon: Star, value: "4.8", label: "Avg Rating" }
@@ -107,6 +136,28 @@ const CreatorNetwork = () => {
                   {creator.specialty}
                 </p>
 
+                {creator.statsImages && creator.statsImages.length > 0 && (
+                  <div className="my-6">
+                    
+                    <div className="grid grid-cols-4 gap-2">
+                      {creator.statsImages.map((img, index) => (
+                        <a
+                          key={index}
+                          href={img}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block overflow-hidden rounded-lg border border-gray-200 hover:border-[#4E6EFF] transition-all duration-300 shadow-sm"
+                        >
+                          <img
+                            src={img}
+                            alt={`${creator.name} stat ${index + 1}`}
+                            className="w-full h-full object-cover aspect-[1/1] hover:scale-105 transition-transform duration-300"
+                          />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
                 
 
                 {/* CTA Button */}
