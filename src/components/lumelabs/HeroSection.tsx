@@ -7,10 +7,10 @@ const HeroSection = () => {
   const [email, setEmail] = useState('');
 
   const stats = [
-    { number: '500K+', label: 'Followers Generated', icon: Users },
+    { number: '65K+', label: 'Followers Generated', icon: Users },
     { number: '15M+', label: 'Content Impressions', icon: TrendingUp },
     { number: '98%', label: 'Client Satisfaction', icon: Star },
-    { number: '50+', label: 'Brands Scaled', icon: Award }
+    { number: '10+', label: 'Brands Scaled', icon: Award }
   ];
 
   const socialProof = [
@@ -46,16 +46,16 @@ const HeroSection = () => {
                 className="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 font-medium text-sm mb-8"
               >
                 <div className="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse" />
-                Trusted by 50+ growing brands
+                Trusted by 10+ growing brands
               </motion.div>
 
               <motion.h1 
-                className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight tracking-tight"
+                className="text-5xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight tracking-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
               >
-                Turn social media into your{' '}
+                Turn digital presence into your{' '}
                 <span className="text-blue-600">growth engine</span>
               </motion.h1>
               
@@ -65,23 +65,10 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
               >
-                We're Gen Z digital natives who understand the algorithms. We've helped 50+ brands achieve sustainable growth through data-driven social media strategies.
+                We're Gen Z digital natives who understand the algorithms. We've helped many brands achieve sustainable growth through data-driven social media strategies.
               </motion.p>
 
-              {/* Social Proof Numbers */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-                className="flex flex-wrap gap-6 mb-8"
-              >
-                {socialProof.map((item, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-2xl font-bold text-gray-900">{item.metric}</div>
-                    <div className="text-sm text-gray-600">{item.label}</div>
-                  </div>
-                ))}
-              </motion.div>
+             
 
               {/* CTA Section */}
               <motion.div 

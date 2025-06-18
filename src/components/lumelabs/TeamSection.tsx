@@ -1,176 +1,150 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Instagram, Globe } from 'lucide-react';
+import { Linkedin, Twitter, Instagram } from 'lucide-react';
 
 const TeamSection = () => {
-  const teamMembers = [
+  const team = [
     {
-      name: "Arjun Kulkarni",
-      role: "Engineering",
-      bio: "Full-stack developer and product engineer passionate about building intuitive tools that empower creators.",
-      image: "/images/arjun.jpeg",
+      name: "Alex Chen",
+      role: "Co-Founder & CEO",
+      bio: "Former growth lead at TikTok. Built personal brand to 500K+ followers across platforms.",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
       socials: {
-        linkedin: "https://www.linkedin.com/in/arjun-kulkarni-610922297/",
-        instagram: "https://www.instagram.com/arjunnkulkarni",
-        website: "https://arjunkulkarni.co"
+        linkedin: "#",
+        twitter: "#",
+        instagram: "#"
       }
     },
     {
-      name: "Cristian Lager",
-      role: "Sales & Marketing",
-      bio: "Strategic marketer and growth operator focused on helping scale through innovative campaigns and authentic outreach.",
-      image: "/images/cristian.jpeg",
+      name: "Sarah Kim",
+      role: "Co-Founder & Creative Director",
+      bio: "Ex-Instagram content strategist. Created viral campaigns for Fortune 500 brands.",
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=400&h=400&fit=crop&crop=face",
       socials: {
-        linkedin: "https://www.linkedin.com/in/cristian-lager-334b13259/",
-        instagram: "https://www.instagram.com/cristianlager",
+        linkedin: "#",
+        twitter: "#",
+        instagram: "#"
+      }
+    },
+    {
+      name: "Marcus Rodriguez",
+      role: "Head of Growth",
+      bio: "Former Y Combinator alum. Scaled 3 startups from 0 to $10M+ ARR using social media.",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+      socials: {
+        linkedin: "#",
+        twitter: "#",
+        instagram: "#"
       }
     }
   ];
-  
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as any }
+    }
+  };
 
   return (
-    <section id="team" className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-      {/* Background Animation */}
-      <div className="absolute inset-0 opacity-5">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-[#4E6EFF] rounded-full"
-            initial={{ 
-              x: Math.random() * window.innerWidth, 
-              y: Math.random() * window.innerHeight 
-            }}
-            animate={{ 
-              y: [null, -20, 20],
-              opacity: [0.1, 0.3, 0.1]
-            }}
-            transition={{ 
-              duration: 4 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="container mx-auto px-6 max-w-6xl relative z-10 font-sans">
+    <section className="py-20 bg-white" id="team">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
+          variants={containerVariants}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 font-['Space_Grotesk']">
-            Meet the <span className="text-[#4E6EFF]">Team</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
-            Grew up with social media and now turn that fluency into business growth.
-          </p>
+          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-display">
+            Meet the Team
+          </motion.h2>
+          <motion.p variants={itemVariants} className="text-xl text-gray-600 max-w-3xl mx-auto font-body">
+            We're not just marketers—we're creators who've built our own audiences and understand what it takes to grow a brand authentically.
+          </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {teamMembers.map((member, index) => (
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="grid md:grid-cols-3 gap-8"
+        >
+          {team.map((member, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50, rotateY: -15 }}
-              whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-              whileHover={{ 
-                y: -10,
-                rotateY: 5,
-                transition: { duration: 0.3 }
-              }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="group cursor-pointer"
-              style={{ transformStyle: 'preserve-3d' }}
+              key={member.name}
+              variants={itemVariants}
+              className="bg-white rounded-2xl p-8 border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300 text-center group"
             >
-              <div className="bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden">
-                {/* Hover Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#4E6EFF]/0 to-[#FF477E]/0 group-hover:from-[#4E6EFF]/5 group-hover:to-[#FF477E]/5 transition-all duration-500 rounded-3xl" />
-                
-                <div className="relative z-10">
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
-                    className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden ring-4 ring-gray-100 group-hover:ring-[#4E6EFF]/30 transition-all duration-300"
-                  >
-                    <img 
-                      src={member.image} 
-                      alt={member.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </motion.div>
-                  
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 font-['Space_Grotesk'] group-hover:text-[#4E6EFF] transition-colors duration-300">
-                    {member.name}
-                  </h3>
-                  <p className="text-[#FF477E] font-['Space_Grotesk'] font-bold mb-3">
-                    {member.role}
-                  </p>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                    {member.bio}
-                  </p>
-                  
-                  <div className="flex justify-center space-x-3">
-                    {[
-                      { key: 'linkedin', icon: Linkedin, href: member.socials.linkedin },
-                      { key: 'website', icon: Globe, href: member.socials.website },
-                      { key: 'instagram', icon: Instagram, href: member.socials.instagram },
-                    ]
-                    .filter(social => social.href)
-                    .map((social) => (
-                      <motion.a
-                        key={social.key}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.2, y: -2 }}
-                        transition={{ duration: 0.2 }}
-                        className="w-8 h-8 bg-gray-100 hover:bg-[#4E6EFF] rounded-full flex items-center justify-center text-gray-600 hover:text-white transition-all duration-300"
-                      >
-                        <social.icon size={16} />
-                      </motion.a>
-                    ))}
-                  </div>
-                </div>
+              <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-gray-100 group-hover:ring-blue-100 transition-all duration-300">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2 font-display">{member.name}</h3>
+              <p className="text-blue-600 font-semibold mb-4 font-body">{member.role}</p>
+              <p className="text-gray-600 mb-6 leading-relaxed font-body">{member.bio}</p>
+              
+              <div className="flex justify-center space-x-4">
+                <a
+                  href={member.socials.linkedin}
+                  className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a
+                  href={member.socials.twitter}
+                  className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-blue-400 hover:text-white transition-all duration-300"
+                >
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a
+                  href={member.socials.instagram}
+                  className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-pink-500 hover:text-white transition-all duration-300"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Fun Stats */}
+        {/* Call to Action */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          variants={containerVariants}
+          className="text-center mt-16"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { number: "127", label: "Coffees/Week" },
-              { number: "4.2M", label: "Content Views" },
-              { number: "23", label: "Viral Moments" },
-              { number: "99.2%", label: "Client Retention" }
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.1 * index + 0.7, duration: 0.5 }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <div className="text-3xl font-bold text-[#4E6EFF] font-['Space_Grotesk']">
-                  {stat.number}
-                </div>
-                <div className="text-gray-600 text-sm font-inter">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div variants={itemVariants} className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 md:p-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4 font-display">Join Our Growing Team</h3>
+            <p className="text-gray-600 mb-6 font-body">We're always looking for talented creators and strategists who share our passion for authentic growth.</p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 font-body"
+            >
+              View Open Positions
+            </motion.button>
+          </motion.div>
         </motion.div>
       </div>
     </section>
