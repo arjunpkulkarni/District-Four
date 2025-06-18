@@ -1,167 +1,172 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, Calendar, Instagram, Twitter, Linkedin, MapPin } from 'lucide-react';
+import { ArrowRight, Mail, Phone, MapPin, Linkedin, Twitter, Instagram } from 'lucide-react';
 
 const ContactFooter = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    business: '',
-    email: '',
-    instagram: ''
-  });
-  const [showConfetti, setShowConfetti] = useState(false);
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setShowConfetti(true);
-    setTimeout(() => setShowConfetti(false), 3000);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as any }
+    }
   };
 
   return (
-    <footer className="bg-gray-900 text-white relative overflow-hidden">
-      {/* Confetti */}
-      {showConfetti && (
-        <div className="absolute inset-0 pointer-events-none z-20">
-          {[...Array(50)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-[#FF477E] rounded-full"
-              initial={{ 
-                x: Math.random() * window.innerWidth,
-                y: -10,
-                opacity: 1
-              }}
-              animate={{ 
-                y: window.innerHeight + 10,
-                x: Math.random() * window.innerWidth,
-                opacity: 0,
-                rotate: 360
-              }}
-              transition={{ 
-                duration: 3,
-                delay: Math.random() * 0.5
-              }}
-            />
-          ))}
-        </div>
-      )}
-
-      <div className="container mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Left Column */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 font-['Space_Grotesk']">
-              Let's grow your foot traffic by{' '}
-              <span className="text-[#4E6EFF]">double digits</span>
+    <footer className="bg-gray-50 border-t border-gray-200" id="contact">
+      <div className="max-w-7xl mx-auto px-6 py-20">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="grid lg:grid-cols-2 gap-16"
+        >
+          {/* Contact Form */}
+          <motion.div variants={itemVariants}>
+            <h2 className="text-4xl font-bold mb-6 text-gray-900 font-display">
+              Ready to Scale Your Brand?
             </h2>
-
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <Phone className="w-6 h-6 text-[#FF477E]" />
-                <span className="text-lg font-inter">(555) 123-4567</span>
-              </div>
-              
-              <div className="flex items-center gap-4">
-                <MapPin className="w-6 h-6 text-[#FF477E]" />
-                <span className="text-lg font-inter">NYC ↔ Champaign</span>
-              </div>
-              
-              <div className="flex items-center gap-4">
-                <Calendar className="w-6 h-6 text-[#FF477E]" />
-                <a href="#" className="text-lg font-inter hover:text-[#4E6EFF] transition-colors">
-                  Book a Strategy Call
-                </a>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Column - Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#4E6EFF] transition-all"
-                  required
-                />
-              </div>
-              
-              <div>
-                <input
-                  type="text"
-                  placeholder="Business Name"
-                  value={formData.business}
-                  onChange={(e) => setFormData({...formData, business: e.target.value})}
-                  className="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#4E6EFF] transition-all"
-                  required
-                />
-              </div>
-              
+            <p className="text-gray-600 mb-8 text-lg font-body">
+              Let's discuss how we can transform your social media presence and drive real business results.
+            </p>
+            
+            <form className="space-y-6">
               <div>
                 <input
                   type="email"
-                  placeholder="Email Address"
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#4E6EFF] transition-all"
-                  required
+                  placeholder="your@business.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-6 py-4 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent font-body"
                 />
               </div>
-              
               <div>
-                <input
-                  type="text"
-                  placeholder="Instagram Handle"
-                  value={formData.instagram}
-                  onChange={(e) => setFormData({...formData, instagram: e.target.value})}
-                  className="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#4E6EFF] transition-all"
+                <textarea
+                  placeholder="Tell us about your goals..."
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  rows={4}
+                  className="w-full px-6 py-4 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none font-body"
                 />
               </div>
-              
               <motion.button
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-[#FF477E] hover:bg-[#FF477E]/90 text-white py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg shadow-[#FF477E]/25"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all duration-300 font-body"
               >
-                Let's Grow Together 🚀
+                Send Message
+                <ArrowRight className="w-5 h-5" />
               </motion.button>
             </form>
           </motion.div>
-        </div>
+
+          {/* Contact Info & Branding */}
+          <motion.div variants={itemVariants} className="space-y-8">
+            <div>
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+                  <span className="text-white font-bold text-lg font-display">L</span>
+                </div>
+                <span className="font-bold text-2xl text-gray-900 font-display">Lume</span>
+              </div>
+              <p className="text-gray-600 text-lg mb-8 font-body">
+                Social media experts helping brands turn followers into customers with data-driven strategies and authentic content.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <div className="flex items-center space-x-4">
+                <Mail className="w-5 h-5 text-blue-600" />
+                <span className="text-gray-700 font-body">hello@lumelabs.co</span>
+              </div>
+              <div className="flex items-center space-x-4">
+                <Phone className="w-5 h-5 text-blue-600" />
+                <span className="text-gray-700 font-body">+1 (555) 123-4567</span>
+              </div>
+              <div className="flex items-center space-x-4">
+                <MapPin className="w-5 h-5 text-blue-600" />
+                <span className="text-gray-700 font-body">NYC & Chicago</span>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-4 text-gray-900 font-display">Follow Our Journey</h3>
+              <div className="flex space-x-4">
+                {[
+                  { icon: Instagram, href: '#', color: 'hover:bg-pink-500' },
+                  { icon: Twitter, href: '#', color: 'hover:bg-blue-400' },
+                  { icon: Linkedin, href: '#', color: 'hover:bg-blue-600' }
+                ].map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.href}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className={`w-12 h-12 bg-white border border-gray-200 rounded-lg flex items-center justify-center ${social.color} hover:text-white transition-all duration-300`}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+
+            {/* Stats */}
+            <div className="bg-white rounded-xl p-6 border border-gray-200">
+              <h3 className="text-lg font-semibold mb-4 text-gray-900 font-display">By the Numbers</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <div className="text-2xl font-bold text-blue-600 font-display">500K+</div>
+                  <div className="text-gray-500 text-sm font-body">Followers Generated</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-purple-600 font-display">$2.4M+</div>
+                  <div className="text-gray-500 text-sm font-body">Revenue Driven</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-green-600 font-display">50+</div>
+                  <div className="text-gray-500 text-sm font-body">Brands Scaled</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-orange-600 font-display">98%</div>
+                  <div className="text-gray-500 text-sm font-body">Satisfaction Rate</div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/20 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-white/70 font-inter text-sm mb-4 md:mb-0">
-            © 2025 LumeLabs · Marketing & Research · NYC ↔ Champaign
-          </p>
-          
-          <div className="flex gap-6">
-            <a href="#" className="text-white/70 hover:text-[#4E6EFF] transition-colors">
-              <Instagram className="w-5 h-5" />
-            </a>
-            <a href="#" className="text-white/70 hover:text-[#4E6EFF] transition-colors">
-              <Twitter className="w-5 h-5" />
-            </a>
-            <a href="#" className="text-white/70 hover:text-[#4E6EFF] transition-colors">
-              <Linkedin className="w-5 h-5" />
-            </a>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="mt-16 pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p className="text-gray-500 text-sm font-body">© 2024 Lume. All rights reserved.</p>
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            <a href="#" className="text-gray-500 hover:text-gray-900 text-sm transition-colors font-body">Privacy</a>
+            <a href="#" className="text-gray-500 hover:text-gray-900 text-sm transition-colors font-body">Terms</a>
+            <a href="#" className="text-gray-500 hover:text-gray-900 text-sm transition-colors font-body">Cookies</a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

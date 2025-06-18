@@ -1,75 +1,121 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Zap, TrendingUp, Eye } from 'lucide-react';
+import { TrendingUp, Target, Users, Award, Zap, BarChart3 } from 'lucide-react';
 
 const WhyChooseUs = () => {
   const features = [
     {
-      icon: <Zap className="w-8 h-8" />,
-      title: "Intelligent Solutions",
-      description: "Custom AI agents spot trends before they trend.",
-      imageSrc: "/images/programming.png"
+      icon: TrendingUp,
+      title: "Proven Growth Strategy",
+      description: "We've generated 500K+ followers and $2.4M+ in revenue for our clients using data-driven approaches.",
+      metric: "300% avg growth"
     },
     {
-      icon: <TrendingUp className="w-8 h-8" />,
-      title: "Brand Elevation", 
-      description: "We weaponise storytelling to make you unforgettable.",
-      imageSrc: "/images/socialMedia.png"
+      icon: Target,
+      title: "Gen Z Native Understanding",
+      description: "We don't just study the algorithms - we live on these platforms. We know what resonates with real audiences.",
+      metric: "98% engagement rate"
     },
     {
-      icon: <Eye className="w-8 h-8" />,
-      title: "Intuitive Design",
-      description: "UX so smooth it feels like buttered glass.",
-      imageSrc: "/images/why.png"
+      icon: Users,
+      title: "End-to-End Management",
+      description: "From content creation to community management, we handle everything so you can focus on your business.",
+      metric: "50+ brands scaled"
+    },
+    {
+      icon: Award,
+      title: "ROI-Focused Approach",
+      description: "Every post, story, and campaign is designed to drive measurable business results, not just vanity metrics.",
+      metric: "6 months avg. ROI"
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
-    <section id="why-choose-us" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-6 max-w-6xl">
+    <section className="py-20 bg-gray-50" id="why-us">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
+          variants={containerVariants}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 font-['Space_Grotesk']">
-            Why Choose <span className="text-[#4E6EFF]">Us</span>
-          </h2>
+          <motion.div variants={itemVariants} className="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 text-blue-700 font-medium text-sm mb-6">
+            <Zap className="w-4 h-4 mr-2" />
+            Why Choose Lume
+          </motion.div>
+          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Built by creators, for <span className="text-blue-600">businesses</span>
+          </motion.h2>
+          <motion.p variants={itemVariants} className="text-xl text-gray-600 max-w-3xl mx-auto">
+            We're not another marketing agency. We're Gen Z entrepreneurs who've built our own successful brands and now help others do the same.
+          </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
           {features.map((feature, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50, rotateY: -15 }}
-              whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-              whileHover={{ 
-                rotateY: 5, 
-                scale: 1.05,
-                transition: { duration: 0.3 }
-              }}
-              transition={{ delay: index * 0.2, duration: 0.8 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 group cursor-pointer"
-              style={{ transformStyle: 'preserve-3d' }}
+              key={feature.title}
+              variants={itemVariants}
+              className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300"
             >
-              <div className="relative h-40 w-full mb-6">
-                <img src={feature.imageSrc} alt={feature.title} className="w-full h-full object-contain" />
+              <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+                <feature.icon className="w-6 h-6 text-blue-600" />
               </div>
-              <div className="text-[#4E6EFF] mb-6 group-hover:scale-110 transition-transform duration-300">
-                {feature.icon}
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
+              <p className="text-gray-600 text-sm mb-4 leading-relaxed">{feature.description}</p>
+              <div className="flex items-center text-blue-600 font-medium text-sm">
+                <BarChart3 className="w-4 h-4 mr-1" />
+                {feature.metric}
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 font-['Space_Grotesk']">
-                {feature.title}
-              </h3>
-              <p className="text-gray-600 text-lg leading-relaxed font-inter">
-                {feature.description}
-              </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
+
+        {/* Trust Indicators */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="mt-16 text-center"
+        >
+          <motion.div variants={itemVariants} className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+            <p className="text-gray-600 mb-6">Trusted by brands across industries</p>
+            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+              {['FitCheck', 'Workwear', 'Hanger', 'Culin', 'Gloss Authority', 'GD Agency'].map((brand) => (
+                <div key={brand} className="text-gray-400 font-medium">{brand}</div>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,98 +1,164 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import { CheckCircle, ArrowRight, Users, Target, Rocket, BarChart3 } from 'lucide-react';
 
 const WorkflowTimeline = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollXProgress } = useScroll({ container: containerRef });
-
   const steps = [
     {
-      emoji: "☕",
-      title: "Coffee Chat",
-      description: "Quick strategy session",
-      gif: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=300&fit=crop"
+      step: "01",
+      title: "Discovery & Strategy",
+      description: "We audit your current presence, analyze your audience, and develop a custom strategy.",
+      icon: Target,
+      duration: "Week 1",
+      deliverables: ["Brand audit", "Audience analysis", "Content strategy", "Growth roadmap"]
     },
     {
-      emoji: "▶️", 
-      title: "Kick-off Shoot",
-      description: "Professional content creation day",
-      gif: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&h=300&fit=crop"
+      step: "02", 
+      title: "Content Creation",
+      description: "Our team creates scroll-stopping content that aligns with your brand and resonates with your audience.",
+      icon: Users,
+      duration: "Week 2-3",
+      deliverables: ["30-day content calendar", "Photo/video assets", "Copy & captions", "Brand guidelines"]
     },
     {
-      emoji: "✍️",
-      title: "Content Calendar", 
-      description: "Strategic posting schedule & copy",
-      gif: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop"
+      step: "03",
+      title: "Launch & Optimization",
+      description: "We launch your campaigns and continuously optimize based on performance data.",
+      icon: Rocket,
+      duration: "Week 4+",
+      deliverables: ["Campaign launch", "Daily posting", "Community management", "A/B testing"]
     },
     {
-      emoji: "📈",
-      title: "Growth Sprints",
-      description: "Data-driven optimization cycles",
-      gif: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop"
-    },
-    {
-      emoji: "💌",
-      title: "Monday Metrics",
-      description: "Weekly performance deep-dive",
-      gif: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
-    },
-    {
-      emoji: "🚀",
-      title: "Scale & Ads",
-      description: "Amplify what works, optimize ROI",
-      gif: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=300&fit=crop"
+      step: "04",
+      title: "Scale & Report",
+      description: "Track results, scale what works, and provide detailed reports on growth and ROI.",
+      icon: BarChart3,
+      duration: "Ongoing",
+      deliverables: ["Weekly reports", "Performance insights", "Strategy refinement", "Growth scaling"]
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as any }
+    }
+  };
+
   return (
-    <section className="py-20 bg-gradient-to-br from-indigo-50 to-purple-50 font-['Space_Grotesk']">
-      <div className="container mx-auto px-6">
+    <section className="py-20 bg-gray-50" id="workflow">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
+          variants={containerVariants}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Our <span className="text-[#4E6EFF]">Workflow</span>
-          </h2>
-          <p className="text-xl text-gray-600">Swipe through our proven process</p>
+          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-display">
+            Our Proven Process
+          </motion.h2>
+          <motion.p variants={itemVariants} className="text-xl text-gray-600 max-w-3xl mx-auto font-body">
+            From strategy to execution, we follow a data-driven process that delivers consistent results for every client.
+          </motion.p>
         </motion.div>
 
-        <div 
-          ref={containerRef}
-          className="flex gap-8 overflow-x-auto pb-8 snap-x snap-mandatory"
-          style={{ scrollSnapType: 'x mandatory' }}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="space-y-8"
         >
           {steps.map((step, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="flex-shrink-0 w-80 snap-center"
+              key={step.step}
+              variants={itemVariants}
+              className="relative"
             >
-              <div className="bg-white rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
-                <div className="text-6xl mb-4 text-center">{step.emoji}</div>
-                <div className="mb-4 rounded-2xl overflow-hidden">
-                  <img 
-                    src={step.gif} 
-                    alt={step.title}
-                    className="w-full h-48 object-cover"
-                  />
+              <div className="grid md:grid-cols-12 gap-8 items-center">
+                {/* Step Number & Icon */}
+                <div className="md:col-span-2 flex flex-col items-center md:items-start">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mb-4">
+                    <step.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-3xl font-bold text-gray-300 font-display">{step.step}</div>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 text-center">
-                  {step.title}
-                </h3>
-                <p className="text-gray-600 text-center leading-relaxed">
-                  {step.description}
-                </p>
+
+                {/* Content */}
+                <div className="md:col-span-7 bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-2xl font-bold text-gray-900 font-display">{step.title}</h3>
+                    <span className="text-sm text-blue-600 bg-blue-50 px-3 py-1 rounded-full font-medium font-body">
+                      {step.duration}
+                    </span>
+                  </div>
+                  <p className="text-gray-600 mb-6 text-lg font-body">{step.description}</p>
+                  
+                  <div className="grid grid-cols-2 gap-3">
+                    {step.deliverables.map((deliverable, idx) => (
+                      <div key={idx} className="flex items-center text-gray-700">
+                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                        <span className="text-sm font-body">{deliverable}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Arrow */}
+                <div className="md:col-span-3 flex justify-center">
+                  {index < steps.length - 1 && (
+                    <div className="hidden md:flex items-center">
+                      <ArrowRight className="w-8 h-8 text-gray-300" />
+                    </div>
+                  )}
+                </div>
               </div>
+
+              {/* Mobile Arrow */}
+              {index < steps.length - 1 && (
+                <div className="md:hidden flex justify-center my-8">
+                  <div className="w-px h-12 bg-gray-200"></div>
+                </div>
+              )}
             </motion.div>
           ))}
-        </div>
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="text-center mt-16"
+        >
+          <motion.div variants={itemVariants} className="bg-white rounded-2xl p-8 md:p-12 border border-gray-200">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4 font-display">Ready to Get Started?</h3>
+            <p className="text-gray-600 mb-6 font-body">Let's discuss your goals and create a custom strategy for your brand.</p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 font-body"
+            >
+              Schedule Free Consultation
+            </motion.button>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
