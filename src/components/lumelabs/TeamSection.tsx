@@ -1,30 +1,32 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Linkedin, Instagram, Globe } from 'lucide-react';
 
 const TeamSection = () => {
   const teamMembers = [
     {
       name: "Arjun Kulkarni",
-      bio: "Cornell CS grad, previously at Google. Passionate about building tools that empower creators.",
-      image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=300&h=300&fit=crop&crop=face",
+      role: "Engineering",
+      bio: "Full-stack developer and product engineer passionate about building intuitive tools that empower creators.",
+      image: "/images/arjun.jpeg",
       socials: {
-        linkedin: "#",
-        instagram: "#",
-        twitter: "#"
+        linkedin: "https://www.linkedin.com/in/arjun-kulkarni-610922297/",
+        instagram: "https://www.instagram.com/arjunnkulkarni",
+        website: "https://arjunkulkarni.co"
       }
     },
     {
       name: "Cristian Lager",
-      bio: "Ex-Meta. Bringing a wealth of product and design experience to build beautiful and intuitive platforms.",
-      image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=300&h=300&fit=crop&crop=face",
+      role: "Sales & Marketing",
+      bio: "Strategic marketer and growth operator focused on helping scale through innovative campaigns and authentic outreach.",
+      image: "/images/cristian.jpeg",
       socials: {
-        linkedin: "#",
-        instagram: "#",
-        twitter: "#"
+        linkedin: "https://www.linkedin.com/in/cristian-lager-334b13259/",
+        instagram: "https://www.instagram.com/cristianlager",
       }
     }
   ];
+  
 
   return (
     <section id="team" className="py-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
@@ -60,10 +62,10 @@ const TeamSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 font-['Space_Grotesk']">
-            Meet the <span className="text-[#4E6EFF]">Dream Team</span>
+            Meet the <span className="text-[#4E6EFF]">Team</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
-            Gen-Z natives who grew up with social media and now turn that fluency into business growth
+            Grew up with social media and now turn that fluency into business growth.
           </p>
         </motion.div>
 
@@ -103,7 +105,7 @@ const TeamSection = () => {
                   <h3 className="text-xl font-bold text-gray-900 mb-2 font-['Space_Grotesk'] group-hover:text-[#4E6EFF] transition-colors duration-300">
                     {member.name}
                   </h3>
-                  <p className="text-[#FF477E] font-just-sans-extrabold mb-3">
+                  <p className="text-[#FF477E] font-['Space_Grotesk'] font-bold mb-3">
                     {member.role}
                   </p>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">
@@ -112,13 +114,17 @@ const TeamSection = () => {
                   
                   <div className="flex justify-center space-x-3">
                     {[
-                      { icon: Linkedin, href: member.socials.linkedin },
-                      { icon: Twitter, href: member.socials.twitter },
-                      { icon: Instagram, href: member.socials.instagram }
-                    ].map((social, socialIndex) => (
+                      { key: 'linkedin', icon: Linkedin, href: member.socials.linkedin },
+                      { key: 'website', icon: Globe, href: member.socials.website },
+                      { key: 'instagram', icon: Instagram, href: member.socials.instagram },
+                    ]
+                    .filter(social => social.href)
+                    .map((social) => (
                       <motion.a
-                        key={socialIndex}
+                        key={social.key}
                         href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.2, y: -2 }}
                         transition={{ duration: 0.2 }}
                         className="w-8 h-8 bg-gray-100 hover:bg-[#4E6EFF] rounded-full flex items-center justify-center text-gray-600 hover:text-white transition-all duration-300"

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Target, Users, LineChart } from 'lucide-react';
 import StepContent from './how-it-works/StepContent';
@@ -16,7 +15,7 @@ const HowItWorks = () => {
       description: "Our AI scans social media to find where your target audience is most active, identifying the exact channels, topics, and content they engage with.",
       highlightText: "AI identifies:",
       highlightDetails: "Relevant conversations, active communities, and engagement opportunities",
-      gifUrl: "/lovable-uploads/50d7bc89-98fd-49a5-b67f-94230c5d3ca5.png"
+      gifUrl: "/images/workwear.png"
     },
     {
       id: 2,
@@ -25,7 +24,7 @@ const HowItWorks = () => {
       description: "Convrt creates meaningful touchpoints that position you as a trusted advisor by engaging with prospects' content and contributing value.",
       highlightText: "AI automates:",
       highlightDetails: "Targeted comments, relevant reactions, and personalized interactions",
-      gifUrl: "https://api.microlink.io?url=https%3A%2F%2Fgiphy.com%2Fgifs%2Frevolutioncomedy-handshake-revolutioncomedy-icommitcombustion-kFHbqSdogIS0qtX6Pf&embed=true&screenshot=true&meta=false"
+      gifUrl: "/images/hanger.png"
     },
     {
       id: 3,

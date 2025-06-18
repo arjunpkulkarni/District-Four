@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Globe, TrendingUp, Users, Zap, Heart } from 'lucide-react';
@@ -10,7 +9,7 @@ const ClientsUniverse = () => {
     {
       id: 1,
       title: "FitCheck",
-      imageSrc: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop",
+      imageSrc: "/images/fitcheck.png",
       altText: "FitCheck Application Screenshot",
       description: "NYC's first centralized fashion social platform connecting style enthusiasts.",
       category: "Fashion Tech",
@@ -21,7 +20,7 @@ const ClientsUniverse = () => {
     {
       id: 2,
       title: "Workwear",
-      imageSrc: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop",
+      imageSrc: "/images/workwear.png",
       altText: "Workwear Application Screenshot", 
       description: "Professional style hub transforming workplace fashion in Westchester, NY.",
       category: "B2B Fashion",
@@ -32,7 +31,7 @@ const ClientsUniverse = () => {
     {
       id: 3,
       title: "Gloss Authority",
-      imageSrc: "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&h=400&fit=crop",
+      imageSrc: "/images/glossauthority.png",
       altText: "Gloss Authority Application Screenshot",
       description: "Premium mobile car detailing service with viral before/after content.",
       category: "Automotive",
@@ -43,7 +42,7 @@ const ClientsUniverse = () => {
     {
       id: 4,
       title: "GD Agency",
-      imageSrc: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+      imageSrc: "/images/gdagency.jpeg",
       altText: "GD Agency Application Screenshot",
       description: "Digital marketing agency practicing what they preach with proven results.",
       category: "Marketing",
@@ -54,7 +53,7 @@ const ClientsUniverse = () => {
     {
       id: 5,
       title: "Hanger",
-      imageSrc: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&h=400&fit=crop",
+      imageSrc: "/images/hanger.png",
       altText: "Hanger Application Screenshot",
       description: "AI-powered fashion marketplace making technology feel human and accessible.",
       category: "AI Fashion",
@@ -65,7 +64,7 @@ const ClientsUniverse = () => {
     {
       id: 6,
       title: "Culin",
-      imageSrc: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop",
+      imageSrc: "/images/culin.png",
       altText: "Culin Application Screenshot",
       description: "Health-tech startup making nutrition science accessible to everyone.",
       category: "HealthTech",

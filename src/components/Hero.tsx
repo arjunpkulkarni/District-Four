@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import AnimatedBackground from './AnimatedBackground';
 import { ArrowRight, Zap } from 'lucide-react';
@@ -56,6 +55,9 @@ const Hero = () => {
           >
             From <span className="text-[#EA384C] font-extrabold">Ignored</span> to <span className="text-[#6936F5] font-extrabold">Influential</span>
           </motion.h1>
+          <motion.div variants={itemVariants}>
+            <img src="/images/bean.png" alt="Bean" className="mx-auto my-4 w-48 h-auto" />
+          </motion.div>
           
           <motion.p 
             variants={itemVariants}

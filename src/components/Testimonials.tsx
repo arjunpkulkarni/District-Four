@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -100,9 +99,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             className="col-span-12 md:col-span-4 lg:col-span-3 rounded-xl overflow-hidden border border-gray-100"
           >
-            <div className="h-full flex items-center justify-center p-6">
-              <div className="font-black text-2xl italic">Handshake</div>
-            </div>
+            <img src="/images/gdagency.jpeg" alt="GD Agency" className="w-full h-full object-cover" />
           </motion.div>
 
           {/* First testimonial */}
@@ -150,11 +147,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             className="col-span-12 md:col-span-5 lg:col-span-3 rounded-xl overflow-hidden border border-gray-100"
           >
-            <div className="h-full flex items-center justify-center p-6">
-              <div className="font-black text-xl">
-                <span className="inline-block bg-black text-white px-1 py-0.5 rounded">∫</span> sumup°
-              </div>
-            </div>
+            <img src="/images/glossauthority.png" alt="Gloss Authority" className="w-full h-full object-cover" />
           </motion.div>
 
           {/* Third testimonial */}

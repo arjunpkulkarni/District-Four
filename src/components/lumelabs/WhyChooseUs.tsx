@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, TrendingUp, Eye } from 'lucide-react';
@@ -8,17 +7,20 @@ const WhyChooseUs = () => {
     {
       icon: <Zap className="w-8 h-8" />,
       title: "Intelligent Solutions",
-      description: "Custom AI agents spot trends before they trend."
+      description: "Custom AI agents spot trends before they trend.",
+      imageSrc: "/images/programming.png"
     },
     {
       icon: <TrendingUp className="w-8 h-8" />,
       title: "Brand Elevation", 
-      description: "We weaponise storytelling to make you unforgettable."
+      description: "We weaponise storytelling to make you unforgettable.",
+      imageSrc: "/images/socialMedia.png"
     },
     {
       icon: <Eye className="w-8 h-8" />,
       title: "Intuitive Design",
-      description: "UX so smooth it feels like buttered glass."
+      description: "UX so smooth it feels like buttered glass.",
+      imageSrc: "/images/why.png"
     }
   ];
 
@@ -53,6 +55,9 @@ const WhyChooseUs = () => {
               className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 group cursor-pointer"
               style={{ transformStyle: 'preserve-3d' }}
             >
+              <div className="relative h-40 w-full mb-6">
+                <img src={feature.imageSrc} alt={feature.title} className="w-full h-full object-contain" />
+              </div>
               <div className="text-[#4E6EFF] mb-6 group-hover:scale-110 transition-transform duration-300">
                 {feature.icon}
               </div>

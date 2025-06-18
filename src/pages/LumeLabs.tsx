@@ -9,6 +9,7 @@ import ClientsUniverse from '@/components/lumelabs/ClientsUniverse';
 import TeamSection from '@/components/lumelabs/TeamSection';
 import WorkflowTimeline from '@/components/lumelabs/WorkflowTimeline';
 import ContactFooter from '@/components/lumelabs/ContactFooter';
+import CreatorNetwork from '@/components/lumelabs/CreatorNetwork';
 
 const LumeLabs = () => {
   const [konamiSequence, setKonamiSequence] = useState<string[]>([]);
@@ -44,6 +45,7 @@ const LumeLabs = () => {
       <WhyChooseUs />
       <ServicesSection />
       <ClientsUniverse />
+      <CreatorNetwork />
       <TeamSection />
       <WorkflowTimeline />
       <ContactFooter />

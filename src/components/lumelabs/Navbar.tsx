@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,30 +37,9 @@ const Navbar = () => {
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex items-center justify-between h-20">
           {/* Enhanced Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-            className="flex items-center space-x-3"
-          >
-            <div className="relative">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#4E6EFF] to-[#FF477E] rounded-xl flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-2xl font-['Space_Grotesk']">L</span>
-              </div>
-              <div className="absolute -inset-1 bg-gradient-to-br from-[#4E6EFF] to-[#FF477E] rounded-xl blur opacity-30 animate-pulse"></div>
-            </div>
-            <div>
-              <span className={`text-2xl font-bold font-['Space_Grotesk'] transition-colors duration-300 ${
-                isScrolled ? 'text-gray-900' : 'text-white'
-              }`}>
-                LumeLabs
-              </span>
-              <div className={`text-xs font-medium transition-colors duration-300 ${
-                isScrolled ? 'text-gray-500' : 'text-white/70'
-              }`}>
-                Social Media Agency
-              </div>
-            </div>
-          </motion.div>
+          <Link to="/" className="flex-shrink-0">
+            <img src="/images/stats/logo.png" alt="LumeLabs Logo" className="h-8 w-8" />
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">

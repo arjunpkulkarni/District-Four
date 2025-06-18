@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { X, Check, PhoneCall, Mail, MessageSquare, Users, Zap, BarChart3 } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -189,6 +188,14 @@ const ProblemStatement = () => {
                 <BarChart3 className="w-8 h-8 text-convrt-purple mb-2" />
                 <div className="text-sm text-center text-convrt-purple font-medium">Win More Deals</div>
               </div>
+            </div>
+
+            <div className="mt-8 grid grid-cols-5 gap-4">
+              <img src="/images/stats/hanger1.PNG" alt="Hanger Stat 1" className="rounded-lg shadow-md" />
+              <img src="/images/stats/hanger2.PNG" alt="Hanger Stat 2" className="rounded-lg shadow-md" />
+              <img src="/images/stats/parker1.PNG" alt="Parker Stat 1" className="rounded-lg shadow-md" />
+              <img src="/images/stats/parker2.PNG" alt="Parker Stat 2" className="rounded-lg shadow-md" />
+              <img src="/images/stats/parker3.PNG" alt="Parker Stat 3" className="rounded-lg shadow-md" />
             </div>
             
             <div className="absolute -bottom-1 left-0 right-0 h-1 bg-convrt-purple"></div>

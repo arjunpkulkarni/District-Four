@@ -9,7 +9,7 @@ const WorkflowTimeline = () => {
     {
       emoji: "☕",
       title: "Coffee Chat",
-      description: "Quick strategy session over artisan coffee",
+      description: "Quick strategy session",
       gif: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=300&fit=crop"
     },
     {
@@ -45,7 +45,7 @@ const WorkflowTimeline = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-indigo-50 to-purple-50">
+    <section className="py-20 bg-gradient-to-br from-indigo-50 to-purple-50 font-['Space_Grotesk']">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -54,7 +54,7 @@ const WorkflowTimeline = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 font-just-sans-extrabold">
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             Our <span className="text-[#4E6EFF]">Workflow</span>
           </h2>
           <p className="text-xl text-gray-600">Swipe through our proven process</p>
@@ -83,7 +83,7 @@ const WorkflowTimeline = () => {
                     className="w-full h-48 object-cover"
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 text-center font-just-sans-extrabold">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3 text-center">
                   {step.title}
                 </h3>
                 <p className="text-gray-600 text-center leading-relaxed">

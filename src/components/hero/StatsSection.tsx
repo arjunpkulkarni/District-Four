@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, BarChart2, Award } from 'lucide-react';
@@ -60,6 +59,7 @@ const StatsSection: React.FC<StatsSectionProps> = ({ statsRef }) => {
           description="Sales Outperformance" 
           icon={<Award className="w-8 h-8" />} 
         />
+        <img src="/images/stats/logo.png" alt="Stats Logo" className="mt-4 mx-auto h-12" />
       </motion.div>
     </motion.div>
   );
