@@ -134,10 +134,10 @@ const ClientsUniverse = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-[var(--foreground)] mb-4">
-            Our <span className="text-[var(--accent)]">Portfolio</span>
+            Our <span className="text-[var(--accent)]">Clients</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto font-inter">
-            Transforming brands across industries with strategic social media marketing and compelling digital experiences
+            Transforming brands across industries with strategic digital marketing.
           </p>
         </motion.div>
 
@@ -152,10 +152,10 @@ const ClientsUniverse = () => {
               viewport={{ once: true }}
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
-              className="group bg-white dark:bg-[var(--card)] rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500"
+              className="group bg-white dark:bg-[var(--card)] rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500"
             >
               {/* Image Container */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-64 overflow-hidden rounded-t-2xl">
                 <motion.img
                   src={project.imageSrc}
                   alt={project.altText}
@@ -210,7 +210,7 @@ const ClientsUniverse = () => {
                       >
                         <CheckCircle2 className="w-4 h-4 mr-2 mt-0.5 text-[var(--accent)] flex-shrink-0" />
                         <span>{item.title}</span>
-                        <AnimatePresence>
+                        {/* <AnimatePresence>
                           {hoveredInfo === `${project.id}-${i}` && (
                             <motion.div
                               initial={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -223,7 +223,7 @@ const ClientsUniverse = () => {
                               {item.description}
                             </motion.div>
                           )}
-                        </AnimatePresence>
+                        </AnimatePresence> */}
                       </li>
                     ))}
                   </ul>
