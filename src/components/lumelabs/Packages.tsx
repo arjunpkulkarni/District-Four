@@ -40,7 +40,22 @@ const Packages = () => {
         );
     };
 
-    const tiers = [
+    const tiers = [        
+        {
+            name: 'Social Kickstart',
+            price: '$349/month',
+            description: 'Kickstart your social media presence with consistent, high-quality content.',
+            features: [
+                '4 high-quality videos/month (filmed & edited by us)',
+                '8 social posts tailored for Instagram or TikTok',
+                'Social platform management (Instagram or TikTok)',
+                'Basic community engagement',
+                'Monthly social media performance reports',
+            ],
+            story: "Great content is your magnet for customers. We'll create it, and you'll see the buzz.",
+            buttonText: 'Get Social',
+            buttonVariant: 'outline',
+        },
         {
             name: 'Web Foundation',
             price: '$399/month',
@@ -55,21 +70,6 @@ const Packages = () => {
             ],
             story: "Your website is your digital storefront. We'll build it and keep it pristine.",
             buttonText: 'Build My Site',
-            buttonVariant: 'outline',
-        },
-        {
-            name: 'Social Kickstart',
-            price: '$349/month',
-            description: 'Kickstart your social media presence with consistent, high-quality content.',
-            features: [
-                '4 high-quality videos/month (filmed & edited by us)',
-                '8 social posts tailored for Instagram or TikTok',
-                'Social platform management (Instagram or TikTok)',
-                'Basic community engagement',
-                'Monthly social media performance reports',
-            ],
-            story: "Great content is your magnet for customers. We'll create it, and you'll see the buzz.",
-            buttonText: 'Get Social',
             buttonVariant: 'outline',
         },
         {
