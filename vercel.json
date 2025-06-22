@@ -1,18 +1,15 @@
 {
-  "builds": [
+  "redirects": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/[^.]+",
-      "dest": "/",
-      "status": 200
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "district-four.com"
+        }
+      ],
+      "destination": "https://www.district-four.com/$1",
+      "permanent": true
     }
   ]
-} 
+}
