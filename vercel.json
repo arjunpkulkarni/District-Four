@@ -8,7 +8,7 @@
           "value": "district-four.com"
         }
       ],
-      "destination": "https://www.district-four.com/$1",
+      "destination": "https://www.district-four.com/",
       "permanent": true
     }
   ]
