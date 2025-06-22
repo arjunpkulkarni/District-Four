@@ -6,8 +6,8 @@ const HeroSection = () => {
   const [email, setEmail] = useState('');
 
   const stats = [
-    { number: '65K+', label: 'Followers Generated', icon: Users },
-    { number: '15M+', label: 'Content Impressions', icon: TrendingUp },
+    { number: '150K+', label: 'Followers Generated', icon: Users },
+    { number: '75M+', label: 'Content Impressions', icon: TrendingUp },
     { number: '98%', label: 'Client Satisfaction', icon: Star },
     { number: '10+', label: 'Brands Scaled', icon: Award }
   ];
@@ -57,29 +57,29 @@ const HeroSection = () => {
                 Trusted by 10+ growing brands
               </motion.div>
 
-              <motion.h1 
+              <motion.h1
                 className="text-5xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight tracking-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
               >
-                Turn digital presence into your{' '}
-                <span className="text-blue-600">growth engine</span>
+                Boost your business with a {' '}
+                <span className="text-blue-600">strong digital presence.</span>
               </motion.h1>
-              
-              <motion.p 
+
+              <motion.p
                 className="text-xl text-gray-600 mb-8 leading-relaxed font-light"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
               >
-                We're Gen Z digital natives who understand the algorithms. We've helped many brands achieve sustainable growth through data-driven social media strategies.
+                We’re a team that knows how social media & the internet works and have helped many companies grow using smart, data-backed strategies.
               </motion.p>
 
-             
+
 
               {/* CTA Section */}
-              <motion.div 
+              <motion.div
                 className="flex flex-col sm:flex-row gap-4 mb-8"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -111,10 +111,10 @@ const HeroSection = () => {
                 transition={{ delay: 1, duration: 0.6 }}
                 className="flex flex-wrap items-center gap-6 text-gray-500 text-sm"
               >
-                
+
                 <div className="flex items-center gap-1">
                   <div className="flex">
-                    {[1,2,3,4,5].map(i => (
+                    {[1, 2, 3, 4, 5].map(i => (
                       <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
@@ -122,7 +122,7 @@ const HeroSection = () => {
                 </div>
               </motion.div>
 
-             
+
             </div>
 
             {/* Right Column - Stats & Visual Elements */}
