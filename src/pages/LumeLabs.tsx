@@ -42,9 +42,9 @@ const LumeLabs = () => {
     <div className={`${darkMode ? 'dark bg-gray-900' : 'bg-white'} transition-all duration-1000 overflow-x-hidden`}>
       <Navbar />          
       <HeroSection />
-      <TeamSection />
-      <Packages />
       <ClientsUniverse />
+      <Packages />
+      <TeamSection />
       <WhyChooseUs />
 
       <ServicesSection />
