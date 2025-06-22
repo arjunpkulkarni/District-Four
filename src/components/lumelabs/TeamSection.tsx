@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Globe, Instagram } from 'lucide-react';
+import { Linkedin, Globe, Instagram, CheckCircle } from 'lucide-react';
 import TiktokIcon from '../icons/Tiktok.svg?react';
 
 const TeamSection = () => {
@@ -8,7 +8,11 @@ const TeamSection = () => {
     {
       name: "Arjun Kulkarni",
       role: "Engineering",
-      bio: "Full-stack developer and product engineer passionate about building intuitive tools that empower creators.",
+      bio: [
+        "Top 3 U.S. engineering program",
+        "2x founder backed by Intel & UC Health",
+        "Scaled businesses for 20+ clients"
+      ],
       image: "/images/arjun.jpeg",
       socials: {
         linkedin: "https://www.linkedin.com/in/arjun-kulkarni-610922297/",
@@ -19,7 +23,11 @@ const TeamSection = () => {
     {
       name: "Cristian Lager",
       role: "Sales & Marketing",
-      bio: "Strategic marketer and growth operator focused on helping creators scale through innovative campaigns and authentic outreach.",
+      bio: [
+        "Signed by Ford Models - Top 15 Models in USA",
+        "Netflix Actor for #1 Ranked Show in 2024",
+        "Social Media Strategist for over 2.3M+ followers"
+      ],
       image: "/images/cristian.jpeg",
       socials: {
         linkedin: "https://www.linkedin.com/in/cristian-lager-334b13259/",
@@ -90,7 +98,14 @@ const TeamSection = () => {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2 font-display">{member.name}</h3>
               <p className="text-blue-600 font-semibold mb-4 font-body">{member.role}</p>
-              <p className="text-gray-600 mb-6 leading-relaxed font-body">{member.bio}</p>
+              <ul className="text-gray-600 mb-6 space-y-2 text-left text-sm font-body">
+                {member.bio.map((point, i) => (
+                  <li key={i} className="flex items-start">
+                    <CheckCircle className="w-4 h-4 text-blue-500 mr-2.5 mt-0.5 flex-shrink-0" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
               
               <div className="flex justify-center space-x-4">
                 {member.socials.linkedin && (
