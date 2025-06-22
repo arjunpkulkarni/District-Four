@@ -65,13 +65,13 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300  ${
         isScrolled 
           ? 'bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-100' 
-          : 'bg-white/80 backdrop-blur-sm'
+          : 'bg-transparent backdrop-blur-sm'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 mt-1">
         <div className={`flex items-center h-16 justify-between md:justify-center ${isScrolled ? 'md:justify-between' : ''}`}>
           <motion.div layout transition={{ type: "spring", stiffness: 300, damping: 30 }} className="flex items-center space-x-3">
-            <img src="/images/icon.png" alt="Lume Logo" className="h-44 w-auto" />            
+            <img src="/images/icon.png" alt="Lume Logo" className="h-32 w-auto" />            
           </motion.div>
 
           <div className="hidden md:flex items-center">

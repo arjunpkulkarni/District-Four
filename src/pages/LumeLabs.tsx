@@ -43,11 +43,12 @@ const LumeLabs = () => {
       <Navbar />          
       <HeroSection />
       <TeamSection />
-      <WhyChooseUs />
       <Packages />
-      <ServicesSection />
       <ClientsUniverse />
-      
+      <WhyChooseUs />
+
+      <ServicesSection />
+
       
       <WorkflowTimeline />
       <CreatorNetwork />
