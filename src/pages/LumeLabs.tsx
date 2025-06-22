@@ -1,10 +1,10 @@
-
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '@/components/lumelabs/Navbar';
 import HeroSection from '@/components/lumelabs/HeroSection';
 import WhyChooseUs from '@/components/lumelabs/WhyChooseUs';
 import ServicesSection from '@/components/lumelabs/ServicesSection';
+import Packages from '@/components/lumelabs/Packages';
 import ClientsUniverse from '@/components/lumelabs/ClientsUniverse';
 import TeamSection from '@/components/lumelabs/TeamSection';
 import WorkflowTimeline from '@/components/lumelabs/WorkflowTimeline';
@@ -45,6 +45,7 @@ const LumeLabs = () => {
       <TeamSection />
       <WhyChooseUs />
       <ServicesSection />
+      <Packages />
       <ClientsUniverse />
       
       
