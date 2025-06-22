@@ -53,7 +53,7 @@ const HeroSection = () => {
                 transition={{ duration: 0.6 }}
                 className="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-blue-700 font-medium text-sm mb-8"
               >
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse" />
+                <div className="w-2 h-2 bg-[#45c0ff] rounded-full mr-3 animate-pulse" />
                 Trusted by 10+ growing brands
               </motion.div>
 
@@ -64,7 +64,9 @@ const HeroSection = () => {
                 transition={{ delay: 0.2, duration: 0.8 }}
               >
                 Boost your business with a {' '}
-                <span className="text-blue-600">strong digital presence.</span>
+                <span className="bg-gradient-to-r from-[#45c0ff] to-[#6936F5] bg-clip-text text-transparent">
+                  strong digital presence.
+                </span>
               </motion.h1>
 
               <motion.p

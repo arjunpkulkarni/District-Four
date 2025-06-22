@@ -25,33 +25,33 @@
 
 @layer base {
   :root {
-    --background: 210 33% 99%;
-    --foreground: 210 33% 9%;
+    --background: 0 0% 100%; /* White */
+    --foreground: 215 30% 16%; /* #1a2d47 */
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 30% 16%; /* #1a2d47 */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 30% 16%; /* #1a2d47 */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 215 30% 16%; /* #1a2d47 */
+    --primary-foreground: 0 0% 100%; /* White */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 200 100% 64%; /* #45c0ff */
+    --secondary-foreground: 215 30% 16%; /* #1a2d47 */
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 200 100% 64%; /* #45c0ff */
+    --accent-foreground: 215 30% 16%; /* #1a2d47 */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 200 100% 64%; /* #45c0ff */
 
     --radius: 0.75rem;
 
@@ -63,6 +63,36 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 30% 10%; /* Darker version of #1a2d47 */
+    --foreground: 0 0% 98%; /* Off-white */
+
+    --card: 215 30% 13%; /* Slightly lighter than background */
+    --card-foreground: 0 0% 98%;
+
+    --popover: 215 30% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 215 30% 16%;
+
+    --secondary: 200 100% 64%; /* #45c0ff */
+    --secondary-foreground: 215 30% 16%;
+
+    --muted: 215 30% 13%;
+    --muted-foreground: 215 30% 60%;
+
+    --accent: 200 100% 64%; /* #45c0ff */
+    --accent-foreground: 215 30% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 215 30% 20%;
+    --input: 215 30% 20%;
+    --ring: 200 100% 64%; /* #45c0ff */
   }
 
   * {
@@ -102,11 +132,11 @@
   }
   
   .neon-glow {
-    box-shadow: 0 0 20px rgba(78, 110, 255, 0.3), 0 0 40px rgba(78, 110, 255, 0.1);
+    box-shadow: 0 0 20px rgba(69, 192, 255, 0.3), 0 0 40px rgba(69, 192, 255, 0.1);
   }
   
   .lava-glow {
-    box-shadow: 0 0 20px rgba(255, 71, 126, 0.3), 0 0 40px rgba(255, 71, 126, 0.1);
+    box-shadow: 0 0 20px rgba(26, 45, 71, 0.3), 0 0 40px rgba(26, 45, 71, 0.1);
   }
 }
 
@@ -143,10 +173,10 @@
 
 @keyframes glow {
   0% {
-    box-shadow: 0 0 5px rgba(78, 110, 255, 0.2);
+    box-shadow: 0 0 5px rgba(69, 192, 255, 0.2);
   }
   100% {
-    box-shadow: 0 0 20px rgba(78, 110, 255, 0.4), 0 0 30px rgba(78, 110, 255, 0.2);
+    box-shadow: 0 0 20px rgba(69, 192, 255, 0.4), 0 0 30px rgba(69, 192, 255, 0.2);
   }
 }
 
@@ -162,12 +192,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(78, 110, 255, 0.6);
+  background: rgba(69, 192, 255, 0.6);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(78, 110, 255, 0.8);
+  background: rgba(69, 192, 255, 0.8);
 }
 
 /* Dark mode scrollbar */
@@ -176,9 +206,9 @@
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: rgba(255, 71, 126, 0.6);
+  background: rgba(26, 45, 71, 0.6);
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 71, 126, 0.8);
+  background: rgba(26, 45, 71, 0.8);
 }

@@ -59,7 +59,7 @@ const Packages = () => {
         },
         {
             name: 'Growth',
-            price: '$699/month',
+            price: '$749/month',
             description: 'For brands getting traction and ready to grow faster.',
             features: [
                 'Website + audits (bug fixes & updates)',
@@ -68,6 +68,7 @@ const Packages = () => {
                 'We manage 2 platforms so you stay consistent everywhere',
                 'Bi-weekly insights & strategy calls (we review, plan, adapt)',
                 'Up to 3 hours of monthly web support (updates, fixes)',
+                'Google Reviews management',
                 'Basic SEO (Search Engine Optimization) setup - this helps your website be found.',
             ],
             story: "You're building momentum. This package makes sure content never slows you down.",
@@ -86,6 +87,8 @@ const Packages = () => {
                 'Weekly strategy + insights sessions – we become your content team',
                 '12 UGC videos/month – including influencer-style content',
                 '12 posts/month for a consistent, pro-level presence',
+                'Google Reviews management',
+                'Blog posts and writing',
                 'Up to 12 hrs/month of web support + landing page or new page build',
             ],
             isPopular: true,

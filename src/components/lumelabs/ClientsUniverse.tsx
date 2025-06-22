@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink, Globe, TrendingUp, Users, Zap, Heart } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink, Globe, TrendingUp, Users, Zap, Heart, CheckCircle2 } from 'lucide-react';
 
 const ClientsUniverse = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [hoveredInfo, setHoveredInfo] = useState<string | null>(null);
 
   const projects = [
     {
@@ -15,7 +16,12 @@ const ClientsUniverse = () => {
       category: "Fashion Tech",
       siteUrl: "https://www.fitcheck.live",
       metrics: ["127K followers", "2.3M impressions", "450% growth"],
-      color: "#FF477E"
+      whatWeDid: [
+        { title: "Viral Campaign", description: "Developed a viral marketing campaign that reached millions of impressions across TikTok and Instagram." },
+        { title: "Social Growth", description: "Dramatically grew their social media presence in a short period, achieving over 100K followers." },
+        { title: "Community Building", description: "Fostered a large community of style enthusiasts in NYC through targeted outreach and events." }
+      ],
+      color: "#45c0ff"
     },
     {
       id: 2,
@@ -26,7 +32,12 @@ const ClientsUniverse = () => {
       category: "B2B Fashion",
       siteUrl: "https://workwearweb.com/",
       metrics: ["89K followers", "3.8M video views", "92% brand recall"],
-      color: "#4E6EFF"
+      whatWeDid: [
+        { title: "Video Content", description: "Produced engaging short-form video content that generated millions of views on LinkedIn and YouTube." },
+        { title: "Brand Identity", description: "Built a strong brand identity that resulted in a 92% brand recall rate among the target audience." },
+        { title: "Community Cultivation", description: "Cultivated a large professional online community on LinkedIn, fostering industry discussions." }
+      ],
+      color: "#45c0ff"
     },
     {
       id: 3,
@@ -37,7 +48,12 @@ const ClientsUniverse = () => {
       category: "Automotive",
       siteUrl: "https://glossauthority.com/",
       metrics: ["45K followers", "67% more bookings", "4.9★ rating"],
-      color: "#FF6B35"
+      whatWeDid: [
+        { title: "Local SEO", description: "Established and optimized a Google Business Profile, boosting local search visibility and walk-in inquiries." },
+        { title: "Digital Ad Campaign", description: "A targeted digital ad campaign increased web traffic by 150% and improved brand recognition in the local area." },
+        { title: "Website Optimization", description: "Revamped the client's website for local SEO, leading to first-page rankings for key search terms." }
+      ],
+      color: "#45c0ff"
     },
     {
       id: 4,
@@ -48,7 +64,12 @@ const ClientsUniverse = () => {
       category: "Marketing",
       siteUrl: "https://www.giadagency.com/",
       metrics: ["12K followers", "$2.3M client revenue", "430% ROAS"],
-      color: "#00D9FF"
+      whatWeDid: [
+        { title: "Lead Generation Funnel", description: "Implemented a high-converting lead generation funnel that directly contributed to $2.3M in new client revenue." },
+        { title: "Performance Marketing", description: "Managed a multi-platform ad spend with a focus on data analysis to achieve an average 430% ROAS." },
+        { title: "Content Marketing", description: "Showcased their expertise through case studies and articles, growing their own following by 12K." }
+      ],
+      color: "#45c0ff"
     },
     {
       id: 5,
@@ -59,7 +80,12 @@ const ClientsUniverse = () => {
       category: "AI Fashion",
       siteUrl: "https://www.hanger.live/",
       metrics: ["203K followers", "$1.2M funding", "50K+ downloads"],
-      color: "#9B59B6"
+      whatWeDid: [
+        { title: "Content Strategy", description: "Developed a unique content strategy that demystified AI, making it relatable and attracting over 200K followers." },
+        { title: "App Launch Support", description: "Our launch campaign drove over 50,000 app downloads in the first month." },
+        { title: "Traction & Funding", description: "Created a compelling pitch deck and marketing materials that were instrumental in their successful funding round." }
+      ],
+      color: "#45c0ff"
     },
     {
       id: 6,
@@ -70,7 +96,12 @@ const ClientsUniverse = () => {
       category: "HealthTech",
       siteUrl: "https://www.culin.net/",
       metrics: ["78K followers", "Mayo Clinic partnership", "4.8★ app rating"],
-      color: "#2ECC71"
+      whatWeDid: [
+        { title: "Strategic PR", description: "Crafted and executed a PR campaign that secured a high-profile partnership with the Mayo Clinic." },
+        { title: "Community Trust", description: "Built a large, trusted online community by sharing scientifically-backed nutritional information." },
+        { title: "App Store Optimization", description: "Managed app store listings and proactive review responses to maintain a 4.8-star rating." }
+      ],
+      color: "#45c0ff"
     },
   ];
 
@@ -92,7 +123,7 @@ const ClientsUniverse = () => {
   };
 
   return (
-    <section id="clients" className="py-20 bg-gray-50">
+    <section id="clients" className="py-20 bg-gray-50 dark:bg-[var(--background)]">
       <div className="container mx-auto px-6 max-w-7xl font-display">
         {/* Header */}
         <motion.div
@@ -102,10 +133,10 @@ const ClientsUniverse = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Our <span className="text-[#4E6EFF]">Portfolio</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-[var(--foreground)] mb-4">
+            Our <span className="text-[var(--accent)]">Portfolio</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto font-inter">
             Transforming brands across industries with strategic social media marketing and compelling digital experiences
           </p>
         </motion.div>
@@ -121,7 +152,7 @@ const ClientsUniverse = () => {
               viewport={{ once: true }}
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
-              className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500"
+              className="group bg-white dark:bg-[var(--card)] rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500"
             >
               {/* Image Container */}
               <div className="relative h-64 overflow-hidden">
@@ -135,7 +166,7 @@ const ClientsUniverse = () => {
                 {/* Category Badge */}
                 <div 
                   className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 rounded-full text-white text-sm font-medium backdrop-blur-sm"
-                  style={{ backgroundColor: `${project.color}CC` }}
+                  style={{ backgroundColor: project.color + 'CC' }}
                 >
                   {getCategoryIcon(project.category)}
                   {project.category}
@@ -154,20 +185,49 @@ const ClientsUniverse = () => {
                   transition={{ duration: 0.3 }}
                   className="absolute top-4 right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 group/btn"
                 >
-                  <ExternalLink className="w-5 h-5 text-gray-700 group-hover/btn:text-[#4E6EFF] transition-colors duration-200" />
+                  <ExternalLink className="w-5 h-5 text-gray-700 group-hover/btn:text-[var(--accent)] transition-colors duration-200" />
                 </motion.a>
               </div>
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#4E6EFF] transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-[var(--card-foreground)] mb-3 group-hover:text-[var(--accent)] transition-colors duration-300">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 font-inter mb-6 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-400 font-inter mb-6 leading-relaxed">
                   {project.description}
                 </p>
 
-                
+                <div className="mb-6 font-inter">
+                  <h4 className="font-bold text-gray-800 dark:text-gray-300 mb-3">What we did:</h4>
+                  <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                    {project.whatWeDid.map((item, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start relative cursor-pointer"
+                        onMouseEnter={() => setHoveredInfo(`${project.id}-${i}`)}
+                        onMouseLeave={() => setHoveredInfo(null)}
+                      >
+                        <CheckCircle2 className="w-4 h-4 mr-2 mt-0.5 text-[var(--accent)] flex-shrink-0" />
+                        <span>{item.title}</span>
+                        <AnimatePresence>
+                          {hoveredInfo === `${project.id}-${i}` && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                              transition={{ duration: 0.2 }}
+                              className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max max-w-[250px] bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-md py-1.5 px-3 z-10 shadow-lg"
+                              style={{ pointerEvents: 'none' }}
+                            >
+                              {item.description}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
                 {/* Visit Site Link */}
                 <motion.a
@@ -175,7 +235,7 @@ const ClientsUniverse = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ x: 5 }}
-                  className="inline-flex items-center gap-2 mt-6 text-[#4E6EFF] hover:text-[#3D5BFF] font-semibold transition-colors duration-200"
+                  className="inline-flex items-center gap-2 mt-6 text-[var(--accent)] hover:text-[var(--accent)] font-semibold transition-colors duration-200"
                 >
                   <span>View Project</span>
                   <ExternalLink className="w-4 h-4" />
