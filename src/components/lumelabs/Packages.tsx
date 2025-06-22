@@ -42,6 +42,53 @@ const Packages = () => {
 
     const tiers = [
         {
+            name: 'Web Foundation',
+            price: '$399/month',
+            description: 'A professional website and the support to keep it running smoothly.',
+            features: [
+                'New website build or full redesign',
+                'Website hosting & maintenance (bug fixes & updates)',
+                'Basic SEO (Search Engine Optimization) setup',
+                'Up to 5 hours of monthly web support for content updates',
+                'Monthly website analytic reports',
+                'Google Reviews management integration',
+            ],
+            story: "Your website is your digital storefront. We'll build it and keep it pristine.",
+            buttonText: 'Build My Site',
+            buttonVariant: 'outline',
+        },
+        {
+            name: 'Social Kickstart',
+            price: '$349/month',
+            description: 'Kickstart your social media presence with consistent, high-quality content.',
+            features: [
+                '4 high-quality videos/month (filmed & edited by us)',
+                '8 social posts tailored for Instagram or TikTok',
+                'Social platform management (Instagram or TikTok)',
+                'Basic community engagement',
+                'Monthly social media performance reports',
+            ],
+            story: "Great content is your magnet for customers. We'll create it, and you'll see the buzz.",
+            buttonText: 'Get Social',
+            buttonVariant: 'outline',
+        },
+        {
+            name: 'Social Growth',
+            price: '$599/month',
+            description: 'Amplify your social presence and turn followers into customers.',
+            features: [
+                '8 high-quality videos/month (filmed & edited by us)',
+                '16 social posts for Instagram & TikTok',
+                'Management for 2 social platforms',
+                'Proactive community management & engagement',
+                'Bi-weekly insights & strategy calls',
+                'Monthly growth and performance reports',
+            ],
+            story: "Go from just posting to building a real community around your brand.",
+            buttonText: 'Amplify My Socials',
+            buttonVariant: 'outline',
+        },
+        {
             name: 'Starter',
             price: '$499/month',
             description: 'Built for small businesses making their first real online push.',
@@ -116,7 +163,7 @@ const Packages = () => {
 
                 <div
                     ref={plansRef}
-                    className="grid md:grid-cols-3 gap-6 opacity-0 translate-y-8 transition-all duration-700 delay-300 max-w-5xl mx-auto"
+                    className="grid md:grid-cols-3 gap-6 opacity-0 translate-y-8 transition-all duration-700 delay-300 max-w-7xl mx-auto"
                 >
                     {tiers.map((tier, index) => (
                         <div
