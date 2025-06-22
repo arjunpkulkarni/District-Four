@@ -73,54 +73,52 @@ const HeroSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
               >
-                We’re a team that knows how social media & the internet works and have helped many companies grow using smart, data-backed strategies.
+                We help businesses dominate online by growing their audience, strengthening their brand, and turning social media and SEO-optimized websites into real, measurable revenue.
               </motion.p>
 
-
-
-              {/* CTA Section */}
-              <motion.div
-                className="flex flex-col sm:flex-row gap-4 mb-8"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.8 }}
-              >
-                <div className="flex flex-col sm:flex-row gap-4 flex-1">
-                  <input
-                    type="email"
-                    placeholder="your@company.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 px-6 py-4 rounded-xl border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white shadow-sm"
-                  />
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold flex items-center gap-2 transition-all duration-200 shadow-lg shadow-blue-600/25 whitespace-nowrap"
-                  >
-                    Get Free Audit
-                    <ArrowRight className="w-5 h-5" />
-                  </motion.button>
-                </div>
-              </motion.div>
-
-              {/* Trust Indicators */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1, duration: 0.6 }}
-                className="flex flex-wrap items-center gap-6 text-gray-500 text-sm"
-              >
-
-                <div className="flex items-center gap-1">
-                  <div className="flex">
-                    {[1, 2, 3, 4, 5].map(i => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
+                {/* CTA Section */}
+                <motion.div
+                  className="flex flex-col sm:flex-row gap-4 mb-8"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8, duration: 0.8 }}
+                >
+                  <div className="flex flex-col sm:flex-row gap-4 flex-1">
+                    <input
+                      type="email"
+                      placeholder="your@company.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="flex-1 px-6 py-4 rounded-xl border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white shadow-sm"
+                    />
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold flex items-center gap-2 transition-all duration-200 shadow-lg shadow-blue-600/25 whitespace-nowrap"
+                    >
+                      Get Free Audit
+                      <ArrowRight className="w-5 h-5" />
+                    </motion.button>
                   </div>
-                  <span>4.9/5 average rating</span>
-                </div>
-              </motion.div>
+                </motion.div>
+
+                {/* Trust Indicators */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1, duration: 0.6 }}
+                  className="flex flex-wrap items-center gap-6 text-gray-500 text-sm"
+                >
+
+                  <div className="flex items-center gap-1">
+                    <div className="flex">
+                      {[1, 2, 3, 4, 5].map(i => (
+                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                    <span>4.9/5 average rating</span>
+                  </div>
+                </motion.div>
 
 
             </div>
