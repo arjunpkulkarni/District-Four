@@ -44,8 +44,8 @@ const LumeLabs = () => {
       <HeroSection />
       <TeamSection />
       <WhyChooseUs />
-      <ServicesSection />
       <Packages />
+      <ServicesSection />
       <ClientsUniverse />
       
       

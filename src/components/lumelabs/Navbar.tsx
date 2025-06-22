@@ -71,7 +71,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 mt-1">
         <div className={`flex items-center h-16 justify-between md:justify-center ${isScrolled ? 'md:justify-between' : ''}`}>
           <motion.div layout transition={{ type: "spring", stiffness: 300, damping: 30 }} className="flex items-center space-x-3">
-            <img src="/images/icon.png" alt="Lume Logo" className="h-32 w-auto" />            
+            <img src="/images/icon.png" alt="Lume Logo" className="h-44 w-auto" />            
           </motion.div>
 
           <div className="hidden md:flex items-center">

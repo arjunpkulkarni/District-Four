@@ -72,7 +72,7 @@ const TeamSection = () => {
             Meet the Team
           </motion.h2>
           <motion.p variants={itemVariants} className="text-xl text-gray-600 max-w-3xl mx-auto font-body">
-            We're not just marketers—we're creators who've built our own audiences and understand what it takes to grow a brand authentically.
+            We're not just marketers—we're creators who've built our own audiences and understand what it takes to grow a brand & business authentically.
           </motion.p>
         </motion.div>
 
