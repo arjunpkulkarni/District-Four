@@ -7,10 +7,10 @@ import ServicesSection from '@/components/lumelabs/ServicesSection';
 import Packages from '@/components/lumelabs/Packages';
 import ClientsUniverse from '@/components/lumelabs/ClientsUniverse';
 import TeamSection from '@/components/lumelabs/TeamSection';
+import CreatorNetwork from '@/components/lumelabs/CreatorNetwork';
 import WorkflowTimeline from '@/components/lumelabs/WorkflowTimeline';
 import ContactFooter from '@/components/lumelabs/ContactFooter';
-import CreatorNetwork from '@/components/lumelabs/CreatorNetwork';
-
+import Testimonials from '@/components/Testimonials';
 const LumeLabs = () => {
   const [konamiSequence, setKonamiSequence] = useState<string[]>([]);
   const [darkMode, setDarkMode] = useState(false);
@@ -45,13 +45,14 @@ const LumeLabs = () => {
       <ClientsUniverse />
       <Packages />
       <TeamSection />
+      <CreatorNetwork />
       <WhyChooseUs />
 
       <ServicesSection />
 
       
       <WorkflowTimeline />
-      <CreatorNetwork />
+      <Testimonials />
       <ContactFooter />
       
       {/* Enhanced Particle Effects */}
