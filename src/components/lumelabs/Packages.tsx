@@ -80,7 +80,7 @@ const Packages = () => {
             tiers: [
                 {
                     name: 'Web Foundation',
-                    price: '$399/month',
+                    price: '$299/month',
                     description: 'A professional website and the support to keep it running smoothly.',
                     features: [
                         'New website build or full redesign',
@@ -88,7 +88,6 @@ const Packages = () => {
                         'Basic SEO (Search Engine Optimization) setup',
                         'Up to 5 hours of monthly web support for content updates',
                         'Monthly website analytic reports',
-                        'Google Reviews management integration',
                     ],
                 },
                 {
@@ -98,7 +97,8 @@ const Packages = () => {
                     features: [
                         'Professional website with ongoing maintenance & hosting',
                         'Advanced SEO (Search Engine Optimization) setup',
-                        '2 professionally written blog posts per month',
+                        '4 professionally written blog posts per month',
+                        'Google Reviews management',
                         'Up to 8 hours of monthly web support for content updates',
                         'Monthly in-depth website performance & SEO report',
                     ],
@@ -110,8 +110,8 @@ const Packages = () => {
             description: 'The complete package. We handle your website and social media for maximum impact.',
             tiers: [
                 {
-                    name: 'Growth',
-                    price: '$749/month',
+                    name: 'Starter',
+                    price: '$499/month',
                     description: 'For brands getting traction and ready to grow faster.',
                     features: [
                         'Website + audits (bug fixes & updates)',
@@ -126,9 +126,9 @@ const Packages = () => {
                     isPopular: false,
                 },
                 {
-                    name: 'Online Authority',
-                    price: '$849/month',
-                    description: 'Everything you need to dominate online: a professional website, active social media, and content that builds trust.',
+                    name: 'Growth',
+                    price: '$749/month',
+                    description: 'Everything you need to dominate online.',
                     features: [
                         'New website build or full redesign with hosting & maintenance',
                         'Google Reviews management to build credibility',
@@ -144,7 +144,6 @@ const Packages = () => {
                     description: 'The all-in-one growth engine for scaling brands.',
                     features: [
                         'Website + audits (bug fixes & updates)',
-                        "Use our AI Leads agent that generates leads 24/7, it will get you customers 24/7",
                         'Most advanced SEO that drives clicks, traffic and sales',
                         'Full social management: Facebook, Instagram, TikTok, Twitter, LinkedIn, etc.',
                         'Weekly strategy + insights sessions – we become your content team',
@@ -191,6 +190,10 @@ const Packages = () => {
         </div>
     );
 
+    const socialSection = packageSections[0];
+    const webSection = packageSections[1];
+    const allInOneSection = packageSections[2];
+
     return (
         <section className="relative py-16 bg-gray-50" id="packages">
             <div className="container-section">
@@ -210,19 +213,23 @@ const Packages = () => {
                     ref={plansRef}
                     className="opacity-0 translate-y-8 transition-all duration-700 delay-300"
                 >
-                    <div className="grid md:grid-cols-2 gap-x-8 gap-y-12 max-w-7xl mx-auto">
-                        {packageSections.slice(0, 2).map((section) => (
-                            <div key={section.name}>
-                                <div className="text-left mb-8">
-                                    <h3 className="text-4xl font-bold text-gray-800 mb-3">{section.name}</h3>
-                                    <p className="text-lg text-gray-600">{section.description}</p>
-                                </div>
-                                <div className="space-y-6">
-                                    {section.tiers.map((tier) => (
-                                        <TierCard key={tier.name} tier={tier} />
-                                    ))}
-                                </div>
-                            </div>
+                    <div className="grid md:grid-cols-2 gap-x-8 gap-y-8 max-w-7xl mx-auto">
+                        {/* Titles */}
+                        <div>
+                            <h3 className="text-4xl font-bold text-gray-800 mb-3">{socialSection.name}</h3>
+                            <p className="text-lg text-gray-600">{socialSection.description}</p>
+                        </div>
+                        <div>
+                            <h3 className="text-4xl font-bold text-gray-800 mb-3">{webSection.name}</h3>
+                            <p className="text-lg text-gray-600">{webSection.description}</p>
+                        </div>
+
+                        {/* Paired Tiers */}
+                        {socialSection.tiers.map((socialTier, index) => (
+                            <React.Fragment key={index}>
+                                <TierCard tier={socialTier} />
+                                <TierCard tier={webSection.tiers[index]} />
+                            </React.Fragment>
                         ))}
                     </div>
 
@@ -230,21 +237,19 @@ const Packages = () => {
                         <div className="border-t border-gray-200 max-w-7xl mx-auto"></div>
                     </div>
 
-                    {packageSections.slice(2).map((section) => (
-                        <div key={section.name}>
-                            <div className="max-w-7xl mx-auto">
-                                <div className="text-left mb-8">
-                                    <h3 className="text-4xl font-bold text-gray-800 mb-3">{section.name}</h3>
-                                    <p className="text-lg text-gray-600">{section.description}</p>
-                                </div>
-                                <div className="grid md:grid-cols-3 gap-6">
-                                    {section.tiers.map((tier) => (
-                                        <TierCard key={tier.name} tier={tier} />
-                                    ))}
-                                </div>
+                    <div key={allInOneSection.name}>
+                        <div className="max-w-7xl mx-auto">
+                            <div className="text-left mb-8">
+                                <h3 className="text-4xl font-bold text-gray-800 mb-3">{allInOneSection.name}</h3>
+                                <p className="text-lg text-gray-600">{allInOneSection.description}</p>
+                            </div>
+                            <div className="grid md:grid-cols-3 gap-6">
+                                {allInOneSection.tiers.map((tier) => (
+                                    <TierCard key={tier.name} tier={tier} />
+                                ))}
                             </div>
                         </div>
-                    ))}
+                    </div>
                 </div>
             </div>
         </section>

@@ -94,11 +94,11 @@ const HeroSection = () => {
                       className="flex-1 px-6 py-4 rounded-xl border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white shadow-sm"
                     />
                     <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold flex items-center gap-2 transition-all duration-200 shadow-lg shadow-blue-600/25 whitespace-nowrap"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="bg-gradient-to-r from-[#45c0ff] via-[#6936F5] to-[#45c0ff] bg-[length:200%_auto] text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all duration-500 shadow-2xl shadow-[#6936F5]/40 whitespace-nowrap hover:bg-right"
                     >
-                      Get Free Audit
+                      Book Free Consultation
                       <ArrowRight className="w-5 h-5" />
                     </motion.button>
                   </div>

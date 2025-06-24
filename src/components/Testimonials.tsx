@@ -4,171 +4,74 @@ import { motion } from 'framer-motion';
 const testimonials = [
   {
     id: 1,
-    quote: "Alice allowed us to scale outbound efforts without sacrificing personalization. It's been a crucial multiplier for our team.",
-    name: "Matthew Lenhart",
-    title: "Senior Manager, Sales Ops & Strategy at Otter.ai",
-    company: "Otter.ai",
-    logo: "otter",
-    bgColor: "bg-[#efeaf5]",
+    quote: "D4's content strategy was a game-changer. They made AI feel human and brought in many new followers for us.",
+    name: "Pavan Otthi",
+    title: "CEO, Hanger",
+    imageSrc: "/images/hanger.png",
   },
   {
     id: 2,
-    quote: "Mike allows us to retarget hundreds of thousands of old leads. It's like unlocking a new opportunity we never thought was possible.",
-    name: "Sales Team",
-    title: "Connecteam",
-    company: "Connecteam",
-    logo: "connecteam",
-    bgColor: "bg-[#fde7dc]",
+    quote: "The PR campaign they ran was instrumental in securing our partnership with the USCD. A huge win for our team.",
+    name: "James Brisicone",
+    title: "Founder, Culin",
+    imageSrc: "/images/culin.png",
   },
   {
     id: 3,
-    quote: "With Mike, we could reach customers in languages we couldn't otherwise support.",
-    name: "Growth Marketing",
-    title: "Spectinga",
-    company: "Spectinga",
-    logo: "spectinga",
-    bgColor: "bg-[#e9e9e9]",
-  }
-];
-
-const stats = [
-  {
-    id: 1,
-    value: "$500k",
-    description: "on hiring costs saved",
-    company: "Otter.ai",
-    bgColor: "bg-[#efeaf5]",
-  },
-  {
-    id: 2,
-    value: "Handshake",
-    description: "",
-    company: "Handshake",
-    bgColor: "bg-white",
-  },
-  {
-    id: 3,
-    value: "Sumup",
-    description: "",
-    company: "Sumup",
-    bgColor: "bg-white",
+    quote: "Our web traffic increased by 150% thanks to their targeted digital ad campaign. We've never seen results like this.",
+    name: "David Chen",
+    title: "Owner, Gloss Authority",
+    imageSrc: "/images/glossauthority.png",
   }
 ];
 
 const Testimonials = () => {
   return (
-    <section className="py-8 bg-white" id="testimonials">
-      <div className="container-section max-w-6xl mx-auto">
+    <section className="py-20 bg-gray-50" id="testimonials">
+      <div className="container mx-auto px-6 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="mb-8 text-center"
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl font-bold mb-6">Trusted by industry leaders</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Trusted By <span className="text-blue-600">Leading Brands</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
+            We partner with innovative companies to build brand trust and drive growth.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-12 gap-4">
-          {/* Stats box */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="col-span-12 md:col-span-4 lg:col-span-3 rounded-xl overflow-hidden"
-          >
-            <div className={`h-full ${stats[0].bgColor} p-8 flex flex-col`}>
-              <div className="mt-auto">
-                <div className="text-5xl font-bold mb-2">{stats[0].value}</div>
-                <div className="text-gray-600">{stats[0].description}</div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={testimonial.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden"
+            >
+              <div className="h-48">
+                <img 
+                  src={testimonial.imageSrc} 
+                  alt={testimonial.name} 
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="mt-auto pt-6">
-                <div className="font-bold text-lg">
-                  <span className="font-black">OI</span>•<span className="font-black">I</span> Otter.ai
-                </div>
+              <div className="p-8 flex-grow flex flex-col">
+                <blockquote className="text-lg text-gray-700 font-inter flex-grow">
+                  "{testimonial.quote}"
+                </blockquote>
+                <footer className="mt-8">
+                  <p className="font-bold text-gray-900">{testimonial.name}</p>
+                  <p className="text-sm text-gray-600">{testimonial.title}</p>
+                </footer>
               </div>
-            </div>
-          </motion.div>
-
-          {/* Handshake box */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="col-span-12 md:col-span-4 lg:col-span-3 rounded-xl overflow-hidden border border-gray-100"
-          >
-            <img src="/images/gdagency.jpeg" alt="GD Agency" className="w-full h-full object-cover" />
-          </motion.div>
-
-          {/* First testimonial */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="col-span-12 md:col-span-8 lg:col-span-6 rounded-xl overflow-hidden"
-          >
-            <div className={`h-full ${testimonials[0].bgColor} p-8 flex flex-col`}>
-              <div className="text-2xl font-medium mb-8">
-                "{testimonials[0].quote}"
-              </div>
-              <div className="mt-auto">
-                <div className="font-medium">{testimonials[0].name}</div>
-                <div className="text-gray-600 text-sm">{testimonials[0].title}</div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Second testimonial */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="col-span-12 md:col-span-7 lg:col-span-6 rounded-xl overflow-hidden"
-          >
-            <div className={`h-full ${testimonials[1].bgColor} p-8 flex flex-col`}>
-              <div className="text-2xl font-medium mb-8">
-                "{testimonials[1].quote}"
-              </div>
-              <div className="mt-auto">
-                <div className="font-bold text-lg">connecteam</div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Sumup box */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="col-span-12 md:col-span-5 lg:col-span-3 rounded-xl overflow-hidden border border-gray-100"
-          >
-            <img src="/images/glossauthority.png" alt="Gloss Authority" className="w-full h-full object-cover" />
-          </motion.div>
-
-          {/* Third testimonial */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            viewport={{ once: true }}
-            className="col-span-12 md:col-span-12 lg:col-span-3 rounded-xl overflow-hidden"
-          >
-            <div className={`h-full ${testimonials[2].bgColor} p-8 flex flex-col`}>
-              <div className="text-2xl font-medium mb-8">
-                "{testimonials[2].quote}"
-              </div>
-              <div className="mt-auto">
-                <div className="font-bold flex items-center">
-                  <span className="inline-block mr-1">⊙</span> spectinga
-                </div>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

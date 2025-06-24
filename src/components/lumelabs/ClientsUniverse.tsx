@@ -15,7 +15,7 @@ const ClientsUniverse = () => {
       description: "NYC's first centralized fashion social platform connecting style enthusiasts.",
       category: "Fashion Tech",
       siteUrl: "https://www.fitcheck.live",
-      metrics: ["127K followers", "2.3M impressions", "450% growth"],
+      metrics: ["1K+ | Downloads", "450% | User Growth", "300% | Website Traffic"],
       whatWeDid: [
         { title: "Viral Campaign", description: "Developed a viral marketing campaign that reached millions of impressions across TikTok and Instagram." },
         { title: "Social Growth", description: "Dramatically grew their social media presence in a short period, achieving over 100K followers." },
@@ -31,7 +31,7 @@ const ClientsUniverse = () => {
       description: "Professional style hub transforming workplace fashion in Westchester, NY.",
       category: "B2B Fashion",
       siteUrl: "https://workwearweb.com/",
-      metrics: ["89K followers", "3.8M video views", "92% brand recall"],
+      metrics: ["2K+ | Sales", "200% | Website Traffic", "150% | Increase in Leads"],
       whatWeDid: [
         { title: "Video Content", description: "Produced engaging short-form video content that generated millions of views on LinkedIn and YouTube." },
         { title: "Brand Identity", description: "Built a strong brand identity that resulted in a 92% brand recall rate among the target audience." },
@@ -47,7 +47,7 @@ const ClientsUniverse = () => {
       description: "Premium mobile car detailing service with viral before/after content.",
       category: "Automotive",
       siteUrl: "https://glossauthority.com/",
-      metrics: ["45K followers", "67% more bookings", "4.9★ rating"],
+      metrics: ["150% | Increase in Leads", "67% | More Bookings", "200% | Local Traffic Boost"],
       whatWeDid: [
         { title: "Local SEO", description: "Established and optimized a Google Business Profile, boosting local search visibility and walk-in inquiries." },
         { title: "Digital Ad Campaign", description: "A targeted digital ad campaign increased web traffic by 150% and improved brand recognition in the local area." },
@@ -63,7 +63,7 @@ const ClientsUniverse = () => {
       description: "Digital marketing agency practicing what they preach with proven results.",
       category: "Marketing",
       siteUrl: "https://www.giadagency.com/",
-      metrics: ["12K followers", "$2.3M client revenue", "430% ROAS"],
+      metrics: ["300+ | Leads Generated", "$10K+ | Client Revenue", "270% | Average ROAS"],
       whatWeDid: [
         { title: "Lead Generation Funnel", description: "Implemented a high-converting lead generation funnel that directly contributed to $2.3M in new client revenue." },
         { title: "Performance Marketing", description: "Managed a multi-platform ad spend with a focus on data analysis to achieve an average 430% ROAS." },
@@ -79,7 +79,7 @@ const ClientsUniverse = () => {
       description: "AI-powered fashion marketplace making technology feel human and accessible.",
       category: "AI Fashion",
       siteUrl: "https://www.hanger.live/",
-      metrics: ["203K followers", "$1.2M funding", "50K+ downloads"],
+      metrics: ["1K+ | Downloads", "35% | Conversion Rate", "200% | User Engagement"],
       whatWeDid: [
         { title: "Content Strategy", description: "Developed a unique content strategy that demystified AI, making it relatable and attracting over 200K followers." },
         { title: "App Launch Support", description: "Our launch campaign drove over 50,000 app downloads in the first month." },
@@ -95,7 +95,7 @@ const ClientsUniverse = () => {
       description: "Health-tech startup making nutrition science accessible to everyone.",
       category: "HealthTech",
       siteUrl: "https://www.culin.net/",
-      metrics: ["78K followers", "Mayo Clinic partnership", "4.8★ app rating"],
+      metrics: ["10K+ | Active Users", "90% | User Growth", "4.8 | App Rating"],
       whatWeDid: [
         { title: "Strategic PR", description: "Crafted and executed a PR campaign that secured a high-profile partnership with the Mayo Clinic." },
         { title: "Community Trust", description: "Built a large, trusted online community by sharing scientifically-backed nutritional information." },
@@ -197,6 +197,20 @@ const ClientsUniverse = () => {
                 <p className="text-gray-600 dark:text-gray-400 font-inter mb-6 leading-relaxed">
                   {project.description}
                 </p>
+
+                <div className="border-t border-b border-gray-200 dark:border-gray-700 my-6 py-4">
+                  <div className="grid grid-cols-3 gap-4 text-center">
+                    {project.metrics.map((metric, i) => {
+                      const parts = metric.split(' | ');
+                      return (
+                        <div key={i}>
+                          <p className="font-bold text-lg text-gray-800 dark:text-gray-200 font-inter">{parts[0]}</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400 font-inter">{parts[1]}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
 
                 <div className="mb-6 font-inter">
                   <h4 className="font-bold text-gray-800 dark:text-gray-300 mb-3">What we did:</h4>

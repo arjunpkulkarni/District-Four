@@ -136,28 +136,7 @@ const WorkflowTimeline = () => {
               )}
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* CTA */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-          className="text-center mt-24"
-        >
-          <motion.div variants={itemVariants} className="bg-white rounded-2xl p-8 md:p-12 border border-gray-200">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4 font-display">Ready to Get Started?</h3>
-            <p className="text-gray-600 mb-6 font-body">Let's discuss your goals and create a custom strategy for your brand.</p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 font-body"
-            >
-              Schedule Free Consultation
-            </motion.button>
-          </motion.div>
-        </motion.div>
+        </motion.div>        
       </div>
     </section>
   );
