@@ -11,6 +11,7 @@ import CreatorNetwork from '@/components/lumelabs/CreatorNetwork';
 import WorkflowTimeline from '@/components/lumelabs/WorkflowTimeline';
 import ContactFooter from '@/components/lumelabs/ContactFooter';
 import Testimonials from '@/components/Testimonials';
+
 const LumeLabs = () => {
   const [konamiSequence, setKonamiSequence] = useState<string[]>([]);
   const [darkMode, setDarkMode] = useState(false);
