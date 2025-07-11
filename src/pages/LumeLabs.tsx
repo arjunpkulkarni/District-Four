@@ -48,15 +48,11 @@ const LumeLabs = () => {
       <TeamSection />
       <CreatorNetwork />
       <WhyChooseUs />
-
       <ServicesSection />
-
-      
       <WorkflowTimeline />
       <Testimonials />
       <ContactFooter />
       
-      {/* Enhanced Particle Effects */}
       <div className="fixed inset-0 pointer-events-none z-0">
         {[...Array(100)].map((_, i) => (
           <motion.div
