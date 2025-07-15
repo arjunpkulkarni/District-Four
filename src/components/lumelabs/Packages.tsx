@@ -1,35 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Check } from 'lucide-react';
 
 const Packages = () => {
-    const sectionRef = useRef<HTMLDivElement>(null);
-    const plansRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('opacity-100', 'translate-y-0');
-                        entry.target.classList.remove('opacity-0', 'translate-y-8');
-                    }
-                });
-            },
-            { threshold: 0.1 }
-        );
-
-        const currentSectionRef = sectionRef.current;
-        const currentPlansRef = plansRef.current;
-
-        if (currentSectionRef) observer.observe(currentSectionRef);
-        if (currentPlansRef) observer.observe(currentPlansRef);
-
-        return () => {
-            if (currentSectionRef) observer.unobserve(currentSectionRef);
-            if (currentPlansRef) observer.unobserve(currentPlansRef);
-        };
-    }, []);
-
     const highlightNumbers = (text: string) => {
         return text.split(/(\d+)/).map((part, index) =>
             /\d/.test(part) ? (
@@ -159,9 +131,9 @@ const Packages = () => {
 
     const TierCard = ({ tier }: { tier: any }) => (
         <div
-            className={`relative bg-white rounded-2xl p-6 shadow-sm transition-all duration-300 h-full ${tier.isPopular
+            className={`relative bg-gray-900 rounded-2xl p-6 shadow-sm transition-all duration-300 h-full flex flex-col ${tier.isPopular
                     ? 'border-2 border-cyan-400 shadow-cyan-400/50 shadow-2xl'
-                    : 'border border-gray-200 hover:shadow-xl hover:border-cyan-400/30'
+                    : 'border border-gray-700 hover:shadow-xl hover:border-cyan-400/30'
                 } hover:-translate-y-1`}
         >
             {tier.isPopular && (
@@ -169,85 +141,58 @@ const Packages = () => {
                     Most Popular
                 </div>
             )}
-            <div className="text-lg font-extrabold text-gray-900 mb-2">{tier.name}</div>
-            <div className="text-gray-500 mb-4 text-sm">{tier.description}</div>
+            <div className="flex-grow">
+                <div className="text-lg font-extrabold text-white mb-2">{tier.name}</div>
+                <div className="text-gray-400 mb-4 text-sm">{tier.description}</div>
 
-            <div className="flex items-end mb-4">
-                <div className="text-4xl font-bold text-gray-900">{tier.price.split('/')[0]}</div>
-                <div className="text-gray-500 ml-1 mb-1">/month</div>
+                <div className="flex items-end mb-4">
+                    <div className="text-4xl font-bold text-white">{tier.price.split('/')[0]}</div>
+                    <div className="text-gray-400 ml-1 mb-1">/month</div>
+                </div>
+
+                <ul className="space-y-2">
+                    {tier.features.map((feature: string, i: number) => (
+                        <li key={i} className="flex items-start">
+                            <Check className="w-4 h-4 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-300 text-sm">{highlightNumbers(feature)}</span>
+                        </li>
+                    ))}
+                </ul>
             </div>
-
-            <ul className="space-y-2">
-                {tier.features.map((feature: string, i: number) => (
-                    <li key={i} className="flex items-start">
-                        <Check className="w-4 h-4 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700 text-sm">{highlightNumbers(feature)}</span>
-                    </li>
-                ))}
-            </ul>
         </div>
     );
 
-    const socialSection = packageSections[0];
-    const webSection = packageSections[1];
-    const allInOneSection = packageSections[2];
-
     return (
-        <section className="relative py-16 bg-gray-50" id="packages">
+        <section className="relative py-16 bg-black" id="packages">
             <div className="container-section">
-                <div
-                    ref={sectionRef}
-                    className="max-w-2xl mx-auto text-center opacity-0 translate-y-8 transition-all duration-700"
-                >
-                    <h2 className="heading-lg text-gray-900 mb-4 text-5xl font-bold">
+                <div className="max-w-2xl mx-auto text-center">
+                    <h2 className="heading-lg text-white mb-4 text-5xl font-bold">
                         Choose your <span className="gradient-text">Plan</span>
                     </h2>
-                    <p className="text-gray-700 text-xl mb-12 max-w-xl mx-auto">
+                    <p className="text-gray-300 text-xl mb-12 max-w-xl mx-auto">
                         Choose the package that aligns with your brand's goals.
                     </p>
                 </div>
 
-                <div
-                    ref={plansRef}
-                    className="opacity-0 translate-y-8 transition-all duration-700 delay-300"
-                >
-                    <div className="grid md:grid-cols-2 gap-x-8 gap-y-8 max-w-7xl mx-auto">
-                        {/* Titles */}
-                        <div>
-                            <h3 className="text-4xl font-bold text-gray-800 mb-3">{socialSection.name}</h3>
-                            <p className="text-lg text-gray-600">{socialSection.description}</p>
-                        </div>
-                        <div>
-                            <h3 className="text-4xl font-bold text-gray-800 mb-3">{webSection.name}</h3>
-                            <p className="text-lg text-gray-600">{webSection.description}</p>
-                        </div>
-
-                        {/* Paired Tiers */}
-                        {socialSection.tiers.map((socialTier, index) => (
-                            <React.Fragment key={index}>
-                                <TierCard tier={socialTier} />
-                                <TierCard tier={webSection.tiers[index]} />
-                            </React.Fragment>
-                        ))}
-                    </div>
-
-                    <div className="py-16">
-                        <div className="border-t border-gray-200 max-w-7xl mx-auto"></div>
-                    </div>
-
-                    <div key={allInOneSection.name}>
-                        <div className="max-w-7xl mx-auto">
-                            <div className="text-left mb-8">
-                                <h3 className="text-4xl font-bold text-gray-800 mb-3">{allInOneSection.name}</h3>
-                                <p className="text-lg text-gray-600">{allInOneSection.description}</p>
+                <div>
+                    {packageSections.map((section) => {
+                        const gridCols = section.tiers.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-2';
+                        return (
+                            <div key={section.name} className="mb-16">
+                                <div className="max-w-7xl mx-auto">
+                                    <div className="text-left mb-8">
+                                        <h3 className="text-4xl font-bold text-white mb-3">{section.name}</h3>
+                                        <p className="text-lg text-gray-300">{section.description}</p>
+                                    </div>
+                                    <div className={`grid ${gridCols} gap-6`}>
+                                        {section.tiers.map((tier) => (
+                                            <TierCard key={tier.name} tier={tier} />
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
-                            <div className="grid md:grid-cols-3 gap-6">
-                                {allInOneSection.tiers.map((tier) => (
-                                    <TierCard key={tier.name} tier={tier} />
-                                ))}
-                            </div>
-                        </div>
-                    </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

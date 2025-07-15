@@ -49,7 +49,7 @@ const Navbar = () => {
           <a href="#pricing" className="text-convrt-dark-blue/80 hover:text-convrt-dark-blue font-medium transition-colors">
             Pricing
           </a>
-          <a href="#cta" className="button-primary">
+          <a href="#cta" className="rounded-md border border-white/40 bg-white/10 backdrop-blur-sm px-4 py-2 text-sm font-medium text-white/80 transition-colors hover:border-white hover:bg-white/20 hover:text-white">
             Get Started
           </a>
         </div>
@@ -97,7 +97,7 @@ const Navbar = () => {
             </a>
             <a 
               href="#cta" 
-              className="button-primary w-full text-center"
+              className="w-full text-center rounded-md border border-white/40 bg-white/10 backdrop-blur-sm px-4 py-2 text-sm font-medium text-white/80 transition-colors hover:border-white hover:bg-white/20 hover:text-white"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Get Started

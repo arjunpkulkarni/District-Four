@@ -56,6 +56,8 @@ const LumeLabs = () => {
         return <WorkflowTimeline />;
       case 'team':
         return <TeamSection />;
+      case 'pricing':
+        return <Packages />;
       case 'contact':
         return <ContactFooter />;
       default:

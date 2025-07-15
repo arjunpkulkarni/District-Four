@@ -79,18 +79,6 @@ const Navbar = ({ onNavClick, activeSection }) => {
               animate={{ opacity: 1, transition: { delay: 0.2 } }}
             >
               {navItems.map((item, index) => {
-                if (item.id === 'pricing') {
-                  return (
-                    <Link
-                      to="/pricing"
-                      key={item.label}
-                      className={`font-medium transition-colors duration-200 relative group font-body text-gray-300 hover:text-white`}
-                    >
-                      {item.label}
-                      <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full`} />
-                    </Link>
-                  )
-                }
                 return (
                   <motion.button
                     key={item.label}
@@ -117,10 +105,9 @@ const Navbar = ({ onNavClick, activeSection }) => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ type: 'spring', stiffness: 300, damping: 24, delay: 0.6 }}
-                  className="bg-white text-gray-900 hover:bg-gray-200 px-6 py-2 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 font-body"
-                >
+                  className="w-full text-center rounded-md border border-white/40 bg-white/10 backdrop-blur-sm px-4 py-2 text-sm font-medium text-white/80 transition-colors hover:border-white hover:bg-white/20 hover:text-white"
+                  >
                   Get Started
-                  <ArrowRight className="w-4 h-4" />
                 </motion.button>
             </div>
 
@@ -146,19 +133,7 @@ const Navbar = ({ onNavClick, activeSection }) => {
             className="md:hidden bg-black/80 backdrop-blur-lg rounded-lg mt-2 p-4 shadow-lg border border-gray-100/10 overflow-hidden"
           >
             {[...navItems, { label: 'Contact', id: 'contact' }].map((item) => {
-               if (item.id === 'pricing') {
-                return (
-                  <Link
-                    to="/pricing"
-                    key={item.label}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`w-full text-left block py-3 font-medium transition-colors border-b border-gray-50/10 last:border-b-0 font-body text-gray-300 hover:text-white`}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              }
-              if (item.id === 'contact') {
+               if (item.id === 'contact') {
                 return null; // Will be rendered as "Get Started" button below
               }
               return (
