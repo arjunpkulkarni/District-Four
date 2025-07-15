@@ -42,10 +42,10 @@ const Navbar = ({ onNavClick, activeSection }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'Services', id: 'services' },
+    { label: 'Workflow', id: 'services' },
     { label: 'Portfolio', id: 'clients' },
-    { label: 'Process', id: 'workflow' },
     { label: 'Team', id: 'team' },
+    { label: 'Creators', id: 'creators' },
     { label: 'Pricing', id: 'pricing' },
   ];
 

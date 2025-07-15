@@ -98,7 +98,7 @@ const ClientsUniverse = () => {
       altText: "Capio Tattoo Studio",
       description: "Custom tattoo designs from world-renowned artists in a state-of-the-art studio.",
       category: "Creative Arts",
-      siteUrl: "https://www.instagram.com/capiotattoo/",
+      siteUrl: "https://www.instagram.com/capiotattoostudio/",
       metrics: "10K+ | Followers",
       location: "New York, NY",
     },

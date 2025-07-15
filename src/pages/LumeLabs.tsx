@@ -8,7 +8,6 @@ import Packages from '@/components/lumelabs/Packages';
 import ClientsUniverse from '@/components/lumelabs/ClientsUniverse';
 import TeamSection from '@/components/lumelabs/TeamSection';
 import CreatorNetwork from '@/components/lumelabs/CreatorNetwork';
-import WorkflowTimeline from '@/components/lumelabs/WorkflowTimeline';
 import ContactFooter from '@/components/lumelabs/ContactPage';
 import Testimonials from '@/components/Testimonials';
 
@@ -52,10 +51,10 @@ const LumeLabs = () => {
         return <ServicesSection />;
       case 'clients':
         return <ClientsUniverse />;
-      case 'workflow':
-        return <WorkflowTimeline />;
       case 'team':
         return <TeamSection />;
+      case 'creators':
+        return <CreatorNetwork />;
       case 'pricing':
         return <Packages />;
       case 'contact':
