@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import LumeLabs from "./pages/LumeLabs";
+import HowItWorksPage from "./pages/HowItWorks";
 import NotFound from "./pages/NotFound";
 import Packages from "./components/lumelabs/Packages";
 
@@ -20,7 +21,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<LumeLabs />} />
           <Route path="/convrt" element={<Index />} />
-          <Route path="/pricing" element={<Packages />} />
+         
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

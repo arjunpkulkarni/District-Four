@@ -42,7 +42,8 @@ const Navbar = ({ onNavClick, activeSection }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'Workflow', id: 'services' },
+    { label: 'Services', id: 'services' },
+    { label: 'Process', id: 'process' },
     { label: 'Portfolio', id: 'clients' },
     { label: 'Team', id: 'team' },
     { label: 'Creators', id: 'creators' },
@@ -79,6 +80,18 @@ const Navbar = ({ onNavClick, activeSection }) => {
               animate={{ opacity: 1, transition: { delay: 0.2 } }}
             >
               {navItems.map((item, index) => {
+                if (item.type === 'link') {
+                  return (
+                    <Link
+                      key={item.label}
+                      to={item.id}
+                      className="font-medium transition-colors duration-200 relative group font-body text-gray-300 hover:text-white"
+                    >
+                      {item.label}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full" />
+                    </Link>
+                  )
+                }
                 return (
                   <motion.button
                     key={item.label}
@@ -135,6 +148,18 @@ const Navbar = ({ onNavClick, activeSection }) => {
             {[...navItems, { label: 'Contact', id: 'contact' }].map((item) => {
                if (item.id === 'contact') {
                 return null; // Will be rendered as "Get Started" button below
+              }
+              if (item.type === 'link') {
+                return (
+                  <Link
+                    key={item.label}
+                    to={item.id}
+                    className="w-full text-left block py-3 font-medium transition-colors border-b border-gray-50/10 last:border-b-0 font-body text-gray-300 hover:text-white"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                )
               }
               return (
               <motion.button

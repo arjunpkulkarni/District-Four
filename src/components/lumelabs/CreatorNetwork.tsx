@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Users, Star, TrendingUp, Camera, Instagram } from 'lucide-react';
+import { Users, Star, TrendingUp, Camera, Instagram, BarChart } from 'lucide-react';
 
 const CreatorNetwork = () => {
   const creators = [
@@ -13,7 +13,7 @@ const CreatorNetwork = () => {
       instagramFollowers: "54K",
       tiktokFollowers: "93K",
       image: "/images/cristian1.png",
-      rating: 4.9,
+      rating: 5.0,
       projects: 23,
       verified: true,
       statsImages: [
@@ -63,7 +63,8 @@ const CreatorNetwork = () => {
 
     return [
       { icon: Users, value: creators.length.toString(), label: "Creators" },
-      { icon: Camera, value: formatReach(totalReach), label: "Total Reach" },
+      { icon: Camera, value: formatReach(totalReach), label: "Followers" },
+      { icon: BarChart, value: "18M", label: "Monthly Reach" },
       { icon: TrendingUp, value: "95%", label: "Success Rate" },
       { icon: Star, value: "4.8", label: "Avg Rating" }
     ];
@@ -100,7 +101,7 @@ const CreatorNetwork = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
+          className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12"
         >
           {networkStats.map((stat, index) => (
             <motion.div

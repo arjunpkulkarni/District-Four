@@ -10,6 +10,7 @@ import TeamSection from '@/components/lumelabs/TeamSection';
 import CreatorNetwork from '@/components/lumelabs/CreatorNetwork';
 import ContactFooter from '@/components/lumelabs/ContactPage';
 import Testimonials from '@/components/Testimonials';
+import HowItWorksSection from '@/components/lumelabs/HowItWorksSection';
 
 const LumeLabs = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -49,6 +50,8 @@ const LumeLabs = () => {
         return <HeroSection onNavClick={handleNavClick} />;
       case 'services':
         return <ServicesSection />;
+      case 'process':
+        return <HowItWorksSection />;
       case 'clients':
         return <ClientsUniverse />;
       case 'team':
