@@ -75,7 +75,7 @@ const ContactPage = () => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-3 shadow-lg transition-all duration-300 mt-12 text-lg"
+            className="bg-white text-black px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-3 shadow-lg transition-all duration-300 mt-12 text-lg"
           >
             <Instagram className="w-7 h-7" />
             <span>Follow on Instagram</span>
