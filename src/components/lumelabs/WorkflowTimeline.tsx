@@ -1,139 +1,67 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, ArrowRight, Users, Target, Rocket, BarChart3 } from 'lucide-react';
+import { Search, Play, TrendingUp, FileText, Zap } from 'lucide-react';
+import { containerVariants, itemVariants } from '@/lib/animations';
+import SectionHeader from './SectionHeader';
 
 const WorkflowTimeline = () => {
   const steps = [
     {
-      step: "01",
-      title: "Discovery & Strategy",
-      description: "We audit your current presence, analyze your audience, and develop a custom strategy.",
-      icon: Target,
-      duration: "Week 1",
-      deliverables: ["Brand audit", "Audience analysis", "Content strategy", "Growth roadmap"]
+      icon: Search,
+      title: "1. Discovery & Strategy",
+      description: "We dive deep to understand your goals, audience, and brand to develop a tailored strategy that delivers."
     },
     {
-      step: "02", 
-      title: "Content Creation",
-      description: "Our team creates scroll-stopping content that aligns with your brand and resonates with your audience.",
-      icon: Users,
-      duration: "Week 2-3",
-      deliverables: ["30-day content calendar", "Photo/video assets", "Copy & captions", "Brand guidelines"]
+      icon: Play,
+      title: "2. Execution",
+      description: "Our team brings the strategy to life, creating compelling content and launching targeted campaigns."
     },
     {
-      step: "03",
-      title: "Launch & Optimization",
-      description: "We launch your campaigns and continuously optimize based on performance data.",
-      icon: Rocket,
-      duration: "Week 4+",
-      deliverables: ["Campaign launch", "Daily posting", "Community management", "A/B testing"]
+      icon: TrendingUp,
+      title: "3. Optimization",
+      description: "We continuously monitor performance, A/B test, and refine our approach to maximize your results."
     },
     {
-      step: "04",
-      title: "Scale & Report",
-      description: "Track results, scale what works, and provide detailed reports on growth and ROI.",
-      icon: BarChart3,
-      duration: "Ongoing",
-      deliverables: ["Weekly reports", "Performance insights", "Strategy refinement", "Growth scaling"]
+      icon: FileText,
+      title: "4. Reporting",
+      description: "Receive clear, concise reports that track key metrics and demonstrate the tangible impact on your business."
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as any }
-    }
-  };
-
   return (
-    <section className="py-20 bg-gray-50" id="workflow">
+    <section className="min-h-screen flex items-center py-20 bg-black text-white" id="workflow">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-          className="text-center mb-16"
-        >
-          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-display">
-            Our Proven Process
-          </motion.h2>
-          <motion.p variants={itemVariants} className="text-xl text-gray-600 max-w-3xl mx-auto font-body">
-            From strategy to execution, we follow a data-driven process that delivers consistent results for every client.
-          </motion.p>
-        </motion.div>
+        <SectionHeader
+          badge={
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-800 text-gray-300 font-medium text-sm mb-6">
+              <Zap className="w-4 h-4 mr-2" />
+              How It Works
+            </div>
+          }
+          title="Our Streamlined Process"
+          subtitle="We follow a proven, four-step process to ensure your digital marketing is effective and hassle-free."
+        />
 
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
-          className="space-y-8"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-10"
         >
           {steps.map((step, index) => (
             <motion.div
-              key={step.step}
+              key={index}
               variants={itemVariants}
-              className="relative"
+              className="text-center"
             >
-              <div className="grid md:grid-cols-12 gap-6 items-center">
-                {/* Step Number & Icon */}
-                <div className="md:col-span-2 flex flex-col items-center md:items-start">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mb-4">
-                    <step.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="text-3xl font-bold text-gray-300 font-display">{step.step}</div>
-                </div>
-
-                {/* Content */}
-                <div className="md:col-span-8 bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-2xl font-bold text-gray-900 font-display">{step.title}</h3>
-                    <span className="text-sm text-blue-600 bg-blue-50 px-3 py-1 rounded-full font-medium font-body">
-                      {step.duration}
-                    </span>
-                  </div>
-                  <p className="text-gray-600 mb-6 text-lg font-body">{step.description}</p>
-                  
-                  <div className="grid grid-cols-2 gap-3">
-                    {step.deliverables.map((deliverable, idx) => (
-                      <div key={idx} className="flex items-center text-gray-700">
-                        <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
-                        <span className="text-sm font-body">{deliverable}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Arrow */}
-                <div className="md:col-span-2 flex justify-center">
-                  {index < steps.length - 1 && (
-                    <div className="hidden md:flex items-center">
-                      <ArrowRight className="w-8 h-8 text-gray-300" />
-                    </div>
-                  )}
+              <div className="flex justify-center mb-6">
+                <div className="w-20 h-20 bg-gray-900 border border-gray-800 rounded-full flex items-center justify-center">
+                  <step.icon className="w-9 h-9 text-white" />
                 </div>
               </div>
-
-              {/* Mobile Arrow */}
-              {index < steps.length - 1 && (
-                <div className="md:hidden flex justify-center my-8">
-                  <div className="w-px h-12 bg-gray-200"></div>
-                </div>
-              )}
+              <h3 className="text-xl font-bold text-white mb-3">{step.title}</h3>
+              <p className="text-gray-400 leading-relaxed">{step.description}</p>
             </motion.div>
           ))}
         </motion.div>        

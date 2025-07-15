@@ -63,22 +63,7 @@ const HeroSection: React.FC = () => {
           Content. Web. Strategy.
         </motion.p>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4">
-            <motion.a
-                href="https://www.instagram.com/districtfourmedia/"
-                target="_blank" 
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-black px-6 py-3 rounded-lg font-medium flex items-center justify-center gap-2 shadow-lg transition-all duration-300"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-            >
-                <InstagramIcon className="w-6 h-6" />
-                Follow on Instagram
-            </motion.a>
-        </div>
+        
       </div>
     </section>
   );

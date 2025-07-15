@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const mobileMenuContainerVariants = {
   open: {
@@ -41,11 +42,11 @@ const Navbar = ({ onNavClick, activeSection }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'Home', id: 'home' },
     { label: 'Services', id: 'services' },
     { label: 'Portfolio', id: 'clients' },
     { label: 'Process', id: 'workflow' },
     { label: 'Team', id: 'team' },
+    { label: 'Pricing', id: 'pricing' },
   ];
 
   const handleNavClick = (id) => {
@@ -61,52 +62,76 @@ const Navbar = ({ onNavClick, activeSection }) => {
       className="fixed top-0 left-0 right-0 z-50 "
     >
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center h-20 justify-between">
-          <motion.div layout transition={{ type: "spring", stiffness: 300, damping: 30 }} className="flex items-center space-x-3">
+        <div className="relative flex items-center h-20 justify-between">
+          <motion.div 
+            layout 
+            transition={{ type: "spring", stiffness: 300, damping: 30 }} 
+            className="flex items-center space-x-3 cursor-pointer"
+            onClick={() => handleNavClick('home')}
+          >
             <img src="/images/icon.png" alt="Lume Logo" className="h-24 w-auto" />            
           </motion.div>
 
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center absolute left-1/2 -translate-x-1/2">
             <motion.div
               className="flex items-center space-x-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1, transition: { delay: 0.2 } }}
             >
-              {navItems.map((item, index) => (
-                <motion.button
-                  key={item.label}
-                  onClick={() => handleNavClick(item.id)}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 24, delay: 0.1 * index + 0.3 }}
-                  className={`font-medium transition-colors duration-200 relative group font-body ${
-                    activeSection === item.id ? 'text-white' : 'text-gray-300 hover:text-white'
-                  }`}
-                >
-                  {item.label}
-                  <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full ${activeSection === item.id ? 'w-full' : ''}`} />
-                </motion.button>
-              ))}
-              <motion.button
-                onClick={() => handleNavClick('contact')}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 24, delay: 0.6 }}
-                className="bg-white text-gray-900 hover:bg-gray-200 px-6 py-2 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 font-body"
-              >
-                Get Started
-                <ArrowRight className="w-4 h-4" />
-              </motion.button>
+              {navItems.map((item, index) => {
+                if (item.id === 'pricing') {
+                  return (
+                    <Link
+                      to="/pricing"
+                      key={item.label}
+                      className={`font-medium transition-colors duration-200 relative group font-body text-gray-300 hover:text-white`}
+                    >
+                      {item.label}
+                      <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full`} />
+                    </Link>
+                  )
+                }
+                return (
+                  <motion.button
+                    key={item.label}
+                    onClick={() => handleNavClick(item.id)}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 24, delay: 0.1 * index + 0.3 }}
+                    className={`font-medium transition-colors duration-200 relative group font-body ${
+                      activeSection === item.id ? 'text-white' : 'text-gray-300 hover:text-white'
+                    }`}
+                  >
+                    {item.label}
+                    <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full ${activeSection === item.id ? 'w-full' : ''}`} />
+                  </motion.button>
+                )
+              })}
             </motion.div>
           </div>
+          
+          <div className="flex items-center">
+            <div className="hidden md:flex">
+              <motion.button
+                  onClick={() => handleNavClick('contact')}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 24, delay: 0.6 }}
+                  className="bg-white text-gray-900 hover:bg-gray-200 px-6 py-2 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 font-body"
+                >
+                  Get Started
+                  <ArrowRight className="w-4 h-4" />
+                </motion.button>
+            </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800/50 transition-all duration-200"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-2 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800/50 transition-all duration-200"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -120,7 +145,23 @@ const Navbar = ({ onNavClick, activeSection }) => {
             exit="closed"
             className="md:hidden bg-black/80 backdrop-blur-lg rounded-lg mt-2 p-4 shadow-lg border border-gray-100/10 overflow-hidden"
           >
-            {[...navItems, { label: 'Contact', id: 'contact' }].map((item) => (
+            {[...navItems, { label: 'Contact', id: 'contact' }].map((item) => {
+               if (item.id === 'pricing') {
+                return (
+                  <Link
+                    to="/pricing"
+                    key={item.label}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`w-full text-left block py-3 font-medium transition-colors border-b border-gray-50/10 last:border-b-0 font-body text-gray-300 hover:text-white`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              }
+              if (item.id === 'contact') {
+                return null; // Will be rendered as "Get Started" button below
+              }
+              return (
               <motion.button
                 key={item.label}
                 onClick={() => handleNavClick(item.id)}
@@ -131,7 +172,7 @@ const Navbar = ({ onNavClick, activeSection }) => {
               >
                 {item.label}
               </motion.button>
-            ))}
+            )})}
             <motion.button
                 onClick={() => handleNavClick('contact')}
                 variants={mobileMenuItemVariants}

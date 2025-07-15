@@ -59,8 +59,8 @@ const TeamSection = () => {
   };
 
   return (
-    <section className="py-20 bg-white" id="team">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-20 bg-black min-h-screen flex items-center" id="team">
+      <div className="w-full mx-auto px-6">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -68,10 +68,10 @@ const TeamSection = () => {
           variants={containerVariants}
           className="text-center mb-16"
         >
-          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-display">
+          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold text-white mb-6 font-display">
             Meet the Team
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-xl text-gray-600 max-w-3xl mx-auto font-body">
+          <motion.p variants={itemVariants} className="text-xl text-gray-400 max-w-3xl mx-auto font-body">
             We're not just marketers—we're creators who've built our own audiences and understand what it takes to grow a brand & business authentically.
           </motion.p>
         </motion.div>
@@ -87,9 +87,9 @@ const TeamSection = () => {
             <motion.div
               key={member.name}
               variants={itemVariants}
-              className="bg-white rounded-2xl p-8 border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300 text-center group"
+              className="bg-white rounded-2xl p-8 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 text-center group"
             >
-              <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-gray-100 group-hover:ring-blue-100 transition-all duration-300">
+              <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-gray-100 group-hover:ring-gray-200 transition-all duration-300">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -97,11 +97,11 @@ const TeamSection = () => {
                 />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2 font-display">{member.name}</h3>
-              <p className="text-blue-600 font-semibold mb-4 font-body">{member.role}</p>
+              <p className="text-gray-500 font-semibold mb-4 font-body">{member.role}</p>
               <ul className="text-gray-600 mb-6 space-y-2 text-left text-sm font-body">
                 {member.bio.map((point, i) => (
                   <li key={i} className="flex items-start">
-                    <CheckCircle className="w-4 h-4 text-blue-500 mr-2.5 mt-0.5 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-gray-400 mr-2.5 mt-0.5 flex-shrink-0" />
                     <span>{point}</span>
                   </li>
                 ))}
@@ -111,7 +111,7 @@ const TeamSection = () => {
                 {member.socials.linkedin && (
                   <a
                     href={member.socials.linkedin}
-                    className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all duration-300"
+                    className="w-10 h-10 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300"
                   >
                     <Linkedin className="w-5 h-5" />
                   </a>
@@ -119,7 +119,7 @@ const TeamSection = () => {
                 {member.socials.website && (
                   <a
                     href={member.socials.website}
-                    className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-gray-700 hover:text-white transition-all duration-300"
+                    className="w-10 h-10 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300"
                   >
                     <Globe className="w-5 h-5" />
                   </a>
@@ -127,7 +127,7 @@ const TeamSection = () => {
                 {member.socials.instagram && (
                   <a
                     href={member.socials.instagram}
-                    className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-pink-500 hover:text-white transition-all duration-300"
+                    className="w-10 h-10 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300"
                   >
                     <Instagram className="w-5 h-5" />
                   </a>
@@ -135,7 +135,7 @@ const TeamSection = () => {
                 {member.socials.tiktok && (
                   <a
                     href={member.socials.tiktok}
-                    className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300"
+                    className="w-10 h-10 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300"
                   >
                     <TiktokIcon className="w-5 h-5" />
                   </a>
