@@ -79,21 +79,7 @@ const Packages = () => {
         {
             name: 'All-In-One',
             description: 'The complete package. We handle your website and social media for maximum impact.',
-            tiers: [
-                {
-                    name: 'Starter',
-                    price: '$499/month',
-                    description: 'Perfect for brands ready to gain some basic traction.',
-                    features: [
-                        'Website + audits (bug fixes & updates)',
-                        '4 high-quality videos/month',
-                        '4 social posts',
-                        'Management for 2 social platforms',
-                        'Monthly strategy calls',
-                        'Up to 8 hours of monthly web support',
-                    ],
-                    isPopular: false,
-                },
+            tiers: [                
                 {
                     name: 'Growth',
                     price: '$799/month',
