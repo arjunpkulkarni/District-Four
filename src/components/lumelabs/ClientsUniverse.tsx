@@ -8,6 +8,7 @@ import {
   Zap,
   Heart,
   CheckCircle2,
+  Paintbrush,
 } from 'lucide-react';
 
 const ClientsUniverse = () => {
@@ -110,6 +111,38 @@ const ClientsUniverse = () => {
       ],
       color: "#45c0ff"
     },
+    {
+      id: 7,
+      title: "Nice Tattoo",
+      imageSrc: "/images/nicetattoo.jpeg",
+      altText: "Nice Tattoo studio",
+      description: "A premier tattoo studio known for its exceptional artists and sterile, welcoming environment.",
+      category: "Creative Arts",
+      siteUrl: "https://www.instagram.com/nicetattooparlor/",
+      metrics: ["500+ | Happy Clients", "25K+ | Instagram", "4.9 | Google Rating"],
+      whatWeDid: [
+        { title: "Social Media Growth", description: "Grew their Instagram presence to attract a wider clientele." },
+        { title: "Local SEO", description: "Optimized Google My Business for top local search rankings." },
+        { title: "Booking System", description: "Implemented an online booking system to streamline appointments." }
+      ],
+      color: "#45c0ff"
+    },
+    {
+      id: 8,
+      title: "Capio Tattoo",
+      imageSrc: "/images/capiotattoo.jpeg",
+      altText: "Capio Tattoo Studio",
+      description: "Custom tattoo designs from world-renowned artists in a state-of-the-art studio.",
+      category: "Creative Arts",
+      siteUrl: "https://www.instagram.com/capiotattoo/",
+      metrics: ["Award-Winning | Artists", "200% | Booking Increase", "Featured In | Tattoo Magazine"],
+      whatWeDid: [
+        { title: "Brand Repositioning", description: "Rebranded the studio to appeal to a high-end clientele." },
+        { title: "Content Creation", description: "Produced high-quality video and photo content of artists at work." },
+        { title: "PR Outreach", description: "Secured features in major tattoo industry publications." }
+      ],
+      color: "#45c0ff"
+    },
   ];
 
   const getCategoryIcon = (category: string) => {
@@ -124,6 +157,8 @@ const ClientsUniverse = () => {
         return <Zap className="w-4 h-4" />;
       case 'HealthTech':
         return <Heart className="w-4 h-4" />;
+      case 'Creative Arts':
+        return <Paintbrush className="w-4 h-4" />;
       default:
         return <Globe className="w-4 h-4" />;
     }
@@ -132,7 +167,7 @@ const ClientsUniverse = () => {
   return (
     <section
       id="clients"
-      className="py-24 bg-[#0D0D0D] min-h-screen"
+      className="py-24 bg-gray-50 min-h-screen"
     >
       <div className="container mx-auto px-6 max-w-7xl">
         {/* Header */}
@@ -143,10 +178,10 @@ const ClientsUniverse = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-5xl font-bold text-white mb-4">
+          <h2 className="text-5xl font-bold text-gray-900 mb-4">
             Our <span className="text-[var(--accent)]">Clients</span>
           </h2>
-          <p className="text-lg text-white max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Transforming brands across industries with strategic digital marketing.
           </p>
         </motion.div>
@@ -162,7 +197,7 @@ const ClientsUniverse = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className="bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-200"
             >
               {/* Image */}
               <div className="relative h-56 overflow-hidden">
@@ -176,16 +211,16 @@ const ClientsUniverse = () => {
                 <div className="absolute inset-0 bg-black/20" />
                 <div
                   className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium"
-                  style={{ backgroundColor: project.color + 'CC', color: '#fff' }}
+                  style={{ backgroundColor: project.color + '20' }}
                 >
                   {getCategoryIcon(project.category)}
-                  <span>{project.category}</span>
+                  <span style={{ color: project.color }}>{project.category}</span>
                 </div>
                 <motion.a
                   href={project.siteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute top-4 right-4 p-3 rounded-full bg-white dark:bg-gray-800 shadow"
+                  className="absolute top-4 right-4 p-3 rounded-full bg-gray-100 hover:bg-gray-200 shadow"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{
                     opacity: hoveredProject === project.id ? 1 : 0,
@@ -193,27 +228,27 @@ const ClientsUniverse = () => {
                   }}
                   transition={{ duration: 0.2 }}
                 >
-                  <ExternalLink className="w-5 h-5 text-gray-800 dark:text-white" />
+                  <ExternalLink className="w-5 h-5 text-gray-800" />
                 </motion.a>
               </div>
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-2">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
                   {project.title}
                 </h3>
-                <p className="text-sm text-white mb-6">
+                <p className="text-sm text-gray-600 mb-6">
                   {project.description}
                 </p>
 
                 {/* Metrics */}
-                <div className="flex justify-between items-center bg-gray-800 rounded-lg p-4 mb-6">
+                <div className="flex justify-between items-center bg-gray-100 rounded-lg p-4 mb-6">
                   {project.metrics.map((m, i) => {
                     const [value, label] = m.split(' | ');
                     return (
                       <div key={i} className="text-center">
-                        <p className="text-xl font-semibold text-white">{value}</p>
-                        <p className="text-xs text-white">{label}</p>
+                        <p className="text-xl font-semibold text-gray-900">{value}</p>
+                        <p className="text-xs text-gray-500">{label}</p>
                       </div>
                     );
                   })}
@@ -221,13 +256,13 @@ const ClientsUniverse = () => {
 
                 {/* What We Did */}
                 <div>
-                  <h4 className="text-white font-semibold mb-3">What we did:</h4>
+                  <h4 className="text-gray-900 font-semibold mb-3">What we did:</h4>
                   <ul className="space-y-3">
                     {project.whatWeDid.map((item, i) => (
                       <li key={i} className="flex items-start">
                         <CheckCircle2 className="w-5 h-5 mt-1 text-[var(--accent)] flex-shrink-0" />
                         <div className="ml-3">
-                          <p className="text-white">{item.title}</p>
+                          <p className="text-gray-800">{item.title}</p>
                         </div>
                       </li>
                     ))}
@@ -240,7 +275,7 @@ const ClientsUniverse = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ x: 4 }}
-                  className="inline-flex items-center mt-6 text-white hover:text-[var(--accent)] font-semibold transition-colors"
+                  className="inline-flex items-center mt-6 text-gray-800 hover:text-[var(--accent)] font-semibold transition-colors"
                 >
                   <span>View Project</span>
                   <ExternalLink className="w-4 h-4 ml-1" />

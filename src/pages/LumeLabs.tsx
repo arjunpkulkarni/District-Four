@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '@/components/lumelabs/Navbar';
 import HeroSection from '@/components/lumelabs/HeroSection';
 import WhyChooseUs from '@/components/lumelabs/WhyChooseUs';
@@ -13,6 +13,7 @@ import ContactFooter from '@/components/lumelabs/ContactFooter';
 import Testimonials from '@/components/Testimonials';
 
 const LumeLabs = () => {
+  const [activeSection, setActiveSection] = useState('home');
   const [konamiSequence, setKonamiSequence] = useState<string[]>([]);
   const [darkMode, setDarkMode] = useState(false);
   const targetSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
@@ -39,19 +40,46 @@ const LumeLabs = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [konamiSequence, darkMode]);
 
+  const handleNavClick = (sectionId: string) => {
+    setActiveSection(sectionId);
+  };
+
+  const renderSection = () => {
+    switch (activeSection) {
+      case 'home':
+        return <HeroSection />;
+      case 'services':
+        return <ServicesSection />;
+      case 'clients':
+        return <ClientsUniverse />;
+      case 'workflow':
+        return <WorkflowTimeline />;
+      case 'team':
+        return <TeamSection />;
+      case 'contact':
+        return <ContactFooter />;
+      default:
+        return <HeroSection />;
+    }
+  };
+
   return (
-    <div className={`${darkMode ? 'dark bg-gray-900' : 'bg-white'} transition-all duration-1000 overflow-x-hidden`}>
-      <Navbar />          
-      <HeroSection />
-      <ClientsUniverse />
-      <Packages />
-      <TeamSection />
-      <CreatorNetwork />
-      <WhyChooseUs />
-      <ServicesSection />
-      <WorkflowTimeline />
-      <Testimonials />
-      <ContactFooter />
+    <div className={`${darkMode ? 'dark bg-gray-900' : 'bg-white'} transition-all duration-1000 overflow-hidden h-screen w-screen flex flex-col`}>
+      <Navbar onNavClick={handleNavClick} activeSection={activeSection} />          
+      <main className="flex-grow h-full w-full">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeSection}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            className="h-full w-full"
+          >
+            {renderSection()}
+          </motion.div>
+        </AnimatePresence>
+      </main>
       
       <div className="fixed inset-0 pointer-events-none z-0">
         {[...Array(100)].map((_, i) => (
@@ -82,8 +110,6 @@ const LumeLabs = () => {
           />
         ))}
       </div>
-
-      
     </div>
   );
 };

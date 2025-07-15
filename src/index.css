@@ -151,6 +151,10 @@
   }
 }
 
+html, body, a, button {
+  cursor: none !important;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
