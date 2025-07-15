@@ -151,10 +151,6 @@
   }
 }
 
-html, body, a, button {
-  cursor: none !important;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -193,6 +189,21 @@ html, body, a, button {
   100% {
     box-shadow: 0 0 20px rgba(69, 192, 255, 0.4), 0 0 30px rgba(69, 192, 255, 0.2);
   }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 /* Custom scrollbar */

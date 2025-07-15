@@ -33,10 +33,7 @@ const WorkflowTimeline = () => {
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           badge={
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-800 text-gray-300 font-medium text-sm mb-6">
-              <Zap className="w-4 h-4 mr-2" />
-              How It Works
-            </div>
+            null
           }
           title="Our Streamlined Process"
           subtitle="We follow a proven, four-step process to ensure your digital marketing is effective and hassle-free."

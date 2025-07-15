@@ -9,7 +9,7 @@ import ClientsUniverse from '@/components/lumelabs/ClientsUniverse';
 import TeamSection from '@/components/lumelabs/TeamSection';
 import CreatorNetwork from '@/components/lumelabs/CreatorNetwork';
 import WorkflowTimeline from '@/components/lumelabs/WorkflowTimeline';
-import ContactFooter from '@/components/lumelabs/ContactFooter';
+import ContactFooter from '@/components/lumelabs/ContactPage';
 import Testimonials from '@/components/Testimonials';
 
 const LumeLabs = () => {
@@ -47,7 +47,7 @@ const LumeLabs = () => {
   const renderSection = () => {
     switch (activeSection) {
       case 'home':
-        return <HeroSection />;
+        return <HeroSection onNavClick={handleNavClick} />;
       case 'services':
         return <ServicesSection />;
       case 'clients':
@@ -61,7 +61,7 @@ const LumeLabs = () => {
       case 'contact':
         return <ContactFooter />;
       default:
-        return <HeroSection />;
+        return <HeroSection onNavClick={handleNavClick} />;
     }
   };
 

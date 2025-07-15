@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Check } from 'lucide-react';
 
 const Packages = () => {
@@ -131,7 +131,7 @@ const Packages = () => {
 
     const TierCard = ({ tier }: { tier: any }) => (
         <div
-            className={`relative bg-gray-900 rounded-2xl p-6 shadow-sm transition-all duration-300 h-full flex flex-col ${tier.isPopular
+            className={`relative bg-gray-900 rounded-2xl p-4 shadow-sm transition-all duration-300 h-full flex flex-col w-full ${tier.isPopular
                     ? 'border-2 border-cyan-400 shadow-cyan-400/50 shadow-2xl'
                     : 'border border-gray-700 hover:shadow-xl hover:border-cyan-400/30'
                 } hover:-translate-y-1`}
@@ -143,10 +143,10 @@ const Packages = () => {
             )}
             <div className="flex-grow">
                 <div className="text-lg font-extrabold text-white mb-2">{tier.name}</div>
-                <div className="text-gray-400 mb-4 text-sm">{tier.description}</div>
+                <div className="text-gray-400 mb-4 text-sm h-12">{tier.description}</div>
 
                 <div className="flex items-end mb-4">
-                    <div className="text-4xl font-bold text-white">{tier.price.split('/')[0]}</div>
+                    <div className="text-3xl font-bold text-white">{tier.price.split('/')[0]}</div>
                     <div className="text-gray-400 ml-1 mb-1">/month</div>
                 </div>
 
@@ -162,37 +162,60 @@ const Packages = () => {
         </div>
     );
 
+    const [activeTab, setActiveTab] = useState(packageSections[0].name);
+
+    const activeSection = packageSections.find((section) => section.name === activeTab);
+    
     return (
-        <section className="relative py-16 bg-black" id="packages">
-            <div className="container-section">
+        <section className="relative bg-black flex items-center justify-center min-h-screen" id="packages">
+            <div className="w-full px-4">
                 <div className="max-w-2xl mx-auto text-center">
-                    <h2 className="heading-lg text-white mb-4 text-5xl font-bold">
+                    <h2 className="heading-lg text-white mb-4 text-4xl font-bold">
                         Choose your <span className="gradient-text">Plan</span>
                     </h2>
-                    <p className="text-gray-300 text-xl mb-12 max-w-xl mx-auto">
+                    <p className="text-gray-300 text-xl max-w-xl mx-auto h-16">
                         Choose the package that aligns with your brand's goals.
                     </p>
                 </div>
 
-                <div>
-                    {packageSections.map((section) => {
-                        const gridCols = section.tiers.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-2';
-                        return (
-                            <div key={section.name} className="mb-16">
-                                <div className="max-w-7xl mx-auto">
-                                    <div className="text-left mb-8">
-                                        <h3 className="text-4xl font-bold text-white mb-3">{section.name}</h3>
-                                        <p className="text-lg text-gray-300">{section.description}</p>
-                                    </div>
-                                    <div className={`grid ${gridCols} gap-6`}>
-                                        {section.tiers.map((tier) => (
-                                            <TierCard key={tier.name} tier={tier} />
-                                        ))}
-                                    </div>
+                <div className="flex justify-center border-b border-gray-700 mb-8">
+                    {packageSections.map((section) => (
+                        <button
+                            key={section.name}
+                            onClick={() => setActiveTab(section.name)}
+                            className={`px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg font-medium transition-colors duration-300 focus:outline-none ${
+                                activeTab === section.name
+                                    ? 'border-b-2 border-cyan-400 text-cyan-400'
+                                    : 'text-gray-400 hover:text-white'
+                            }`}
+                        >
+                            {section.name}
+                        </button>
+                    ))}
+                </div>
+                
+                <div className="relative min-h-[500px]">
+                    {packageSections.map((section) => (
+                        <div
+                            key={section.name}
+                            className={`transition-opacity duration-500 absolute w-full ${
+                                activeTab === section.name ? 'opacity-100 animate-fade-in' : 'opacity-0 pointer-events-none'
+                            }`}
+                        >
+                            <div className="w-full">
+                                <div className="text-center mb-8 h-12">
+                                    <p className="text-lg text-gray-300 px-4">{section.description}</p>
+                                </div>
+                                <div className="flex justify-center items-stretch gap-6">
+                                    {section.tiers.map((tier) => (
+                                        <div key={tier.name} className="flex-1 flex">
+                                            <TierCard tier={tier} />
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
-                        );
-                    })}
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

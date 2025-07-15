@@ -33,7 +33,7 @@ const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
-const HeroSection: React.FC = () => {
+const HeroSection: React.FC<{ onNavClick: (sectionId: string) => void }> = ({ onNavClick }) => {
   return (
     <section 
       className="relative h-full w-full text-gray-300 flex flex-col items-center justify-center overflow-hidden cursor-none bg-cover bg-center"
@@ -46,12 +46,12 @@ const HeroSection: React.FC = () => {
       <div className="relative z-10 flex flex-col items-center text-center px-6">       
 
         <motion.h1
-          className="text-6xl lg:text-6xl font-bold text-white mb-6 whitespace-nowrap"
+          className="text-5xl lg:text-6xl font-bold text-white mb-6"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          Shaping brands with viral content.
+          We build brands for the digital age.
         </motion.h1>
 
         <motion.p
@@ -60,9 +60,22 @@ const HeroSection: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          Content. Web. Strategy.
+          From viral content and stunning websites.
+          We have the tools to make your brand impossible to ignore.
         </motion.p>
 
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+        >
+          <button 
+            onClick={() => onNavClick('contact')}
+            className="bg-white text-black font-bold py-4 px-8 rounded-full hover:bg-gray-200 transition-colors duration-300 text-lg"
+          >
+            Get Started
+          </button>
+        </motion.div>
         
       </div>
     </section>

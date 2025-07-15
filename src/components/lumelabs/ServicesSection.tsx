@@ -31,8 +31,8 @@ const ServicesSection = () => {
       description: "High-quality content that stops the scroll and drives engagement.",
     },
     {
-      title: "Paid Advertising",
-      description: "Targeted ad campaigns that deliver measurable results and maximize your ROI.",
+      title: "Web Design & Development",
+      description: "We create beautiful, responsive websites that are easy to use and convert visitors into customers.",
     },
     {
       title: "Community Management",
@@ -52,18 +52,13 @@ const ServicesSection = () => {
     <section className="py-20 bg-black h-full flex items-center" id="services">
       <div className="max-w-7xl mx-auto px-6 w-full">
         <SectionHeader
-          badge={
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-800 text-gray-300 font-medium text-sm mb-6">
-              <Megaphone className="w-4 h-4 mr-2" />
-              Our Services
-            </div>
-          }
+          badge={null}
           title={
             <>
               Everything you need to <span className="text-gray-400">dominate</span> the digital space
             </>
           }
-          subtitle="From strategy to execution, we handle every aspect of your digital presence so you can focus on what you do best."
+          subtitle="We handle all aspects of your digital presence so you can do what you do best."
         />
 
         <motion.div
