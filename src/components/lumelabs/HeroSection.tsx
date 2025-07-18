@@ -63,7 +63,7 @@ const HeroSection: React.FC<{ onNavClick: (sectionId: string) => void }> = ({ on
           
 
           <motion.h1
-            className="text-5xl lg:text-6xl font-bold text-white mb-4"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -72,7 +72,7 @@ const HeroSection: React.FC<{ onNavClick: (sectionId: string) => void }> = ({ on
           </motion.h1>
 
           <motion.p
-            className="text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl"
+            className="text-base md:text-xl lg:text-2xl text-gray-200 mb-8 max-w-3xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -88,7 +88,7 @@ const HeroSection: React.FC<{ onNavClick: (sectionId: string) => void }> = ({ on
           >
             <button 
               onClick={() => onNavClick('contact')}
-              className="bg-transparent text-white font-bold py-4 px-8 rounded-full border border-white transition-all duration-300 text-lg animated-border-button hover:bg-white hover:text-black hover:scale-105 transform"
+              className="bg-transparent text-white font-bold py-2 px-5 md:py-4 md:px-8 rounded-full border border-white transition-all duration-300 text-sm md:text-lg animated-border-button hover:bg-white hover:text-black hover:scale-105 transform"
             >
               Get Started
             </button>

@@ -15,15 +15,15 @@ const SectionHeader = ({ badge, title, subtitle }: SectionHeaderProps) => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
       variants={containerVariants}
-      className="text-center mb-16"
+      className="text-center mb-8 md:mb-16"
     >
       <motion.div variants={itemVariants}>
         {badge}
       </motion.div>
-      <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold text-white mb-6">
+      <motion.h2 variants={itemVariants} className="text-xl md:text-5xl font-bold text-white mt-10 md:mt-0 mb-4 md:mb-6">
         {title}
       </motion.h2>
-      <motion.p variants={itemVariants} className="text-xl text-gray-300 max-w-3xl mx-auto">
+      <motion.p variants={itemVariants} className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto">
         {subtitle}
       </motion.p>
     </motion.div>

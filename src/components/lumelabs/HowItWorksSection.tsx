@@ -55,12 +55,12 @@ const HowItWorksSection = () => {
                 className="text-center relative"
               >
                 <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16 bg-gray-900 border border-gray-800 rounded-full flex items-center justify-center">
-                    <step.icon className="w-8 h-8 text-white" />
+                  <div className="w-10 h-10 md:w-16 md:h-16 bg-gray-900 border border-gray-800 rounded-full flex items-center justify-center">
+                    <step.icon className="w-5 h-5 md:w-8 md:h-8 text-white" />
                   </div>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
-                <p className="text-gray-400 leading-relaxed text-sm">{step.description}</p>
+                <h3 className="text-sm md:text-lg font-bold text-white mb-2">{step.title}</h3>
+                <p className="text-xs md:text-base text-gray-400 leading-relaxed">{step.description}</p>
                 
               </motion.div>
             ))}

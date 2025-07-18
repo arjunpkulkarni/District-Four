@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { containerVariants, itemVariants } from '../../lib/animations';
@@ -12,10 +11,10 @@ interface Service {
 const ServiceCard = ({ service, variants }: { service: Service, variants: any }) => (
   <motion.div
     variants={variants}
-    className="bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-gray-700 transition-all duration-300"
+    className="bg-gray-900 rounded-xl p-3 md:p-6 border border-gray-800 hover:border-gray-700 transition-all duration-300"
   >
-    <h3 className="text-lg font-bold text-white mb-2">{service.title}</h3>
-    <p className="text-gray-400 leading-relaxed text-sm">{service.description}</p>
+    <h3 className="text-sm md:text-lg font-bold text-white mb-1 md:mb-2">{service.title}</h3>
+    <p className="text-xs md:text-sm text-gray-400 leading-relaxed">{service.description}</p>
   </motion.div>
 );
 
@@ -65,7 +64,7 @@ const ServicesSection = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
-          className="grid md:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-6"
         >
           {services.map((service) => (
             <ServiceCard key={service.title} service={service} variants={itemVariants} />

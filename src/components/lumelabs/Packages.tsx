@@ -114,30 +114,30 @@ const Packages = () => {
 
     const TierCard = ({ tier }: { tier: any }) => (
         <div
-            className={`relative bg-gray-900 rounded-2xl p-4 shadow-sm transition-all duration-300 h-full flex flex-col w-full ${tier.isPopular
+            className={`relative bg-gray-900 rounded-2xl p-2 sm:p-6 shadow-sm transition-all duration-300 h-full flex flex-col w-full ${tier.isPopular
                     ? 'border-2 border-cyan-400 shadow-cyan-400/50 shadow-2xl'
                     : 'border border-gray-700 hover:shadow-xl hover:border-cyan-400/30'
                 } hover:-translate-y-1`}
         >
             {tier.isPopular && (
-                <div className="absolute top-0 right-8 transform -translate-y-1/2 bg-cyan-400 text-gray-900 font-medium px-4 py-1 rounded-full text-sm z-10">
+                <div className="absolute top-0 right-4 sm:right-8 transform -translate-y-1/2 bg-cyan-400 text-gray-900 font-medium px-2 py-0.5 sm:px-3 rounded-full text-[10px] sm:text-sm z-10">
                     Most Popular
                 </div>
             )}
             <div className="flex-grow">
-                <div className="text-lg font-extrabold text-white mb-2">{tier.name}</div>
-                <div className="text-gray-400 mb-4 text-sm h-12">{tier.description}</div>
+                <div className="text-[11px] sm:text-xl font-extrabold text-white mb-2">{tier.name}</div>
+                <div className="text-gray-400 mb-4 text-[11px] sm:text-base h-auto sm:h-16">{tier.description}</div>
 
                 <div className="flex items-end mb-4">
-                    <div className="text-3xl font-bold text-white">{tier.price.split('/')[0]}</div>
-                    <div className="text-gray-400 ml-1 mb-1">/month</div>
+                    <div className="text-sm sm:text-4xl font-bold text-white">{tier.price.split('/')[0]}</div>
+                    <div className="text-gray-400 ml-1 mb-1 text-[10px] sm:text-sm">/month</div>
                 </div>
 
-                <ul className="space-y-2">
+                <ul className="space-y-1">
                     {tier.features.map((feature: string, i: number) => (
                         <li key={i} className="flex items-start">
-                            <Check className="w-4 h-4 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                            <span className="text-gray-300 text-sm">{highlightNumbers(feature)}</span>
+                            <Check className="w-2.5 h-2.5 sm:w-4 sm:h-4 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-300 text-[11px] sm:text-base">{highlightNumbers(feature)}</span>
                         </li>
                     ))}
                 </ul>
@@ -146,27 +146,25 @@ const Packages = () => {
     );
 
     const [activeTab, setActiveTab] = useState(packageSections[0].name);
-
-    const activeSection = packageSections.find((section) => section.name === activeTab);
     
     return (
-        <section className="relative bg-black flex items-center justify-center min-h-screen" id="packages">
+        <section className="relative bg-black flex items-center justify-center min-h-screen py-10 sm:py-16" id="packages">
             <div className="w-full px-4">
                 <div className="max-w-2xl mx-auto text-center">
-                    <h2 className="heading-lg text-white mb-4 text-4xl font-bold">
+                    <h2 className="heading-lg text-white mb-2 text-2xl sm:text-5xl font-bold">
                         Choose your <span className="gradient-text">Plan</span>
                     </h2>
-                    <p className="text-gray-300 text-xl max-w-xl mx-auto h-16">
+                    <p className="text-gray-300 text-[11px] sm:text-lg max-w-xl mx-auto h-auto">
                         Choose the package that aligns with your brand's goals.
                     </p>
                 </div>
 
-                <div className="flex justify-center border-b border-gray-700 mb-8">
+                <div className="flex justify-center border-b border-gray-700 my-6 sm:my-8">
                     {packageSections.map((section) => (
                         <button
                             key={section.name}
                             onClick={() => setActiveTab(section.name)}
-                            className={`px-4 py-2 sm:px-6 sm:py-3 text-base sm:text-lg font-medium transition-colors duration-300 focus:outline-none ${
+                            className={`px-2 py-1 sm:px-6 sm:py-3 text-[11px] sm:text-lg font-medium transition-colors duration-300 focus:outline-none ${
                                 activeTab === section.name
                                     ? 'border-b-2 border-cyan-400 text-cyan-400'
                                     : 'text-gray-400 hover:text-white'
@@ -186,10 +184,10 @@ const Packages = () => {
                             }`}
                         >
                             <div className="w-full">
-                                <div className="text-center mb-8 h-12">
-                                    <p className="text-lg text-gray-300 px-4">{section.description}</p>
+                                <div className="text-center mb-4 sm:mb-8 h-auto sm:h-12">
+                                    <p className="text-[11px] sm:text-lg text-gray-300 px-4">{section.description}</p>
                                 </div>
-                                <div className="flex justify-center items-stretch gap-6">
+                                <div className="flex flex-col sm:flex-row justify-center items-stretch gap-4 sm:gap-6">
                                     {section.tiers.map((tier) => (
                                         <div key={tier.name} className="flex-1 flex">
                                             <TierCard tier={tier} />
