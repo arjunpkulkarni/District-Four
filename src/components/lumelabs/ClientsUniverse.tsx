@@ -126,27 +126,27 @@ const ClientsUniverse = () => {
   return (
     <section
       id="clients"
-      className="bg-black h-screen flex flex-col items-center justify-center text-white"
+      className="bg-black min-h-screen py-16 md:py-20 flex flex-col items-center justify-center text-white"
     >
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-8"
+          className="text-center mb-8 md:mb-12"
         >
-          <h2 className="text-4xl font-bold text-white mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
             Our <span className="text-gray-400">Clients</span>
           </h2>
-          <p className="text-base text-gray-300 max-w-2xl mx-auto">
+          <p className="text-sm md:text-base text-gray-300 max-w-2xl mx-auto">
             Transforming brands across industries with strategic digital marketing.
           </p>
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-2 sm:gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
           {projects.map((project, idx) => (
             <motion.div
               key={project.id}
@@ -156,10 +156,10 @@ const ClientsUniverse = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-xl overflow-hidden transition-shadow duration-300 border border-gray-200"
+              className="bg-white rounded-lg md:rounded-xl overflow-hidden transition-shadow duration-300 border border-gray-200"
             >
               {/* Image */}
-              <div className="relative h-32 overflow-hidden">
+              <div className="relative h-24 sm:h-32 overflow-hidden">
                 <motion.img
                   src={project.imageSrc}
                   alt={project.altText}
@@ -169,7 +169,7 @@ const ClientsUniverse = () => {
                 />
                 <div className="absolute inset-0 bg-black/10" />
                 <div
-                  className="absolute top-2 left-2 flex items-center gap-2 px-2 py-1 rounded-md text-xs font-medium bg-white/80 text-black"
+                  className="absolute top-2 left-2 flex items-center gap-1.5 px-1.5 py-0.5 md:px-2 md:py-1 rounded-md text-[10px] sm:text-xs font-medium bg-white/80 text-black"
                 >
                   {getCategoryIcon(project.category)}
                   <span>{project.category}</span>
@@ -178,7 +178,7 @@ const ClientsUniverse = () => {
                   href={project.siteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute top-2 right-2 p-2 rounded-full bg-white/80 hover:bg-white shadow"
+                  className="absolute top-2 right-2 p-1.5 sm:p-2 rounded-full bg-white/80 hover:bg-white shadow"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{
                     opacity: hoveredProject === project.id ? 1 : 0,
@@ -186,26 +186,26 @@ const ClientsUniverse = () => {
                   }}
                   transition={{ duration: 0.2 }}
                 >
-                  <ExternalLink className="w-4 h-4 text-black" />
+                  <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black" />
                 </motion.a>
               </div>
 
               {/* Content */}
-              <div className="p-3">
+              <div className="p-2 sm:p-3">
                 <div className="flex justify-between items-center mb-1">
-                  <h3 className="text-base font-bold text-gray-900">
+                  <h3 className="text-sm sm:text-base font-bold text-gray-900 truncate">
                     {project.title}
                   </h3>
-                  <span className="text-xs font-medium text-gray-500">{project.location}</span>
+                  <span className="text-[10px] sm:text-xs font-medium text-gray-500 flex-shrink-0">{project.location}</span>
                 </div>
-                <p className="text-xs text-gray-600 mb-3 h-10">
+                <p className="text-[11px] sm:text-xs text-gray-600 mb-2 sm:mb-3 h-8 sm:h-10">
                   {project.description}
                 </p>
 
                 {/* Metrics */}
-                <div className="bg-gray-100 rounded-md p-2 text-center">
-                  <p className="text-sm font-semibold text-gray-900">{project.metrics.split(' | ')[0]}</p>
-                  <p className="text-xs text-gray-500">{project.metrics.split(' | ')[1]}</p>
+                <div className="bg-gray-100 rounded-md p-1.5 sm:p-2 text-center">
+                  <p className="text-xs sm:text-sm font-semibold text-gray-900">{project.metrics.split(' | ')[0]}</p>
+                  <p className="text-[10px] sm:text-xs text-gray-500">{project.metrics.split(' | ')[1]}</p>
                 </div>
               </div>
             </motion.div>

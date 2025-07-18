@@ -70,14 +70,14 @@ const CreatorNetwork = () => {
     ];
   }, [creators]);
 
-  const TikTokIcon = () => (
-    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
+  const TikTokIcon = ({ className }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" className={className || "w-5 h-5"} fill="currentColor">
       <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
     </svg>
   );
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-black text-white">
+    <section className="min-h-screen flex items-center justify-center bg-black text-white py-4 md:py-0">
       <div className="container mx-auto px-2 max-w-6xl">
         {/* Header */}
         <motion.div
@@ -85,12 +85,12 @@ const CreatorNetwork = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-4 md:mb-12"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-3">
+          <h2 className="text-lg md:text-5xl font-bold text-white mb-1 md:mb-3">
             Creator Network
           </h2>
-          <p className="text-base text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[10px] md:text-base text-gray-400 max-w-2xl mx-auto px-2 md:px-0">
             Partnering with top-tier content creators to amplify your brand's message.
           </p>
         </motion.div>
@@ -101,7 +101,7 @@ const CreatorNetwork = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12"
+          className="grid grid-cols-5 gap-1 md:gap-4 mb-4 md:mb-12"
         >
           {networkStats.map((stat, index) => (
             <motion.div
@@ -110,21 +110,21 @@ const CreatorNetwork = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
               viewport={{ once: true }}
-              className="text-center bg-gray-900/50 rounded-xl p-4 transition-colors duration-300 border border-gray-800 hover:bg-gray-800/50"
+              className="text-center bg-gray-900/50 rounded-lg md:rounded-xl p-1 md:p-4 transition-colors duration-300 border border-gray-800 hover:bg-gray-800/50 flex flex-col items-center justify-center"
             >
-              <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mx-auto mb-2">
-                <stat.icon className="w-6 h-6 text-white" />
+              <div className="w-6 h-6 md:w-12 md:h-12 bg-gray-800 rounded-md md:rounded-lg flex items-center justify-center mx-auto mb-1 md:mb-2">
+                <stat.icon className="w-3 h-3 md:w-6 md:h-6 text-white" />
               </div>
-              <div className="text-2xl font-bold text-white mb-1">
+              <div className="text-sm md:text-2xl font-bold text-white leading-tight md:leading-none mb-0.5 md:mb-1">
                 {stat.value}
               </div>
-              <div className="text-gray-400 font-medium text-sm">{stat.label}</div>
+              <div className="text-[9px] md:text-sm text-gray-400 font-medium text-center">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>
 
         {/* Creators Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 max-w-4xl mx-auto">
           {creators.map((creator, index) => (
             <motion.div
               key={creator.id}
@@ -135,11 +135,11 @@ const CreatorNetwork = () => {
               className="bg-gray-900/50 rounded-xl overflow-hidden group border border-gray-800 flex flex-col"
             >
               {/* Card Header */}
-              <div className="bg-gray-900 p-4">
+              <div className="bg-gray-900 p-2 md:p-4">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="relative">
-                      <div className="w-16 h-16 rounded-lg overflow-hidden ring-2 ring-gray-700">
+                  <div className="flex items-center gap-2 md:gap-3">
+                    <div className="relative flex-shrink-0">
+                      <div className="w-10 h-10 md:w-16 md:h-16 rounded-lg overflow-hidden ring-2 ring-gray-700">
                         <img
                           src={creator.image}
                           alt={creator.name}
@@ -147,29 +147,29 @@ const CreatorNetwork = () => {
                         />
                       </div>
                       {creator.verified && (
-                        <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-white rounded-full flex items-center justify-center ring-2 ring-gray-900">
-                          <svg className="w-4 h-4 text-black" fill="currentColor" viewBox="0 0 20 20">
+                        <div className="absolute -bottom-1 -right-1 w-4 h-4 md:w-6 md:h-6 bg-white rounded-full flex items-center justify-center ring-0 md:ring-2 ring-gray-900">
+                          <svg className="w-2 h-2 md:w-4 md:h-4 text-black" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                           </svg>
                         </div>
                       )}
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold">
+                    <div className="min-w-0">
+                      <h3 className="text-xs md:text-xl font-bold truncate">
                         {creator.name}
                       </h3>
-                      <p className="text-gray-400 text-sm font-medium">
+                      <p className="text-[9px] md:text-sm text-gray-400 font-medium truncate">
                         {creator.specialty}
                       </p>
                     </div>
                   </div>
                   
-                  <div className="text-right flex-shrink-0 ml-4">
-                    <div className="flex items-center gap-1.5">
-                      <Star className="w-4 h-4 text-gray-400 fill-current" />
-                      <span className="font-bold text-sm">{creator.rating}</span>
+                  <div className="text-right flex-shrink-0 ml-1 md:ml-4">
+                    <div className="flex items-center justify-end gap-0.5 md:gap-1.5">
+                      <Star className="w-2.5 h-2.5 md:w-4 md:h-4 text-gray-400 fill-current" />
+                      <span className="font-bold text-xs md:text-sm">{creator.rating}</span>
                     </div>
-                    <div className="text-gray-400 text-sm">
+                    <div className="text-gray-400 text-[10px] md:text-sm">
                       {creator.projects} projects
                     </div>
                   </div>
@@ -177,27 +177,27 @@ const CreatorNetwork = () => {
               </div>
 
               {/* Card Body */}
-              <div className="p-4 flex flex-col flex-grow">
+              <div className="p-2 md:p-4 flex flex-col flex-grow">
                 {/* Social Stats */}
-                <div className="grid grid-cols-2 gap-2 mb-4">
-                  <a href={creator.instagramHandle} target="_blank" rel="noopener noreferrer" className="text-center p-3 bg-gray-800/50 hover:bg-gray-800 rounded-lg transition-colors">
-                    <div className="w-8 h-8 bg-gray-700 rounded-md flex items-center justify-center mx-auto mb-1.5">
-                      <Instagram className="w-5 h-5 text-white" />
+                <div className="grid grid-cols-2 gap-2 mb-2 md:mb-4">
+                  <a href={creator.instagramHandle} target="_blank" rel="noopener noreferrer" className="text-center p-2 md:p-3 bg-gray-800/50 hover:bg-gray-800 rounded-lg transition-colors">
+                    <div className="w-5 h-5 md:w-8 md:h-8 bg-gray-700 rounded-md flex items-center justify-center mx-auto mb-0.5 md:mb-1.5">
+                      <Instagram className="w-3 h-3 md:w-5 md:h-5 text-white" />
                     </div>
-                    <div className="font-bold text-xl text-white">
+                    <div className="font-bold text-sm md:text-xl text-white">
                       {creator.instagramFollowers}
                     </div>
-                    <div className="text-gray-400 text-sm font-medium">Instagram</div>
+                    <div className="text-[10px] md:text-sm text-gray-400 font-medium">Instagram</div>
                   </a>
                   
-                  <a href={creator.tiktokHandle} target="_blank" rel="noopener noreferrer" className="text-center p-3 bg-gray-800/50 hover:bg-gray-800 rounded-lg transition-colors">
-                    <div className="w-8 h-8 bg-gray-700 rounded-md flex items-center justify-center mx-auto mb-1.5">
-                      <TikTokIcon />
+                  <a href={creator.tiktokHandle} target="_blank" rel="noopener noreferrer" className="text-center p-2 md:p-3 bg-gray-800/50 hover:bg-gray-800 rounded-lg transition-colors">
+                    <div className="w-5 h-5 md:w-8 md:h-8 bg-gray-700 rounded-md flex items-center justify-center mx-auto mb-0.5 md:mb-1.5">
+                      <TikTokIcon className="w-3 h-3 md:w-5 md:h-5" />
                     </div>
-                    <div className="font-bold text-xl text-white">
+                    <div className="font-bold text-sm md:text-xl text-white">
                       {creator.tiktokFollowers}
                     </div>
-                    <div className="text-gray-400 text-sm font-medium">TikTok</div>
+                    <div className="text-[10px] md:text-sm text-gray-400 font-medium">TikTok</div>
                   </a>
                 </div>
                 
@@ -205,7 +205,7 @@ const CreatorNetwork = () => {
                   <motion.button
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
-                    className="w-full bg-white hover:bg-gray-200 text-black py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 text-base"
+                    className="w-full bg-white hover:bg-gray-200 text-black py-1.5 px-2 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-1 text-[10px] md:text-base"
                     onClick={() => window.open(creator.instagramHandle, '_blank')}
                   >
                     View Profile
