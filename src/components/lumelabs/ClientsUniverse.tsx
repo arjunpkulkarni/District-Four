@@ -116,15 +116,15 @@ const ClientsUniverse = () => {
   const caseStudies = [
     {
       clientName: 'FitCheck',
-      quote: "D4's strategy didn't just meet expectations; it shattered them. Our user base grew 300% in a single quarter.",
-      summary: 'Developed a targeted, multi-channel marketing campaign focusing on user-generated content and influencer partnerships. The initiative boosted brand awareness and established FitCheck as a key player in the NYC fashion tech scene, driving substantial user acquisition.',
+      quote: 'Shattered expectations. User base grew 300% in one quarter.',
+      summary: 'Targeted campaign with user content & influencers drove massive growth in NYC fashion tech.',
       imageSrc: '/images/fitcheck.png',
       result: '300% User Growth',
     },
     {
       clientName: 'Gloss Authority',
-      quote: 'Our ROI has been phenomenal. The digital presence D4 built for us translates directly to a packed schedule and higher revenue.',
-      summary: 'Executed a hyper-local SEO and content strategy that positioned Gloss Authority as the top mobile detailing service in their area. This resulted in a 150% increase in qualified leads and a 2x return on investment within six months.',
+      quote: 'Phenomenal ROI. Our packed schedule and higher revenue are direct results.',
+      summary: 'Hyper-local SEO and content made them the top mobile detailer, boosting leads 150% and doubling ROI.',
       imageSrc: '/images/glossauthority.png',
       result: '2x ROI in 6 Months',
     },
@@ -156,7 +156,7 @@ const ClientsUniverse = () => {
       id="clients"
       className="bg-black min-h-screen py-16 md:py-20 flex flex-col items-center justify-center text-white"
     >
-      <div className="container mx-auto px-4 sm:px-6 max-w-screen-2xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-screen-lg">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -278,20 +278,24 @@ const ClientsUniverse = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.2 }}
                 viewport={{ once: true }}
-                className="bg-gray-900/50 rounded-xl p-4 md:p-6 border border-gray-700/50 flex flex-col"
+                className="bg-gray-900/50 rounded-xl p-4 border border-gray-700/50 flex flex-col"
               >
                 <div className="flex-grow">
-                  <Quote className="w-6 h-6 text-gray-500 mb-3" />
-                  <p className="text-sm sm:text-base font-medium text-white italic mb-3">"{study.quote}"</p>
-                  <p className="text-gray-300 text-xs sm:text-sm mb-4">{study.summary}</p>
+                  <Quote className="w-5 h-5 text-gray-500 mb-3" />
+                  <p className="text-sm font-medium text-white italic mb-3">"{study.quote}"</p>
+                  <p className="text-gray-300 text-xs mb-4">{study.summary}</p>
                 </div>
                 <div className="flex items-center justify-between mt-auto pt-3 border-t border-gray-700">
                   <div className="flex items-center">
-                    <img src={study.imageSrc} alt={`${study.clientName} logo`} className="w-6 h-6 rounded-full mr-2 object-cover" />
-                    <span className="font-semibold text-white text-xs sm:text-sm">{study.clientName}</span>
+                    <img
+                      src={study.imageSrc}
+                      alt={`${study.clientName} logo`}
+                      className="w-5 h-5 rounded-full mr-2 object-cover"
+                    />
+                    <span className="font-semibold text-white text-xs">{study.clientName}</span>
                   </div>
                   <div className="text-right">
-                      <p className="text-xs sm:text-sm font-bold text-green-400">{study.result}</p>
+                    <p className="text-xs font-bold text-green-400">{study.result}</p>
                   </div>
                 </div>
               </motion.div>
