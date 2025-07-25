@@ -97,7 +97,7 @@ const ClientsUniverse = () => {
       description: "Authentic Italian pasta bringing traditional recipes to modern kitchens.",
       category: "Food & Beverage",
       siteUrl: "#",
-      metrics: "200% | Launch Growth",
+      metrics: "New | Client",
       location: "New York, NY",
     },
     {
