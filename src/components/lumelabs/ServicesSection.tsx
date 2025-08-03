@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { containerVariants, itemVariants } from '../../lib/animations';
 import SectionHeader from './SectionHeader';
+import { CheckCircle } from 'lucide-react';
 
 interface Service {
   title: string;
@@ -30,7 +31,7 @@ const ServicesSection = () => {
     },
     {
       title: "Web Design & Development",
-      description: "We create beautiful, responsive websites that are easy to use and convert visitors into customers.",
+      description: "We create beautiful websites that convert visitors into customers.",
     },
     {
       title: "Community Management",
@@ -38,12 +39,17 @@ const ServicesSection = () => {
     },
     {
       title: "AI-Driven Outreach",
-      description: "Leverage our AI to identify, target, and engage your highest-converting leads—automatically.",
+      description: "Leverage our AI to engage your highest-converting leads.",
     },
     {
       title: "Analytics & Growth",
       description: "Data-driven insights to continuously optimize your social presence.",
     }
+  ];
+
+  const socialImpactStats = [
+    "Businesses with a strong social media presence see a 20–30% increase in revenue on average compared to those without (Statista, Hootsuite).",
+    "Over 70% of small businesses using social media report increased traffic and leads, translating into sales growth (Sprout Social)."
   ];
 
   return (
@@ -69,6 +75,33 @@ const ServicesSection = () => {
           {services.map((service) => (
             <ServiceCard key={service.title} service={service} variants={itemVariants} />
           ))}
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={containerVariants}
+          className="mt-20 hidden md:block"
+        >
+          <motion.div variants={itemVariants} className="bg-transparent rounded-xl p-8">
+            <h3 className="text-2xl font-bold text-center text-white mb-8">The Undeniable Impact of Social Media</h3>
+            <ul className="space-y-4 max-w-3xl mx-auto">
+              {socialImpactStats.map((stat, index) => (
+                <motion.li
+                  key={index}
+                  variants={itemVariants}
+                  className="flex items-start"
+                >
+                  <CheckCircle className="w-6 h-6 text-blue-500 mr-4 mt-1 flex-shrink-0" />
+                  <p className="text-gray-300 leading-relaxed">{stat}</p>
+                </motion.li>
+              ))}
+            </ul>
+             <motion.p variants={itemVariants} className="text-center text-gray-400 mt-8 max-w-3xl mx-auto font-semibold">
+                Key Takeaway: An active, strategic social media presence outperforms competitors by 20–30% in revenue and sales.
+            </motion.p>
+          </motion.div>
         </motion.div>
       </div>
     </section>
