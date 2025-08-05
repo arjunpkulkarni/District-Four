@@ -165,12 +165,10 @@ const ClientsUniverse = () => {
           viewport={{ once: true }}
           className="text-center mb-8 md:mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 mt-6">
             Our <span className="text-gray-400">Clients</span>
           </h2>
-          <p className="text-sm md:text-base text-gray-300 max-w-2xl mx-auto">
-            Transforming brands across industries with strategic digital marketing.
-          </p>
+         
         </motion.div>
 
         {/* Projects Carousel */}
@@ -183,7 +181,7 @@ const ClientsUniverse = () => {
         >
           <CarouselContent className="-ml-2 md:-ml-4">
             {projects.map((project, idx) => (
-              <CarouselItem key={`${project.id}-${idx}`} className="pl-2 md:pl-4 basis-1/2 sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
+              <CarouselItem key={`${project.id}-${idx}`} className="pl-2 md:pl-4 basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
                 <div className="h-full">
                   <motion.div
                     onMouseEnter={() => setHoveredProject(project.id)}
@@ -195,7 +193,7 @@ const ClientsUniverse = () => {
                     className="bg-white rounded-lg md:rounded-xl overflow-hidden transition-shadow duration-300 border border-gray-200 h-full flex flex-col"
                   >
                     {/* Image */}
-                    <div className="relative h-24 sm:h-32 overflow-hidden">
+                    <div className="relative h-20 sm:h-32 overflow-hidden">
                       <motion.img
                         src={project.imageSrc}
                         alt={project.altText}
@@ -234,14 +232,14 @@ const ClientsUniverse = () => {
                         </h3>
                         <span className="text-[10px] sm:text-xs font-medium text-gray-500 flex-shrink-0">{project.location}</span>
                       </div>
-                      <p className="text-[11px] sm:text-xs text-gray-600 mb-2 sm:mb-3 h-10 sm:h-12 flex-grow">
+                      <p className="text-[11px] sm:text-xs text-gray-600 mb-2 sm:mb-3 h-10 sm:h-12 flex-grow hidden sm:block">
                         {project.description}
                       </p>
 
                       {/* Metrics */}
                       <div className="bg-gray-100 rounded-md p-1.5 sm:p-2 text-center mt-auto">
                         <p className="text-xs sm:text-sm font-semibold text-gray-900">{project.metrics.split(' | ')[0]}</p>
-                        <p className="text-[10px] sm:text-xs text-gray-500">{project.metrics.split(' | ')[1]}</p>
+                        <p className="text-[10px] sm:text-xs text-gray-500 hidden sm:block">{project.metrics.split(' | ')[1]}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -262,15 +260,13 @@ const ClientsUniverse = () => {
             viewport={{ once: true }}
             className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3">
               Impact <span className="text-gray-400">Stories</span>
             </h2>
-            <p className="text-sm md:text-base text-gray-300 max-w-2xl mx-auto">
-              See how we've driven real results for our clients.
-            </p>
+            
           </motion.div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:gap-8">
             {caseStudies.map((study, idx) => (
               <motion.div
                 key={idx}
