@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { containerVariants, itemVariants } from '../../lib/animations';
 import SectionHeader from './SectionHeader';
-import { CheckCircle } from 'lucide-react';
+import { TrendingUp } from 'lucide-react';
 
 interface Service {
   title: string;
@@ -18,6 +18,26 @@ const ServiceCard = ({ service, variants }: { service: Service; variants: any })
     <p className="text-[10px] md:text-xs text-gray-400 leading-relaxed">{service.description}</p>
   </motion.div>
 );
+
+interface ImpactStat {
+  value: string;
+  label: string;
+  description: string;
+  source: string;
+}
+
+const ImpactStatCard = ({ stat, variants }: { stat: ImpactStat; variants: any }) => (
+  <motion.div
+    variants={variants}
+    className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-4 text-center transform hover:scale-105 transition-transform duration-300 flex flex-col items-center"
+  >
+    <p className="text-4xl font-bold text-blue-500 mb-1">{stat.value}</p>
+    <h4 className="text-base font-semibold text-white mb-1">{stat.label}</h4>
+    <p className="text-xs text-gray-400 mb-2 flex-grow">{stat.description}</p>
+    <p className="text-[10px] text-gray-500 italic">Source: {stat.source}</p>
+  </motion.div>
+);
+
 
 const ServicesSection = () => {
   const services: Service[] = [
@@ -47,14 +67,24 @@ const ServicesSection = () => {
     },
   ];
 
-  const socialImpactStats = [
-    'Businesses with a strong social media presence see a 20–30% increase in revenue on average compared to those without (Statista, Hootsuite).',
-    'Over 70% of small businesses using social media report increased traffic and leads, translating into sales growth (Sprout Social).',
+  const socialImpactStats: ImpactStat[] = [
+    {
+      value: '20-30%',
+      label: 'Revenue Increase',
+      description: 'for businesses with a strong social media presence vs. those without.',
+      source: 'Statista, Hootsuite'
+    },
+    {
+      value: '70%+',
+      label: 'Increased Traffic & Leads',
+      description: 'reported by small businesses using social media for growth.',
+      source: 'Sprout Social'
+    },
   ];
 
   return (
     <section className="py-8 bg-black h-full flex items-center" id="services">
-      <div className="max-w-7xl mx-auto px-6 w-full">
+      <div className="max-w-7xl mx-auto px-6 w-full mt-10">
         <SectionHeader
           badge={null}
           size="small"
@@ -81,27 +111,33 @@ const ServicesSection = () => {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
           className="mt-16 hidden md:block"
         >
-          <motion.div variants={itemVariants} className="bg-transparent rounded-xl p-6">
-            <h3 className="text-xl font-bold text-center text-white mb-6">The Undeniable Impact of Social Media</h3>
-            <ul className="space-y-4 max-w-3xl mx-auto">
+          <div className="bg-transparent rounded-xl p-6">
+            <motion.h3 variants={itemVariants} className="text-2xl font-bold text-center text-white mb-6">The Undeniable Impact of Social Media</motion.h3>
+            
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               {socialImpactStats.map((stat, index) => (
-                <motion.li key={index} variants={itemVariants} className="flex items-start">
-                  <CheckCircle className="w-4 h-4 text-blue-500 mr-3 mt-1 flex-shrink-0" />
-                  <p className="text-gray-300 text-xs leading-relaxed">{stat}</p>
-                </motion.li>
+                <ImpactStatCard key={index} stat={stat} variants={itemVariants} />
               ))}
-            </ul>
-            <motion.p
+            </div>
+
+            <motion.div
               variants={itemVariants}
-              className="text-center text-gray-400 mt-6 max-w-3xl mx-auto font-semibold text-xs"
+              className="mt-8 bg-gray-900 border border-gray-800 rounded-xl p-4 max-w-5xl mx-auto flex items-center shadow-lg"
             >
-              Key Takeaway: An active, strategic social media presence outperforms competitors by 20–30% in revenue and sales.
-            </motion.p>
-          </motion.div>
+              <TrendingUp className="w-10 h-10 text-blue-500 mr-4 flex-shrink-0" />
+              <div>
+                <h4 className="font-bold text-white text-base">Key Takeaway</h4>
+                <p className="text-gray-300 text-sm">
+                  An active, strategic social media presence outperforms competitors by <strong>20–30%</strong> in revenue and sales.
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
