@@ -119,17 +119,17 @@ export const projects = [
 export const caseStudies = [
   {
     clientName: 'FitCheck',
-    quote: 'Shattered expectations. User base grew 300% in one quarter.',
-    summary: 'Targeted campaign with user content & influencers drove massive growth in NYC fashion tech.',
+    quote: 'District Four shattered our expectations. Their strategy delivered a 300% user growth in just one quarter, establishing us as a key player in the NYC fashion scene.',
+    summary: 'FitCheck, an innovative fashion tech startup, aimed to become the #1 social platform for style enthusiasts in NYC. We developed a targeted campaign combining user-generated content with influential local creators, resulting in a 300% surge in their user base and solidifying their market presence.',
     imageSrc: '/images/fitcheck.png',
     result: '300% User Growth',
     subtitle: "Building NYC's #1 Fashion Social Platform from the Ground Up",
     services: ['App Development', 'UX/UI Design', 'Brand Strategy', 'Social Media Marketing'],
     approach: [
-      'Developed a cross-platform mobile app for iOS and Android.',
-      'Designed an intuitive interface for discovering and sharing styles.',
-      'Launched a viral marketing campaign with NYC fashion influencers.',
-      'Built a community feature to foster user engagement and organic growth.'
+      'Engineered a scalable cross-platform mobile app to serve a rapidly growing user base.',
+      'Designed a sleek, intuitive interface that made discovering and sharing new styles effortless.',
+      'Launched a viral marketing campaign featuring prominent NYC fashion influencers to generate buzz.',
+      'Cultivated an engaged community through interactive features and user-generated content.'
     ],
     stats: [
       { value: '300%', label: 'User Growth in Q1' },
@@ -139,17 +139,17 @@ export const caseStudies = [
   },
   {
     clientName: 'Gloss Authority',
-    quote: 'Phenomenal ROI. Our packed schedule and higher revenue are direct results.',
-    summary: 'Hyper-local SEO and content made them the top mobile detailer, boosting leads 150% and doubling ROI.',
+    quote: 'The results were phenomenal. Our schedule is now packed, and our revenue has soared. Lume delivered on their promise of ROI.',
+    summary: 'Gloss Authority, a premium mobile detailing service, needed to cut through the noise in a crowded market. We implemented a hyper-local SEO strategy and created viral before-and-after content that boosted their leads by 150% and doubled their ROI in just six months.',
     imageSrc: '/images/glossauthority.png',
     result: '2x ROI in 6 Months',
     subtitle: "Driving 150% More Leads for a Premium Automotive Service",
     services: ["Web Design", "Local SEO", "Content Marketing", "Lead Generation"],
     approach: [
-      "Launched a high-performance website showcasing their premium services.",
-      "Executed a hyper-local SEO strategy to dominate local search results.",
-      "Created viral before/after content for social media.",
-      "Implemented a streamlined booking system to convert leads."
+      "Launched a high-performance website designed to convert visitors into customers.",
+      "Executed a hyper-local SEO strategy that secured top rankings in their service area.",
+      "Produced viral before-and-after videos that captivated their target audience.",
+      "Implemented a streamlined booking system that simplified the customer journey."
     ],
     stats: [
       { value: "150%", label: "Increase in Leads" },
@@ -159,17 +159,17 @@ export const caseStudies = [
   },
   {
     clientName: 'Workwear',
-    quote: 'The new platform streamlined our B2B sales, making professional styling accessible and profitable.',
-    summary: 'Developed a B2B platform for workplace fashion, resulting in a significant revenue boost and increased sales.',
+    quote: 'District Four\'s B2B platform has been a revelation. It streamlined our sales process and made professional styling more accessible and profitable than ever.',
+    summary: 'Workwear aimed to revolutionize the B2B fashion space with a centralized platform for professional styling. We developed a bespoke solution that boosted their revenue by over $2,000 a month and made them the go-to resource for corporate fashion.',
     imageSrc: '/images/workwear.png',
     result: '$2K+ Revenue Boost',
     subtitle: "Transforming B2B Fashion with a Professional Style Hub",
     services: ["Web Development", "B2B E-commerce", "UX/UI Design", "Inventory Management"],
     approach: [
-      "Created a bespoke B2B portal for corporate clients.",
-      "Integrated a seamless online ordering and inventory system.",
-      "Designed a professional and intuitive UI for corporate buyers.",
-      "Provided tools for stylists to create and share lookbooks."
+      "Built a custom B2B portal that catered to the unique needs of corporate clients.",
+      "Integrated a seamless e-commerce system for easy ordering and inventory management.",
+      "Designed a professional, intuitive UI that simplified the buying process for corporate stylists.",
+      "Developed tools for stylists to create and share curated lookbooks with their clients."
     ],
     stats: [
       { value: "$2K+", label: "Monthly Revenue" },
@@ -179,17 +179,17 @@ export const caseStudies = [
   },
   {
     clientName: 'GD Agency',
-    quote: 'They delivered on their promise. Our revenue speaks for their expertise in digital marketing.',
-    summary: 'A comprehensive digital marketing strategy led to over $10K in new revenue, proving their result-driven approach.',
+    quote: 'District Four delivered on their promise. Our $10K+ revenue increase is a testament to their expertise in digital marketing.',
+    summary: 'GD Agency, a digital marketing firm, entrusted us with a challenge: prove our mettle. We developed a comprehensive strategy that generated over $10,000 in new revenue, showcasing our ability to deliver tangible, data-driven results.',
     imageSrc: '/images/gdagency.jpeg',
     result: '$10K+ Revenue',
     subtitle: "Practicing What They Preach: A $10K Revenue Case Study",
     services: ["Digital Strategy", "PPC Campaigns", "Content Creation", "Analytics and Reporting"],
     approach: [
-      "Developed a full-funnel digital marketing strategy.",
-      "Launched targeted PPC campaigns on Google and social media.",
-      "Produced high-converting landing pages and ad copy.",
-      "Provided transparent reporting to track key performance metrics."
+      "Developed a full-funnel digital strategy that covered every stage of the customer journey.",
+      "Launched targeted PPC campaigns on Google and social media to drive high-quality traffic.",
+      "Crafted high-converting landing pages and ad copy that resonated with their audience.",
+      "Provided transparent, data-driven reporting to track key performance metrics and ROI."
     ],
     stats: [
       { value: "$10K+", label: "Revenue Generated" },
@@ -199,17 +199,17 @@ export const caseStudies = [
   },
   {
     clientName: 'Hanger',
-    quote: 'The AI marketplace is a game-changer. We\'ve seen incredible user adoption and brand awareness.',
-    summary: 'Launched an AI-powered fashion marketplace, successfully attracting over 1,000 users and significantly boosting brand awareness.',
+    quote: 'District Four\'s AI marketplace is a game-changer. The incredible user adoption and brand awareness they generated have put us on the map.',
+    summary: 'Hanger sought to disrupt the fashion industry with an AI-powered marketplace. We brought their vision to life, attracting over 1,000 users in the first month and creating a platform that made cutting-edge technology feel both human and accessible.',
     imageSrc: '/images/hanger.png',
     result: '1K+ New Users',
     subtitle: "Launching an AI-Powered Fashion Marketplace to 1K+ Users",
     services: ["AI Development", "Web Platform", "UX/UI Design", "Brand Awareness"],
     approach: [
-      "Built a custom AI engine for personalized fashion recommendations.",
-      "Developed a scalable and performant marketplace platform.",
-      "Designed a human-centric interface to make AI feel accessible.",
-      "Executed a launch strategy to boost awareness and drive initial user adoption."
+      "Built a custom AI engine that delivered personalized fashion recommendations with uncanny accuracy.",
+      "Developed a scalable, high-performance marketplace platform capable of handling rapid growth.",
+      "Designed a human-centric UI that demystified AI and made it feel intuitive and accessible.",
+      "Executed a multi-channel launch strategy that drove massive user adoption and brand awareness."
     ],
     stats: [
       { value: "1K+", label: "Users in First Month" },
@@ -219,17 +219,17 @@ export const caseStudies = [
   },
   {
     clientName: 'Culin',
-    quote: 'Making nutrition science accessible was our dream. They made it a reality for over 10,000 users.',
-    summary: 'Created a health-tech app that simplifies nutrition science, growing its user base to over 10,000 people.',
+    quote: 'District Four made our dream a reality. Their expertise in health-tech helped us make nutrition science accessible to over 10,000 users.',
+    summary: 'Culin, a visionary health-tech startup, dreamed of simplifying nutrition science for everyone. We developed a user-friendly app that translated complex data into actionable insights, growing their user base to over 10,000 and empowering people to take control of their health.',
     imageSrc: '/images/culin.png',
     result: '10K+ User Base',
     subtitle: "Making Nutrition Science Accessible to Over 10,000 Users",
     services: ["Health-Tech App", "UX/UI Design", "Content Strategy", "API Integration"],
     approach: [
-      "Developed a user-friendly mobile app to simplify complex nutrition data.",
-      "Designed an engaging and educational user experience.",
-      "Created a content library of science-backed articles and recipes.",
-      "Integrated with health APIs to provide personalized insights."
+      "Developed an intuitive mobile app that made complex nutrition data easy to understand.",
+      "Designed an engaging, educational user experience that promoted long-term retention.",
+      "Built a rich content library of science-backed articles, recipes, and health tips.",
+      "Integrated with leading health APIs to provide users with personalized, data-driven insights."
     ],
     stats: [
       { value: "10K+", label: "Active Users" },
@@ -239,17 +239,17 @@ export const caseStudies = [
   },
   {
     clientName: 'Capio Tattoo',
-    quote: 'Our online presence now matches the artistry of our tattoos, attracting clients and followers alike.',
-    summary: 'Elevated their digital brand, growing their Instagram following to over 10,000 and attracting a wider client base.',
+    quote: 'District Four elevated our online presence to match the artistry of our tattoos. We\'re now attracting the clients and followers we\'ve always dreamed of.',
+    summary: 'Capio Tattoo, a world-renowned studio, needed a digital brand that reflected their artistic excellence. We redefined their online identity, growing their Instagram following to over 10,000 and creating a platform that attracted a wider, more engaged client base.',
     imageSrc: '/images/capioTattoo.png',
     result: '10K+ Instagram Followers',
     subtitle: "Growing a World-Renowned Tattoo Studio’s Digital Presence",
     services: ["Branding", "Social Media Management", "Content Creation", "Community Engagement"],
     approach: [
-      "Redefined the studio's brand identity to reflect their artistic excellence.",
-      "Managed their Instagram presence, growing it to over 10k followers.",
-      "Produced high-quality photo and video content of their work.",
-      "Fostered a community of tattoo enthusiasts around the brand."
+      "Redefined their brand identity to capture the soul of their artistic vision.",
+      "Grew their Instagram presence to over 10,000 followers through strategic content and engagement.",
+      "Produced stunning photo and video content that showcased the quality of their work.",
+      "Fostered a vibrant community of tattoo enthusiasts who have become brand evangelists."
     ],
     stats: [
       { value: "10K+", label: "Instagram Followers" },
@@ -259,17 +259,17 @@ export const caseStudies = [
   },
   {
     clientName: 'Peonia',
-    quote: 'We\'re just getting started, but their vision for our brand is already inspiring.',
-    summary: 'Planning a simple revamp of their socials and website.',
+    quote: 'We\'re just getting started, but Lume\'s vision for our brand is already inspiring. We can\'t wait to see what we build together.',
+    summary: 'Peonia, an artisanal pasta brand, is poised for a digital transformation. We\'re currently crafting a brand identity and e-commerce presence that will capture the essence of their traditional Italian heritage and bring it to a modern audience.',
     imageSrc: '/images/peonia.png',
     result: 'Launching Soon',
     subtitle: "Crafting a Digital Brand for Authentic Italian Pasta",
     services: ["Branding", "E-commerce Website", "Content Strategy", "Social Media Launch"],
     approach: [
-      "Developing a brand identity that captures the essence of traditional Italian pasta.",
-      "Building a beautiful e-commerce website to sell their products online.",
-      "Creating a content strategy around recipes, stories, and Italian culture.",
-      "Launching their social media channels to build a community of food lovers."
+      "Developing a brand identity that marries traditional Italian charm with modern elegance.",
+      "Building a beautiful, user-friendly e-commerce website to drive online sales.",
+      "Creating a content strategy that tells the story of their brand through recipes and cultural narratives.",
+      "Launching their social media channels to cultivate a community of passionate food lovers."
     ],
     stats: [
       { value: "Q4", label: "Launch Target" },
@@ -279,22 +279,22 @@ export const caseStudies = [
   },
   {
     clientName: 'Piccola Cucina',
-    quote: 'Authentic Sicilian flavours and products come to life in the restaurants managed by Philip Guardione.',
-    summary: 'A super simple and elegant website and social media presence for a top-notch restaurant.',
+    quote: 'They transformed our online presence. The growth in followers and bookings has been exponential.',
+    summary: "In the hyper-competitive Brooklyn restaurant scene, we carved out a unique digital identity for Piccola Cucina. By creating three viral videos in the first three weeks, we ignited their social media presence, leading to a 15% increase in sales within five weeks.",
     imageSrc: '/images/picolla.jpg',
-    result: '40K+ Followers',
+    result: '15% Sales Increase',
     subtitle: "A taste of Sicily in the heart of New York",
-    services: ["Branding", "Web Design", "Social Media Management"],
+    services: ["Viral Marketing", "Social Media Management", "Content Creation", "Brand Storytelling"],
     approach: [
-      "Crafting a unique brand identity.",
-      "Developing a stunning, modern website.",
-      "Managing and growing their social media presence.",
-      "Showcasing their authentic Sicilian cuisine through beautiful visuals."
+      "Developed a targeted social media strategy to stand out in a competitive market.",
+      "Produced and promoted three viral videos showcasing the restaurant's authentic charm.",
+      "Managed a full-scale content calendar to maintain audience engagement.",
+      "Translated online buzz into real-world results with a measurable impact on sales."
     ],
     stats: [
-      { value: "40K+", label: "Instagram Followers" },
-      { value: "100+", label: "Daily Bookings" },
-      { value: "Top 10", label: "Italian Restaurant in NYC" }
+      { value: "3", label: "Viral Videos in 3 Weeks" },
+      { value: "15%", label: "Increase in Sales" },
+      { value: "40K+", label: "Followers and Counting" }
     ]
   },
 ];
