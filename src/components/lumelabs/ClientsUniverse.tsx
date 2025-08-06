@@ -83,10 +83,10 @@ export const projects = [
   },
   {
     id: 7,
-    title: "Peonia Pasta",
+    title: "Peonia",
     imageSrc: "/images/peonia.png",
-    altText: "Peonia Pasta Logo",
-    description: "Authentic Italian pasta bringing traditional recipes to modern kitchens.",
+    altText: "Peonia Logo",
+    description: "Planning to revamp socials and website.",
     category: "Food & Beverage",
     siteUrl: "#",
     metrics: "New Client",
@@ -247,9 +247,9 @@ export const caseStudies = [
     ]
   },
   {
-    clientName: 'Peonia Pasta',
+    clientName: 'Peonia',
     quote: 'We\'re just getting started, but their vision for our brand is already inspiring.',
-    summary: 'As a new client, we are crafting a digital presence to bring their authentic Italian pasta to a wider audience.',
+    summary: 'Planning a simple revamp of their socials and website.',
     imageSrc: '/images/peonia.png',
     result: 'Launching Soon',
     subtitle: "Crafting a Digital Brand for Authentic Italian Pasta",
@@ -262,7 +262,7 @@ export const caseStudies = [
     ],
     stats: [
       { value: "Q4", label: "Launch Target" },
-      { value: "10+", label: "Products to Launch" },
+      { value: "10+", label: "Posts to Launch" },
       { value: "Brand", label: "Identity Finalized" }
     ]
   },
