@@ -34,7 +34,7 @@ const ContactCard = ({ name, email, phone }: { name: string, email: string, phon
 
 const ContactPage = () => {
   return (
-    <section className="bg-black text-white min-h-screen flex flex-col justify-center items-center" id="contact">
+    <section className="bg-black text-white flex flex-col justify-center items-center min-h-screen" id="contact">
       <div className="max-w-7xl mx-auto px-6 py-20 w-full">
         <motion.div
           initial="hidden"

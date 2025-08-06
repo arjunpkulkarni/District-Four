@@ -149,7 +149,7 @@ const Packages = () => {
     const [activeTab, setActiveTab] = useState(packageSections[0].name);
     
     return (
-        <section className="relative bg-black flex items-center justify-center min-h-screen py-10 sm:py-16" id="packages">
+        <section className="relative bg-black flex items-center justify-center py-10 sm:py-16 min-h-screen" id="packages">
             <div className="w-full px-4">
                 <div className="max-w-2xl mx-auto text-center">
                     <h2 className="heading-lg text-white mb-2 text-2xl sm:text-5xl font-bold">

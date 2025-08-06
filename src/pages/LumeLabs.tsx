@@ -67,10 +67,12 @@ const LumeLabs = () => {
     }
   };
 
+  const isHeroActive = activeSection === 'home';
+
   return (
-    <div className={`${darkMode ? 'dark bg-gray-900' : 'bg-white'} transition-all duration-1000 overflow-hidden h-screen w-screen flex flex-col`}>
+    <div className={`${darkMode ? 'dark bg-gray-900' : 'bg-white'} transition-all duration-1000 w-screen flex flex-col ${isHeroActive ? 'h-screen overflow-hidden' : ''}`}>
       <Navbar onNavClick={handleNavClick} activeSection={activeSection} />          
-      <main className="flex-grow h-full w-full">
+      <main className={`flex-grow w-full ${isHeroActive ? 'h-full' : ''}`}>
         <AnimatePresence mode="wait">
           <motion.div
             key={activeSection}
@@ -78,7 +80,7 @@ const LumeLabs = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="h-full w-full"
+            className={isHeroActive ? 'h-full w-full' : 'w-full'}
           >
             {renderSection()}
           </motion.div>

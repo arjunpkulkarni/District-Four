@@ -59,7 +59,7 @@ const TeamSection = () => {
   };
 
   return (
-    <section className="py-16 md:py-20 bg-black min-h-screen flex items-center" id="team">
+    <section className="py-16 md:py-20 bg-black flex items-center min-h-screen" id="team">
       <div className="w-full mx-auto px-4 sm:px-6">
         <motion.div
           initial="hidden"

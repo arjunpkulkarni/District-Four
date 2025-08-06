@@ -77,7 +77,7 @@ const CreatorNetwork = () => {
   );
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-black text-white py-4 md:py-0">
+    <section className="flex items-center justify-center bg-black text-white py-4 md:py-0 min-h-screen">
       <div className="container mx-auto px-2 max-w-6xl">
         {/* Header */}
         <motion.div

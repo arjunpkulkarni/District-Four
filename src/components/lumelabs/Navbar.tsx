@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const mobileMenuContainerVariants = {
   open: {
@@ -40,6 +40,7 @@ const mobileMenuItemVariants = {
 
 const Navbar = ({ onNavClick, activeSection }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navItems = [
     { label: 'Services', id: 'services' },
@@ -51,7 +52,15 @@ const Navbar = ({ onNavClick, activeSection }) => {
   ];
 
   const handleNavClick = (id) => {
-    onNavClick(id);
+    if (onNavClick) {
+      onNavClick(id);
+    } else {
+      if (id === 'home') {
+        navigate('/');
+      } else {
+        navigate(`/#${id}`);
+      }
+    }
     setIsMobileMenuOpen(false);
   };
 

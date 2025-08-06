@@ -29,7 +29,7 @@ const HowItWorksSection = () => {
   ];
 
   return (
-    <section className="py-12 bg-black h-full flex items-center" id="how-it-works">
+    <section className="py-12 bg-black flex items-center min-h-screen" id="how-it-works">
       <div className="max-w-7xl mx-auto px-6 w-full">
         <SectionHeader
           badge={null}

@@ -83,7 +83,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-8 bg-black h-full flex items-center" id="services">
+    <section className="py-16 md:py-20 bg-black min-h-screen" id="services">
       <div className="max-w-7xl mx-auto px-6 w-full mt-10">
         <SectionHeader
           badge={null}
