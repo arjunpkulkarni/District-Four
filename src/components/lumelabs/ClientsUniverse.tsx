@@ -112,6 +112,19 @@ export const caseStudies = [
     summary: 'Targeted campaign with user content & influencers drove massive growth in NYC fashion tech.',
     imageSrc: '/images/fitcheck.png',
     result: '300% User Growth',
+    subtitle: "Building NYC's #1 Fashion Social Platform from the Ground Up",
+    services: ['App Development', 'UX/UI Design', 'Brand Strategy', 'Social Media Marketing'],
+    approach: [
+      'Developed a cross-platform mobile app for iOS and Android.',
+      'Designed an intuitive interface for discovering and sharing styles.',
+      'Launched a viral marketing campaign with NYC fashion influencers.',
+      'Built a community feature to foster user engagement and organic growth.'
+    ],
+    stats: [
+      { value: '300%', label: 'User Growth in Q1' },
+      { value: '1K+', label: 'Daily Active Users' },
+      { value: 'Top 5', label: 'Trending Fashion App in NYC' },
+    ]
   },
   {
     clientName: 'Gloss Authority',
@@ -119,6 +132,139 @@ export const caseStudies = [
     summary: 'Hyper-local SEO and content made them the top mobile detailer, boosting leads 150% and doubling ROI.',
     imageSrc: '/images/glossauthority.png',
     result: '2x ROI in 6 Months',
+    subtitle: "Driving 150% More Leads for a Premium Automotive Service",
+    services: ["Web Design", "Local SEO", "Content Marketing", "Lead Generation"],
+    approach: [
+      "Launched a high-performance website showcasing their premium services.",
+      "Executed a hyper-local SEO strategy to dominate local search results.",
+      "Created viral before/after content for social media.",
+      "Implemented a streamlined booking system to convert leads."
+    ],
+    stats: [
+      { value: "150%", label: "Increase in Leads" },
+      { value: "2x", label: "Return on Investment" },
+      { value: "#1", label: "Mobile Detailer in Westchester" }
+    ]
+  },
+  {
+    clientName: 'Workwear',
+    quote: 'The new platform streamlined our B2B sales, making professional styling accessible and profitable.',
+    summary: 'Developed a B2B platform for workplace fashion, resulting in a significant revenue boost and increased sales.',
+    imageSrc: '/images/workwear.png',
+    result: '$2K+ Revenue Boost',
+    subtitle: "Transforming B2B Fashion with a Professional Style Hub",
+    services: ["Web Development", "B2B E-commerce", "UX/UI Design", "Inventory Management"],
+    approach: [
+      "Created a bespoke B2B portal for corporate clients.",
+      "Integrated a seamless online ordering and inventory system.",
+      "Designed a professional and intuitive UI for corporate buyers.",
+      "Provided tools for stylists to create and share lookbooks."
+    ],
+    stats: [
+      { value: "$2K+", label: "Monthly Revenue" },
+      { value: "40%", label: "Increase in B2B Sales" },
+      { value: "2x", label: "Faster Order Processing" }
+    ]
+  },
+  {
+    clientName: 'GD Agency',
+    quote: 'They delivered on their promise. Our revenue speaks for their expertise in digital marketing.',
+    summary: 'A comprehensive digital marketing strategy led to over $10K in new revenue, proving their result-driven approach.',
+    imageSrc: '/images/gdagency.jpeg',
+    result: '$10K+ Revenue',
+    subtitle: "Practicing What They Preach: A $10K Revenue Case Study",
+    services: ["Digital Strategy", "PPC Campaigns", "Content Creation", "Analytics and Reporting"],
+    approach: [
+      "Developed a full-funnel digital marketing strategy.",
+      "Launched targeted PPC campaigns on Google and social media.",
+      "Produced high-converting landing pages and ad copy.",
+      "Provided transparent reporting to track key performance metrics."
+    ],
+    stats: [
+      { value: "$10K+", label: "Revenue Generated" },
+      { value: "30%", label: "Reduction in Cost-Per-Lead" },
+      { value: "5x", label: "ROI on Ad Spend" }
+    ]
+  },
+  {
+    clientName: 'Hanger',
+    quote: 'The AI marketplace is a game-changer. We\'ve seen incredible user adoption and brand awareness.',
+    summary: 'Launched an AI-powered fashion marketplace, successfully attracting over 1,000 users and significantly boosting brand awareness.',
+    imageSrc: '/images/hanger.png',
+    result: '1K+ New Users',
+    subtitle: "Launching an AI-Powered Fashion Marketplace to 1K+ Users",
+    services: ["AI Development", "Web Platform", "UX/UI Design", "Brand Awareness"],
+    approach: [
+      "Built a custom AI engine for personalized fashion recommendations.",
+      "Developed a scalable and performant marketplace platform.",
+      "Designed a human-centric interface to make AI feel accessible.",
+      "Executed a launch strategy to boost awareness and drive initial user adoption."
+    ],
+    stats: [
+      { value: "1K+", label: "Users in First Month" },
+      { value: "25%", label: "Week-over-Week Growth" },
+      { value: "Featured", label: "in Tech Fashion Press" }
+    ]
+  },
+  {
+    clientName: 'Culin',
+    quote: 'Making nutrition science accessible was our dream. They made it a reality for over 10,000 users.',
+    summary: 'Created a health-tech app that simplifies nutrition science, growing its user base to over 10,000 people.',
+    imageSrc: '/images/culin.png',
+    result: '10K+ User Base',
+    subtitle: "Making Nutrition Science Accessible to Over 10,000 Users",
+    services: ["Health-Tech App", "UX/UI Design", "Content Strategy", "API Integration"],
+    approach: [
+      "Developed a user-friendly mobile app to simplify complex nutrition data.",
+      "Designed an engaging and educational user experience.",
+      "Created a content library of science-backed articles and recipes.",
+      "Integrated with health APIs to provide personalized insights."
+    ],
+    stats: [
+      { value: "10K+", label: "Active Users" },
+      { value: "4.8/5", label: "App Store Rating" },
+      { value: "75%", label: "User Retention after 3 months" }
+    ]
+  },
+  {
+    clientName: 'Capio Tattoo',
+    quote: 'Our online presence now matches the artistry of our tattoos, attracting clients and followers alike.',
+    summary: 'Elevated their digital brand, growing their Instagram following to over 10,000 and attracting a wider client base.',
+    imageSrc: '/images/capioTattoo.png',
+    result: '10K+ Instagram Followers',
+    subtitle: "Growing a World-Renowned Tattoo Studio’s Digital Presence",
+    services: ["Branding", "Social Media Management", "Content Creation", "Community Engagement"],
+    approach: [
+      "Redefined the studio's brand identity to reflect their artistic excellence.",
+      "Managed their Instagram presence, growing it to over 10k followers.",
+      "Produced high-quality photo and video content of their work.",
+      "Fostered a community of tattoo enthusiasts around the brand."
+    ],
+    stats: [
+      { value: "10K+", label: "Instagram Followers" },
+      { value: "50%", label: "Increase in Booking Inquiries" },
+      { value: "2x", label: "Higher Engagement Rate" }
+    ]
+  },
+  {
+    clientName: 'Peonia Pasta',
+    quote: 'We\'re just getting started, but their vision for our brand is already inspiring.',
+    summary: 'As a new client, we are crafting a digital presence to bring their authentic Italian pasta to a wider audience.',
+    imageSrc: '/images/peonia.png',
+    result: 'Launching Soon',
+    subtitle: "Crafting a Digital Brand for Authentic Italian Pasta",
+    services: ["Branding", "E-commerce Website", "Content Strategy", "Social Media Launch"],
+    approach: [
+      "Developing a brand identity that captures the essence of traditional Italian pasta.",
+      "Building a beautiful e-commerce website to sell their products online.",
+      "Creating a content strategy around recipes, stories, and Italian culture.",
+      "Launching their social media channels to build a community of food lovers."
+    ],
+    stats: [
+      { value: "Q4", label: "Launch Target" },
+      { value: "10+", label: "Products to Launch" },
+      { value: "Brand", label: "Identity Finalized" }
+    ]
   },
 ];
 

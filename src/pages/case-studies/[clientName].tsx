@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { projects, caseStudies } from '@/components/lumelabs/ClientsUniverse';
 import Navbar from '@/components/lumelabs/Navbar';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, CheckCircle } from 'lucide-react';
 
 const CaseStudyPage = () => {
   const { clientName } = useParams<{ clientName: string }>();
@@ -10,12 +10,10 @@ const CaseStudyPage = () => {
   const project = projects.find(p => p.title.toLowerCase() === (clientName || '').toLowerCase());
   const caseStudy = caseStudies.find(cs => cs.clientName.toLowerCase() === (clientName || '').toLowerCase());
 
-
-
   if (!project || !caseStudy) {
     return (
       <div className="bg-black text-white min-h-screen">
-              <Navbar activeSection={''} />
+        <Navbar activeSection={''} />
         <div className="container mx-auto px-4 py-16 text-center pt-24">
           <h1 className="text-4xl font-bold">Case Study Not Found</h1>
           <p className="mt-4 text-lg text-gray-300">
@@ -35,7 +33,7 @@ const CaseStudyPage = () => {
 
   return (
     <div className="bg-black text-white">
-            <Navbar activeSection={''} />
+      <Navbar activeSection={''} />
       <div className="py-20">
         <div className="container mx-auto px-6 lg:px-8">
           
@@ -53,67 +51,68 @@ const CaseStudyPage = () => {
               {project.title}
             </h1>
             <p className="mt-4 text-xl text-gray-300">
-              Driving B2B Lead Generation with Content Marketing
+              {caseStudy.subtitle}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-12 mb-16">
             <div className="md:col-span-1">
               <h2 className="text-lg font-semibold mb-4 text-white">Provided Services</h2>
               <ul className="space-y-2 text-gray-300">
-                <li>Conversion-Rate Optimization</li>
-                <li>UX/UI Design</li>
-                <li>Content Marketing</li>
-                <li>Search Engine Optimization</li>
-                <li>Social Advertising</li>
+                {caseStudy.services.map((service, index) => (
+                  <li key={index}>{service}</li>
+                ))}
               </ul>
             </div>
 
             <div className="md:col-span-4">
+              <blockquote className="border-l-4 border-purple-500 pl-6 mb-12">
+                <p className="text-2xl italic font-medium text-white">
+                  "{caseStudy.quote}"
+                </p>
+                <footer className="mt-4 text-gray-400">- {caseStudy.clientName}</footer>
+              </blockquote>
+
               <h2 className="text-3xl font-bold mb-4 text-white">The Challenge</h2>
               <p className="text-lg text-gray-300 mb-8">
                 {project.description}
               </p>
               
-              <h2 className="text-3xl font-bold mb-4 text-white">The Approach</h2>
-              <ul className="list-disc list-inside space-y-2 text-lg text-gray-300">
-                <li>Streamlined user experience across 1,200+ pages</li>
-                <li>Implemented a content strategy for 3 different languages</li>
-                <li>Improved search capabilities and efficiency with Elasticsearch</li>
-                <li>Integrated 10 different client-login portals</li>
-                <li>Built site-wide compliance with GDPR and ADA standards</li>
+              <h2 className="text-3xl font-bold mb-4 text-white">Our Approach</h2>
+              <ul className="space-y-3 text-lg text-gray-300">
+                {caseStudy.approach.map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-20">
-            <div>
-              <p className="text-5xl font-bold text-blue-400">10.6K</p>
-              <p className="text-lg text-gray-300">Organic Keywords Ranked</p>
-            </div>
-            <div>
-              <p className="text-5xl font-bold text-blue-400">+287%</p>
-              <p className="text-lg text-gray-300">Website Traffic</p>
-            </div>
-            <div>
-              <p className="text-5xl font-bold text-blue-400">2.3X</p>
-              <p className="text-lg text-gray-300">Increase in B2B Leads</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-20 bg-gray-900/50 p-8 rounded-xl">
+            {caseStudy.stats.map((stat, index) => (
+              <div key={index}>
+                <p className="text-5xl font-bold text-blue-400">{stat.value}</p>
+                <p className="text-lg text-gray-300">{stat.label}</p>
+              </div>
+            ))}
           </div>
 
           <div className="space-y-16">
             <div>
-              <h2 className="text-3xl font-bold mb-4 text-white">Content Strategy</h2>
-              <p className="text-lg text-gray-300">
+              <h2 className="text-3xl font-bold mb-4 text-white">The Full Story</h2>
+              <p className="text-lg text-gray-300 whitespace-pre-line">
                 {caseStudy.summary}
               </p>
             </div>
 
             <div>
-              <h2 className="text-3xl font-bold mb-4 text-white">UI/UX Design</h2>
-              <p className="text-lg text-gray-300">
-                Keeping {project.title}’s new branding guidelines at the forefront, we initiated a complete overhaul of the UI/UX design. We aimed to echo their standing as a global leader with a design that was as sophisticated as it was user-friendly. A responsive design was employed to ensure seamless navigation everywhere, enhancing user experience and accessibility no matter what device was used.
-              </p>
+              <h2 className="text-3xl font-bold mb-4 text-white">Project Gallery</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <img src={project.imageSrc} alt={`${project.title} main`} className="rounded-lg shadow-lg" />
+                {/* You can add more images to the project/case study data */}
+              </div>
             </div>
           </div>
         </div>
