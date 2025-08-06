@@ -103,6 +103,17 @@ export const projects = [
     metrics: "10K+ Followers",
     location: "New York, NY",
   },
+  {
+    id: 9,
+    title: "Piccola Cucina",
+    imageSrc: "/images/picolla.jpg",
+    altText: "Piccola Cucina Restaurant",
+    description: "Authentic Sicilian restaurant in the heart of NYC.",
+    category: "Food & Beverage",
+    siteUrl: "https://www.piccolacucinagroup.com/en/booking-on-line",
+    metrics: "40K+ Followers",
+    location: "New York, NY",
+  },
 ];
 
 export const caseStudies = [
@@ -264,6 +275,26 @@ export const caseStudies = [
       { value: "Q4", label: "Launch Target" },
       { value: "10+", label: "Posts to Launch" },
       { value: "Brand", label: "Identity Finalized" }
+    ]
+  },
+  {
+    clientName: 'Piccola Cucina',
+    quote: 'Authentic Sicilian flavours and products come to life in the restaurants managed by Philip Guardione.',
+    summary: 'A super simple and elegant website and social media presence for a top-notch restaurant.',
+    imageSrc: '/images/picolla.jpg',
+    result: '40K+ Followers',
+    subtitle: "A taste of Sicily in the heart of New York",
+    services: ["Branding", "Web Design", "Social Media Management"],
+    approach: [
+      "Crafting a unique brand identity.",
+      "Developing a stunning, modern website.",
+      "Managing and growing their social media presence.",
+      "Showcasing their authentic Sicilian cuisine through beautiful visuals."
+    ],
+    stats: [
+      { value: "40K+", label: "Instagram Followers" },
+      { value: "100+", label: "Daily Bookings" },
+      { value: "Top 10", label: "Italian Restaurant in NYC" }
     ]
   },
 ];

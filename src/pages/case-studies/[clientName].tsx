@@ -13,7 +13,7 @@ const CaseStudyPage = () => {
   if (!project || !caseStudy) {
     return (
       <div className="bg-black text-white min-h-screen">
-        <Navbar activeSection={''} />
+        <Navbar activeSection={''} onNavClick={() => {}} />
         <div className="container mx-auto px-4 py-16 text-center pt-24">
           <h1 className="text-4xl font-bold">Case Study Not Found</h1>
           <p className="mt-4 text-lg text-gray-300">
@@ -33,7 +33,7 @@ const CaseStudyPage = () => {
 
   return (
     <div className="bg-black text-white">
-      <Navbar activeSection={''} />
+      <Navbar activeSection={''} onNavClick={() => {}} />
       <div className="py-20">
         <div className="container mx-auto px-6 lg:px-8">
           
@@ -62,6 +62,15 @@ const CaseStudyPage = () => {
                 {caseStudy.services.map((service, index) => (
                   <li key={index}>{service}</li>
                 ))}
+              </ul>
+
+              <h2 className="text-lg font-semibold mb-4 mt-8 text-white">Links</h2>
+              <ul className="space-y-2 text-gray-300">
+                <li>
+                  <a href={project.siteUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+                    Website
+                  </a>
+                </li>
               </ul>
             </div>
 
