@@ -103,6 +103,70 @@ const ClientsUniverse = () => {
       ],
       color: "#45c0ff"
     },
+    {
+      id: 7,
+      title: "Greek Garments",
+      imageSrc: "/images/greek.png",
+      altText: "Greek Garments Custom Apparel",
+      description: "Premium Greek apparel crafted for fraternities and sororities with transparent pricing.",
+      category: "Custom Apparel",
+      siteUrl: "#",
+      metrics: ["5K+ | Design Options", "3-7 Days | Turnaround", "50% | Cost Savings"],
+      whatWeDid: [
+        { title: "Brand Identity", description: "Developed a professional brand identity showcasing quality craftsmanship and transparent pricing for Greek organizations." },
+        { title: "Digital Presence", description: "Created a streamlined digital experience highlighting 5000+ designs and simple ordering process via text." },
+        { title: "Client Communication", description: "Established direct communication channels with chapter leaders, ensuring fast turnaround and personalized service." }
+      ],
+      color: "#45c0ff"
+    },
+    {
+      id: 8,
+      title: "siramai",
+      imageSrc: "/images/siramai.png",
+      altText: "siramai AI Platform",
+      description: "Enterprise AI platform for context engineering and intelligent agent orchestration.",
+      category: "Enterprise AI",
+      siteUrl: "#",
+      metrics: ["99.1% | Accuracy", "30 Days | Implementation", "$0.02 | Cost Per Query"],
+      whatWeDid: [
+        { title: "Technical Positioning", description: "Established siramai as a leader in context engineering and AI agent orchestration with clear differentiation from competitors." },
+        { title: "Enterprise Marketing", description: "Developed comprehensive marketing materials showcasing ContextOS architecture and 30-day implementation timeline for enterprise clients." },
+        { title: "Thought Leadership", description: "Created technical content and case studies demonstrating real-world applications like agentic shopping and data enrichment workflows." }
+      ],
+      color: "#45c0ff"
+    },
+    {
+      id: 9,
+      title: "OpenField",
+      imageSrc: "/images/openfield.png",
+      altText: "OpenField NIL Platform",
+      description: "NIL marketplace connecting athletes with life-changing brand partnerships and opportunities.",
+      category: "Sports Tech",
+      siteUrl: "https://www.openfield.live",
+      metrics: ["1000+ | Athletes", "3x | Deal Flow", "AI-Powered | Matching"],
+      whatWeDid: [
+        { title: "Platform Marketing", description: "Launched comprehensive marketing strategy for athlete recruitment and brand partnerships, positioning OpenField as the premier NIL marketplace." },
+        { title: "Growth Strategy", description: "Developed multi-channel acquisition campaigns targeting athletes, businesses, and sports programs to build a thriving two-sided marketplace." },
+        { title: "Brand Positioning", description: "Created compelling brand narrative emphasizing compliance, data analytics, and customer-first approach to differentiate in the competitive NIL space." }
+      ],
+      color: "#45c0ff"
+    },
+    {
+      id: 10,
+      title: "Congruence",
+      imageSrc: "/images/congruence.png",
+      altText: "Congruence Clinical AI Platform",
+      description: "First multimodal emotional AI platform revealing emotions patients don't say out loud.",
+      category: "Mental Health AI",
+      siteUrl: "#",
+      metrics: ["92% | Documentation Reduction", "48+ | Clinics Supported", "15+ Years | Clinical Expertise"],
+      whatWeDid: [
+        { title: "Clinical Positioning", description: "Established Congruence as the pioneer in emotional-congruence intelligence, positioning it as essential technology for modern mental health practices." },
+        { title: "Therapist Outreach", description: "Developed targeted campaigns to reach mental health professionals and clinics, demonstrating tangible benefits like 92% documentation reduction." },
+        { title: "Scientific Credibility", description: "Created educational content showcasing micro-expression inference, voice stress analysis, and AI-driven diagnostics to build trust in the clinical community." }
+      ],
+      color: "#45c0ff"
+    },
   ];
 
   const getCategoryIcon = (category: string) => {
@@ -116,6 +180,14 @@ const ClientsUniverse = () => {
       case 'Automotive':
         return <Zap className="w-4 h-4" />;
       case 'HealthTech':
+        return <Heart className="w-4 h-4" />;
+      case 'Custom Apparel':
+        return <Zap className="w-4 h-4" />;
+      case 'Enterprise AI':
+        return <Zap className="w-4 h-4" />;
+      case 'Sports Tech':
+        return <TrendingUp className="w-4 h-4" />;
+      case 'Mental Health AI':
         return <Heart className="w-4 h-4" />;
       default:
         return <Globe className="w-4 h-4" />;
